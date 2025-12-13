@@ -71,28 +71,7 @@ body {
             font-size: 1.8em;
             text-align: center;
         }
-        .validation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .validation-item {
-            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: box-shadow 0.3s;
-        }
-        .validation-item:hover {
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-        .validation-item h3 {
-            margin-top: 0;
-            color: #2c3e50;
-            font-size: 1.3em;
-        }
+    
         .status {
             font-weight: bold;
             margin: 10px 0;
@@ -255,8 +234,21 @@ body {
         }
 
         .snapshot-btn { background: #3498db; }
+        .connect-btn  { background: #9b59b6; }
+        .disconnect-btn { background: #e67e22; }
         .record-btn  { background: #e74c3c; }
         .stop-btn    { background: #2ecc71; }
+        
+        .cam-btn:disabled {
+            background: #95a5a6 !important;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        .cam-btn:disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
 
         .camera-status {
             text-align: center;
@@ -275,6 +267,52 @@ body {
             font-weight: 900;
             letter-spacing: 2px;
         }
+        #uploadForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        #uploadForm input[type="file"] {
+            padding: 12px;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            background: #f9f9f9;
+            cursor: pointer;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        #uploadForm button {
+            padding: 12px 24px;
+            border-radius: 20px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            background: #34495e;
+            color: white;
+            transition: background 0.3s, transform 0.2s;
+        }
+        
+        #uploadForm button:hover:not(:disabled) {
+            background: #2c3e50;
+            transform: scale(1.05);
+        }
+        
+        #uploadForm button:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        #uploadForm button:disabled:hover {
+            transform: none;
+            background: #95a5a6;
+        }
+        
         .upload-btn {
             margin-top: 15px;
             padding: 10px 20px;
@@ -285,6 +323,8 @@ body {
             background: #34495e;
             color: white;
         }
+
+        
         .hazard-box {
             text-align: center;
             padding: 20px;
@@ -292,8 +332,36 @@ body {
             background: #ecf0f1;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+
+        .hazard-sticky {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        /* Make it full-width and visible */
+        display: block;
+        width: 100%;
+        background: #ecf0f1;
+        padding: 10px 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
         .risk-safe { color: #27ae60; font-weight: bold; }
         .risk-low { color: #f1c40f; font-weight: bold; }
         .risk-moderate { color: #e67e22; font-weight: bold; }
         .risk-severe { color: #e74c3c; font-weight: bold; }
         .timestamp { font-size: 13px; color: #555; margin-top: 10px; }
+
+        #uploadMessage {
+            margin-top: 10px;
+            color: #27ae60;
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 10px;
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 6px;
+            border-left: 4px solid #27ae60;
+        }
+        
+        #uploadMessage:empty {
+            display: none;
+        }

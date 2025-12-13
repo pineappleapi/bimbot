@@ -1,0 +1,57 @@
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.on: 1
+
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 1
+Viewer.LineSize: 1
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3
+Viewer.ViewpointX: 0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. ESP32-CAM (OV2640) Mock Calibration
+#--------------------------------------------------------------------------------------------
+
+# Camera matrix (intrinsics)
+Camera.fx: 340.0        # Approx focal length in pixels
+Camera.fy: 340.0        # Usually similar to fx for OV2640
+Camera.cx: 320.0        # Principal point (center of 640 width)
+Camera.cy: 240.0        # Principal point (center of 480 height)
+
+# Lens distortion (approximation)
+Camera.k1: -0.25        # Radial distortion
+Camera.k2: 0.05
+Camera.p1: 0.0          # Tangential distortion
+Camera.p2: 0.0
+Camera.k3: 0.0
+
+Camera.width: 640
+Camera.height: 480
+
+# Camera frames per second
+Camera.fps: 30.0
+
+# IR projector baseline times fx (approx.)
+Camera.bf: 40.0
+
+# Color order of the images (0: BGR, 1: RGB)
+CameraCamera.RGB: 0
+
+# Close/Far threshold. Baseline times
+ThDepth: 40.0
+
+# Depth map values factor
+DepthMapFactor: 1.0
+
+#--------------------------------------------------------------------------------------------
+# Features extraction
+#--------------------------------------------------------------------------------------------
+FeatureTrackerConfig.nFeatures: 500

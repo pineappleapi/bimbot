@@ -1,0 +1,57 @@
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.on: 1
+
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 1
+Viewer.LineSize: 1
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3
+Viewer.ViewpointX: 0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -1.8
+Viewer.ViewpointF: 500
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Mock GoPro 480p
+#--------------------------------------------------------------------------------------------
+
+# Camera matrix (intrinsics)
+Camera.fx: 510.0
+Camera.fy: 510.0
+Camera.cx: 426.0
+Camera.cy: 240.0
+
+# GoPro-style barrel distortion (approximation)
+Camera.k1: -0.28
+Camera.k2: 0.07
+Camera.p1: 0.0
+Camera.p2: 0.0
+Camera.k3: 0.0
+
+Camera.width: 852
+Camera.height: 480
+
+# Camera frames per second
+Camera.fps: 30.0
+
+# IR projector baseline times fx (approx.)
+Camera.bf: 40.0
+
+# Color order of the images (0: BGR, 1: RGB)
+Camera.RGB: 0
+
+# Close/Far threshold. Baseline times
+ThDepth: 40.0
+
+# Depth map values factor
+DepthMapFactor: 1.0
+
+#--------------------------------------------------------------------------------------------
+# Features extraction
+#--------------------------------------------------------------------------------------------
+
+FeatureTrackerConfig.nFeatures: 500
