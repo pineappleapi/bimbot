@@ -1,5 +1,8 @@
 # bim-bot v1.0
-Author: **Your Team / Organization**
+Author:
+Jayzen Micah Balagao
+Christine Insigne
+Paula Sophia Macalindong
 
 **bim-bot** is an interactive robot-assisted hazard detection and mapping system built on top of **pySLAM**, ESP32 camera streaming, and a custom dashboard interface. This repository provides the full pipeline for running the bim-bot app — including environment setup, dashboard execution, video recording, and automatic area map generation.
 
