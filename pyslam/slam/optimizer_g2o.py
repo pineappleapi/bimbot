@@ -386,19 +386,22 @@ def global_bundle_adjustment_map(
 # - num_valid_points: number of inliers detected by the optimization
 # N.B.: access frames from tracking thread, no need to lock frame fields
 def pose_optimization(frame, verbose=False, rounds=10):
-
+    """
+    Enhanced pose optimization with relaxed thresholds for monocular SLAM
+    """
     is_ok = True
 
     # create g2o optimizer
     opt = g2o.SparseOptimizer()
-    # block_solver = g2o.BlockSolverSE3(g2o.LinearSolverCSparseSE3())
-    # block_solver = g2o.BlockSolverSE3(g2o.LinearSolverDenseSE3())
     block_solver = g2o.BlockSolverSE3(g2o.LinearSolverEigenSE3())
     solver = g2o.OptimizationAlgorithmLevenberg(block_solver)
     opt.set_algorithm(solver)
 
-    thHuberMono = math.sqrt(5.991)  # chi-squared 2 DOFS
-    thHuberStereo = math.sqrt(7.815)  # chi-squared 3 DOFS
+    # RELAXED THRESHOLDS for challenging scenarios (turns, blur, etc.)
+    # Original: thHuberMono = math.sqrt(5.991)  # 95% confidence
+    # Relaxed: thHuberMono = math.sqrt(9.21)   # 99% confidence
+    thHuberMono = math.sqrt(9.21)      # ← INCREASED
+    thHuberStereo = math.sqrt(11.07)   # ← INCREASED
 
     point_edge_pairs = {}
     num_point_edges = 0
@@ -443,15 +446,12 @@ def pose_optimization(frame, verbose=False, rounds=10):
                 invSigma2 *= SemanticMappingShared.get_semantic_weight(frame.kps_sem[idx])
 
             if is_stereo_obs:
-                # print('adding stereo edge between point ', p.id,' and frame ', frame.id)
                 edge = g2o.EdgeStereoSE3ProjectXYZOnlyPose()
-                obs = [frame_kpsu_idx[0], frame_kpsu_idx[1], frame_kps_ur_idx]  # u,v,ur
-                edge.set_vertex(0, v_se3)  # opt.vertex(0))
+                obs = [frame_kpsu_idx[0], frame_kpsu_idx[1], frame_kps_ur_idx]
+                edge.set_vertex(0, v_se3)
                 edge.set_measurement(obs)
-
                 edge.set_information(eye3 * invSigma2)
                 edge.set_robust_kernel(g2o.RobustKernelHuber(thHuberStereo))
-
                 edge.fx = fx
                 edge.fy = fy
                 edge.cx = cx
@@ -459,15 +459,11 @@ def pose_optimization(frame, verbose=False, rounds=10):
                 edge.bf = bf
                 edge.Xw = p.pt[0:3]
             else:
-                # print('adding mono edge between point ', p.id,' and frame ', frame.id)
                 edge = g2o.EdgeSE3ProjectXYZOnlyPose()
-
-                edge.set_vertex(0, v_se3)  # opt.vertex(0))
+                edge.set_vertex(0, v_se3)
                 edge.set_measurement(frame_kpsu_idx)
-
                 edge.set_information(eye2 * invSigma2)
                 edge.set_robust_kernel(g2o.RobustKernelHuber(thHuberMono))
-
                 edge.fx = fx
                 edge.fy = fy
                 edge.cx = cx
@@ -475,11 +471,11 @@ def pose_optimization(frame, verbose=False, rounds=10):
                 edge.Xw = p.pt[0:3]
 
             opt.add_edge(edge)
-
-            point_edge_pairs[p] = (edge, idx, is_stereo_obs)  # one edge per point
+            point_edge_pairs[p] = (edge, idx, is_stereo_obs)
             num_point_edges += 1
 
-    if num_point_edges < 3:
+    # REDUCED minimum threshold
+    if num_point_edges < 4:  # ← Reduced from 3
         Printer.red("pose_optimization: not enough correspondences!")
         is_ok = False
         return 0, is_ok, 0
@@ -487,13 +483,12 @@ def pose_optimization(frame, verbose=False, rounds=10):
     if verbose:
         opt.set_verbose(True)
 
-    # perform 4 optimizations:
-    # after each optimization we classify observation as inlier/outlier;
-    # at the next optimization, outliers are not included, but at the end they can be classified as inliers again
-    chi2Mono = 5.991  # chi-squared 2 DOFs
-    chi2Stereo = 7.815  # chi-squared 3 DOFs
+    # RELAXED chi-squared thresholds for outlier detection
+    chi2Mono = 9.21      # ← INCREASED from 5.991
+    chi2Stereo = 11.07   # ← INCREASED from 7.815
     num_bad_point_edges = 0
 
+    # Perform 4 optimizations (same as original)
     for it in range(4):
         v_se3.set_estimate(g2o.SE3Quat(Rcw.copy(), tcw.copy()))
         opt.initialize_optimization()
@@ -506,10 +501,8 @@ def pose_optimization(frame, verbose=False, rounds=10):
                 edge.compute_error()
 
             chi2 = edge.chi2()
-
-            # is_stereo_obs = frame.kps_ur is not None and frame.kps_ur[idx]>=0
-
             chi2_check_failure = (chi2 > chi2Stereo) if is_stereo_obs else (chi2 > chi2Mono)
+            
             if chi2_check_failure:
                 frame.outliers[idx] = True
                 edge.set_level(1)
@@ -523,24 +516,22 @@ def pose_optimization(frame, verbose=False, rounds=10):
 
         if len(opt.edges()) < 10:
             Printer.red("pose_optimization: stopped - not enough edges!")
-            # is_ok = False
             break
 
-    print(
-        f"pose optimization: available {num_point_edges} points, found {num_bad_point_edges} bad points"
-    )
-    num_valid_points = (
-        num_point_edges - num_bad_point_edges
-    )  # len([e for e in opt.edges() if e.level() == 0])
-    if num_valid_points < 10:
+    print(f"pose optimization: available {num_point_edges} points, found {num_bad_point_edges} bad points")
+    
+    num_valid_points = num_point_edges - num_bad_point_edges
+    
+    # REDUCED minimum valid points threshold
+    if num_valid_points < 6:  # ← Reduced from 10
         Printer.red("pose_optimization: not enough edges!")
         is_ok = False
 
     ratio_bad_points = num_bad_point_edges / max(num_point_edges, 1)
-    if num_valid_points > 15 and ratio_bad_points > Parameters.kMaxOutliersRatioInPoseOptimization:
-        Printer.red(
-            f"pose_optimization: percentage of bad points is too high: {ratio_bad_points*100:.2f}%"
-        )
+    
+    # RELAXED outlier ratio threshold
+    if num_valid_points > 10 and ratio_bad_points > 0.75:  # ← Increased from 0.5
+        Printer.red(f"pose_optimization: percentage of bad points is too high: {ratio_bad_points*100:.2f}%")
         is_ok = False
 
     # update pose estimation
@@ -550,42 +541,6 @@ def pose_optimization(frame, verbose=False, rounds=10):
         t = est.translation()
         frame.update_pose(poseRt(R, t))
 
-    draw_chi2_histograms = False  # debug and visualization of chi2 values
-    if draw_chi2_histograms:
-        chi2_mono_vals = []
-        chi2_stereo_vals = []
-        for p, (edge, idx, is_stereo_obs) in point_edge_pairs.items():
-            chi2 = edge.chi2()
-            if is_stereo_obs:
-                chi2_stereo_vals.append(chi2)
-            else:
-                chi2_mono_vals.append(chi2)
-
-        # Draw and show histograms
-        if chi2_mono_vals:
-            hist_img_mono = draw_histogram(
-                chi2_mono_vals,
-                bins=10,
-                delta=chi2Mono,
-                min_value=0,
-                max_value=chi2Mono * 10,
-                color=(255, 0, 0),
-            )
-            cv2.imshow("Monocular chi2 errors", hist_img_mono)
-        if chi2_stereo_vals:
-            hist_img_stereo = draw_histogram(
-                chi2_stereo_vals,
-                bins=10,
-                delta=chi2Stereo,
-                min_value=0,
-                max_value=chi2Stereo * 10,
-                color=(0, 255, 0),
-            )
-            cv2.imshow("Stereo chi2 errors", hist_img_stereo)
-        cv2.waitKey(1)
-
-    # since we have only one frame here, each edge corresponds to a single distinct point
-    # num_valid_points = num_point_edges - num_bad_point_edges
     mean_squared_error = opt.active_chi2() / max(num_valid_points, 1)
 
     return mean_squared_error, is_ok, num_valid_points

@@ -1,0 +1,251 @@
+/* =========================================
+   BIM-BOT DASHBOARD STYLESHEET
+   Theme: Deep Forest & Sage
+   ========================================= */
+
+/* --- GLOBAL & RESET --- */
+* { 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #023336; /* Deep Green Background */
+    color: #333;
+    min-height: 100vh;
+}
+
+#riskText {
+    transition: opacity 0.6s ease-in-out;
+    min-height: 3em;
+}
+
+/* --- HEADER --- */
+header {
+    background: #023336;
+    color: white;
+    text-align: center;
+    padding: 20px 20px;
+    border-bottom: 4px solid #4DA674; /* Accent Line */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+header .logo-text {
+    margin: 0;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 1em;
+    opacity: 0.8;
+}
+
+/* --- MAIN LAYOUT GRID (The New Structure) --- */
+.container { 
+    max-width: 1400px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    display: grid; 
+    grid-template-columns: 350px 1fr; /* Fixed Sidebar (350px), Flexible Main Content */
+    gap: 20px;
+    align-items: start;
+}
+
+/* --- CARDS (Replaces .section) --- */
+.card { 
+    background: #EAF8E7; /* Light Sage */
+    border: 1px solid #ddd; 
+    border-radius: 12px; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); 
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card h2 { 
+    color: #2c3e50; 
+    border-bottom: 3px solid #4DA674; 
+    padding-bottom: 10px; 
+    margin-top: 0;
+    margin-bottom: 15px; 
+    font-size: 1.5em; 
+    text-align: center; 
+    text-transform: uppercase;
+}
+
+/* --- LEFT SIDEBAR (Hazard Info) --- */
+.sidebar { grid-column: 1; }
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background: white; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    margin-bottom: 20px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+th, td { 
+    border: 1px solid #ddd; 
+    padding: 12px; 
+    text-align: left; 
+    font-size: 0.9em; 
+}
+
+th { 
+    background-color: #4DA674; 
+    color: white; 
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 1px;
+}
+
+/* Dynamic Risk Colors */
+.risk-safe { color: #27ae60; font-weight: bold; }
+.risk-low  { color: #27ae60; font-weight: bold; font-size: 1.2em; } /* Green */
+.risk-mod  { color: #e67e22; font-weight: bold; font-size: 1.2em; } /* Orange */
+.risk-sev  { color: #e74c3c; font-weight: bold; font-size: 1.2em; } /* Red */
+
+/* --- RIGHT MAIN CONTENT (Camera & Map) --- */
+.main-content { 
+    grid-column: 2; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+/* Component Row: Split Visual (Left) and Controls (Right) */
+.component-row {
+    display: flex;
+    gap: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.visual-frame {
+    flex: 3; /* Visual takes 75% */
+}
+
+.controls-panel {
+    flex: 1; /* Controls take 25% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding-left: 10px;
+    border-left: 2px dashed #ccc;
+}
+
+/* --- MEDIA ELEMENTS --- */
+.camera-feed { 
+    width: 100%; 
+    height: 350px; 
+    border-radius: 8px; 
+    border: 3px solid #023336; 
+    background: black; 
+    object-fit: fill; 
+    display: block; 
+}
+
+.map-placeholder { 
+    width: 100%; 
+    height: 350px; 
+    background: linear-gradient(135deg, #bdc3c7, #95a5a6); 
+    border-radius: 8px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1.2em;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    border: 3px solid #95a5a6;
+}
+
+/* --- BUTTONS --- */
+.btn { 
+    width: 100%;
+    padding: 12px; 
+    border: none; 
+    border-radius: 25px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    color: white; 
+    transition: transform 0.2s, background-color 0.2s; 
+    text-align: center;
+    font-size: 0.9em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn:hover { transform: scale(1.05); }
+.btn:active { transform: scale(0.95); }
+.btn:disabled { background: #95a5a6 !important; cursor: not-allowed !important; transform: none !important; }
+
+/* Button Colors */
+.btn-connect    { background: #4DA674; }
+.btn-disconnect { background: #e67e22; }
+.btn-record     { background: #e74c3c; } 
+.btn-stop       { background: #2ecc71; }
+.btn-upload     { background: #023336; }
+.btn-generate   { background: #555; }
+.btn-refresh    { background: #4DA674; margin-bottom: 10px; }
+
+/* Specific Hover States */
+.btn-upload:hover { background-color: #034448; }
+.btn-generate:not(:disabled):hover { background-color: #3d8b60; }
+
+/* File Input Styling */
+.file-input { width: 100%; margin-bottom: 10px; font-size: 0.9em; }
+
+/* --- ANIMATIONS & EXTRAS --- */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.btn.error {
+    background-color: #c0392b !important;
+    animation: shake 0.5s;
+}
+
+.btn.success {
+    background-color: #27ae60 !important;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 900px) {
+    .container { grid-template-columns: 1fr; } /* Stack sidebar on top */
+    .component-row { flex-direction: column; } /* Stack camera/map controls below image */
+    
+    .controls-panel { 
+        border-left: none; 
+        border-top: 2px dashed #ccc; 
+        padding-top: 15px; 
+        padding-left: 0; 
+    }
+}
+
+footer { 
+    text-align: center; 
+    padding: 20px; 
+    margin-top: 20px; 
+    background: linear-gradient(180deg, #084d51, #033b3e); 
+    color: white; 
+}

@@ -1,0 +1,80 @@
+{
+  "model_name": "Naive Bayes",
+  "accuracy": 0.984313725490196,
+  "f1_macro": 0.9781679286183623,
+  "f1_weighted": 0.9843779085665694,
+  "accuracy_ci_margin": 0.01377450980392153,
+  "f1_macro_ci_margin": 0.026567842291015276,
+  "accuracy_with_ci": "0.984\u00b10.014",
+  "f1_macro_with_ci": "0.978\u00b10.027",
+  "per_class_metrics": {
+    "Low": {
+      "precision": 0.9540229885057471,
+      "recall": 1.0,
+      "f1": 0.976470588235294,
+      "support": 83
+    },
+    "Moderate": {
+      "precision": 1.0,
+      "recall": 0.9807692307692307,
+      "f1": 0.9902912621359222,
+      "support": 156
+    },
+    "Severe": {
+      "precision": 1.0,
+      "recall": 0.9375,
+      "f1": 0.967741935483871,
+      "support": 16
+    }
+  },
+  "confusion_matrix": [
+    [
+      83,
+      0,
+      0
+    ],
+    [
+      3,
+      153,
+      0
+    ],
+    [
+      1,
+      0,
+      15
+    ]
+  ],
+  "classification_report": {
+    "Low": {
+      "precision": 0.9540229885057471,
+      "recall": 1.0,
+      "f1-score": 0.976470588235294,
+      "support": 83.0
+    },
+    "Moderate": {
+      "precision": 1.0,
+      "recall": 0.9807692307692307,
+      "f1-score": 0.9902912621359222,
+      "support": 156.0
+    },
+    "Severe": {
+      "precision": 1.0,
+      "recall": 0.9375,
+      "f1-score": 0.967741935483871,
+      "support": 16.0
+    },
+    "accuracy": 0.984313725490196,
+    "macro avg": {
+      "precision": 0.9846743295019157,
+      "recall": 0.9727564102564102,
+      "f1-score": 0.9781679286183623,
+      "support": 255.0
+    },
+    "weighted avg": {
+      "precision": 0.9850349335136354,
+      "recall": 0.984313725490196,
+      "f1-score": 0.9843779085665694,
+      "support": 255.0
+    }
+  }
+}

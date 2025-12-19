@@ -165,6 +165,14 @@ class Viewer3DMapInput:
         self.gt_trajectory = None
         self.gt_timestamps = None
         self.align_gt_with_scale = False
+        
+# --- NEW: turn-aware visualization fields (optional) ---
+        self.turn_state = "straight"       # "left" | "right" | "straight"
+        self.turn_yaw_deg = 0.0            # smoothed yaw for overlay/arrow scaling
+        self.cur_pose_color = None         # color to tint current frustum (3 floats in [0,1])
+        self.traj_segment_color = None     # color for latest trajectory segment
+
+
 
 
 class Viewer3DDenseInput:
@@ -218,7 +226,6 @@ class Viewer3DCameraTrajectoriesInput:
 class Viewer3D(object):
     def __init__(self, scale=0.1):
         self.scale = scale
-
         self.map_state: Viewer3DMapInput | None = None
         self.vo_state: Viewer3DVoInput | None = None
         self.dense_state: Viewer3DDenseInput | None = None
@@ -227,6 +234,12 @@ class Viewer3D(object):
         self.gt_trajectory = None
         self.gt_timestamps = None
         self.align_gt_with_scale = False
+
+        
+        # --- NEW: turn state ---
+        self.turn_state = "straight"   # "left" | "right" | "straight"
+        self.turn_yaw_deg = 0.0
+
 
         # TODO(dvdmc): to customize the visualization from the UI, we need to create mp variables accesible from the refresh to the viewer thread
         # We would need a query word and a heatmap scale.
@@ -277,7 +290,38 @@ class Viewer3D(object):
         )
         self.vp.daemon = True
         self.vp.start()
-        
+    
+    def set_turn_state(self, turn: str, yaw_deg: float):
+        """
+        NEW: Update current turn state for visualization.
+        """
+        if turn in ("left", "right", "straight"):
+            self.turn_state = turn
+            self.turn_yaw_deg = float(yaw_deg)
+
+    def _turn_colors(self):
+        """
+        NEW: Returns normalized RGB colors for trajectory/frustum/arrow based on turn state.
+        """
+        if self.turn_state == "left":
+            return {
+                "traj": np.array([0.0, 0.50, 1.0]),   # blue-ish
+                "frustum": np.array([0.40, 0.70, 1.0]),
+                "arrow": np.array([0.0, 0.35, 0.80])
+            }
+        elif self.turn_state == "right":
+            return {
+                "traj": np.array([1.0, 0.20, 0.20]),  # red-ish
+                "frustum": np.array([1.0, 0.50, 0.50]),
+                "arrow": np.array([0.80, 0.10, 0.10])
+            }
+        else:
+            return {
+                "traj": np.array([0.20, 1.0, 0.40]),  # green-ish
+                "frustum": np.array([0.60, 1.0, 0.70]),
+                "arrow": np.array([0.10, 0.80, 0.30])
+            }
+
     def set_gt_trajectory(self, gt_trajectory, gt_timestamps, align_with_scale=False):
         if gt_trajectory is None or gt_timestamps is None:
             Printer.yellow(
@@ -643,12 +687,47 @@ class Viewer3D(object):
                 is_gt_set.value = 1
 
             if self.map_state.cur_pose is not None:
-                # draw current pose in blue
-                gl.glColor3f(0.0, 0.0, 1.0)
+                # --- turn-aware frustum color ---
+                frustum_color = getattr(self.map_state, "cur_pose_color", np.array([0.0, 0.0, 1.0], dtype=float))
+                gl.glColor3f(float(frustum_color[0]), float(frustum_color[1]), float(frustum_color[2]))
                 gl.glLineWidth(2)
                 glutils.DrawCamera(self.map_state.cur_pose, self.scale)
                 gl.glLineWidth(1)
                 self.updateTwc(self.map_state.cur_pose)
+
+                # --- latest trajectory segment (last keyframe -> current pose) in turn color ---
+                traj_color = getattr(self.map_state, "traj_segment_color", np.array([0.0, 0.0, 1.0], dtype=float))
+                if len(self.map_state.poses) >= 1:
+                    p0 = np.array(self.map_state.poses[-1][:3, 3], dtype=float)      # last keyframe center
+                    p1 = np.array(self.map_state.cur_pose[:3, 3], dtype=float)       # current frame center
+                    gl.glColor3f(float(traj_color[0]), float(traj_color[1]), float(traj_color[2]))
+                    gl.glLineWidth(2)
+                    gl.glBegin(gl.GL_LINES)
+                    gl.glVertex3f(float(p0[0]), float(p0[1]), float(p0[2]))
+                    gl.glVertex3f(float(p1[0]), float(p1[1]), float(p1[2]))
+                    gl.glEnd()
+                    gl.glLineWidth(1)
+
+                # --- optional: small arrow indicating left/right near the camera ---
+                turn_state = getattr(self.map_state, "turn_state", "straight")
+                turn_yaw_deg = float(getattr(self.map_state, "turn_yaw_deg", 0.0))
+                if turn_state in ("left", "right"):
+                    R = self.map_state.cur_pose[:3, :3]
+                    t = np.array(self.map_state.cur_pose[:3, 3], dtype=float)
+                    arrow_len = max(0.05, min(0.25, abs(turn_yaw_deg) / 30.0)) * self.scale
+                    dir_cam = np.array([1.0, 0.0, 0.0], dtype=float) if turn_state == "right" else np.array([-1.0, 0.0, 0.0], dtype=float)
+                    dir_world = (R @ dir_cam.reshape(3, 1)).reshape(3)
+                    p0 = t
+                    p1 = t + dir_world * arrow_len
+                    # reuse frustum_color for arrow consistency
+                    gl.glColor3f(float(frustum_color[0]), float(frustum_color[1]), float(frustum_color[2]))
+                    gl.glLineWidth(3)
+                    gl.glBegin(gl.GL_LINES)
+                    gl.glVertex3f(float(p0[0]), float(p0[1]), float(p0[2]))
+                    gl.glVertex3f(float(p1[0]), float(p1[1]), float(p1[2]))
+                    gl.glEnd()
+       
+
 
             if self.draw_predicted and self.map_state.predicted_pose is not None:
                 # draw predicted pose in red
@@ -905,8 +984,10 @@ class Viewer3D(object):
         try:
             if is_map_save is not None and hasattr(is_map_save, "value") and is_map_save.value == 1:
                 try:
-                    # get the base folder from trajectory saving settings
-                    _, _, metrics_save_dir = self.get_trajectory_saving_paths()
+                    # Ensure the path exists (this is exactly the folder with online/final trajectory)      
+                    metrics_save_dir = Parameters.kLogsFolder
+                    os.makedirs(metrics_save_dir, exist_ok=True)
+
                     os.makedirs(metrics_save_dir, exist_ok=True)
 
                     # window size used to create the Pangolin window in viewer_init()
@@ -980,6 +1061,14 @@ class Viewer3D(object):
             if slam.tracking.kf_ref is not None:
                 map_state.reference_pose = slam.tracking.kf_ref.Twc.copy()
 
+        # --- NEW: turn-aware colors and flags packed into map_state ---
+        # Requires Viewer3D.set_turn_state(...) and _turn_colors() to exist (Patch B).
+        turn_colors = self._turn_colors()  # normalized RGB np.arrays
+        map_state.turn_state = self.turn_state            # "left" | "right" | "straight"
+        map_state.turn_yaw_deg = float(self.turn_yaw_deg)
+        map_state.cur_pose_color = turn_colors["frustum"]     # tint current frustum in renderer
+        map_state.traj_segment_color = turn_colors["traj"]    # color for latest trajectory segment
+
         keyframes = map.get_keyframes()
         num_map_keyframes = len(keyframes)
         if num_map_keyframes > 0:
@@ -988,18 +1077,14 @@ class Viewer3D(object):
                 map_state.pose_timestamps.append(kf.timestamp)
                 if kf.fov_center_w is not None:
                     map_state.fov_centers.append(kf.fov_center_w.T)
-                    map_state.fov_centers_colors.append(
-                        np.array([1.0, 0.0, 0.0])
-                    )  # green
+                    # --- NEW: use turn-aware color for fov centers instead of hard-coded [1,0,0]
+                    map_state.fov_centers_colors.append(turn_colors["traj"])
+
         map_state.poses = np.array(map_state.poses, dtype=float)
-        map_state.pose_timestamps = np.array(
-            map_state.pose_timestamps, dtype=np.float64
-        )
+        map_state.pose_timestamps = np.array(map_state.pose_timestamps, dtype=np.float64)
         if len(map_state.fov_centers) > 0:
             map_state.fov_centers = np.array(map_state.fov_centers).reshape(-1, 3)
-            map_state.fov_centers_colors = np.array(
-                map_state.fov_centers_colors
-            ).reshape(-1, 3)
+            map_state.fov_centers_colors = np.array(map_state.fov_centers_colors).reshape(-1, 3)
 
         map_points = map.get_points()
         num_map_points = len(map_points)
@@ -1015,10 +1100,8 @@ class Viewer3D(object):
                         p.semantic_des is not None
                         and SemanticMappingShared.sem_des_to_rgb is not None
                     ):
-                        map_state.semantic_colors[i] = (
-                            SemanticMappingShared.sem_des_to_rgb(
-                                p.semantic_des, bgr=False
-                            )
+                        map_state.semantic_colors[i] = SemanticMappingShared.sem_des_to_rgb(
+                            p.semantic_des, bgr=False
                         )
                     else:
                         map_state.semantic_colors[i] = np.array([0.0, 0.0, 0.0])
@@ -1030,9 +1113,7 @@ class Viewer3D(object):
         map_state.semantic_colors = np.array(map_state.semantic_colors) / 256.0
 
         for kf in keyframes:
-            for kf_cov in kf.get_covisible_by_weight(
-                kMinWeightForDrawingCovisibilityEdge
-            ):
+            for kf_cov in kf.get_covisible_by_weight(kMinWeightForDrawingCovisibilityEdge):
                 if kf_cov.kid > kf.kid:
                     map_state.covisibility_graph.append([*kf.Ow, *kf_cov.Ow])
             if kf.parent is not None:

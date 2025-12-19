@@ -83,11 +83,11 @@ class Parameters:
     kUseMotionModel = True  # Use or not the motion model for computing a first guess pose (that will be optimized by pose optimization)
     kUseSearchFrameByProjection = True  # Match frames by using frame map points projection and epipolar lines; here, the current available interframe pose estimate is used for computing the fundamental mat F
     kMinNumMatchedFeaturesSearchFrameByProjection = (
-        20  # If the number of tracked features is below this, then the search fails
+        15  # NEW: 20 If the number of tracked features is below this, then the search fails
     )
     kUseEssentialMatrixFitting = False  # Fit an essential matrix; orientation and keypoint match inliers are estimated by fitting an essential mat (5 points algorithm),
     # WARNING: essential matrix fitting comes with some limitations (please, read the comments of the method slam.estimate_pose_ess_mat())
-    kMinNumMatchedFeaturesSearchReferenceFrame = 15
+    kMinNumMatchedFeaturesSearchReferenceFrame = 10 #NEW: 15 Minimum number of matched features to the reference frame to accept the pose estimation
     kMaxNumOfKeyframesInLocalMap = 80
     kNumBestCovisibilityKeyFrames = 10
     kUseVisualOdometryPoints = True
@@ -121,11 +121,11 @@ class Parameters:
     )
 
     # Search matches by projection
-    kMaxReprojectionDistanceFrame = 7  # [pixels]    o:7
+    kMaxReprojectionDistanceFrame = 4  # [pixels]    o:7
     kMaxReprojectionDistanceFrameRgbd = 15  # [pixels]    o:15
-    kMaxReprojectionDistanceMap = 3  # [pixels]    o:1
+    kMaxReprojectionDistanceMap = 5  # [pixels]    o:1
     kMaxReprojectionDistanceMapRgbd = 3  # [pixels]    o:3
-    kMaxReprojectionDistanceMapReloc = 5  # [pixels]    o:5
+    kMaxReprojectionDistanceMapReloc = 7  # [pixels]    o:5
     kMaxReprojectionDistanceFuse = 3  # [pixels]    o:3
     kMaxReprojectionDistanceSim3 = 7.5  # [pixels]    o:7.5
     #
@@ -161,7 +161,7 @@ class Parameters:
     kSparseImageColorPatchDelta = 1  # center +- delta
 
     # Optimization engine
-    kOptimizationFrontEndUseGtsam = False  # Use GTSAM in pose optimization in the frontend
+    kOptimizationFrontEndUseGtsam = False  # NEW: Use GTSAM in pose optimization in the frontend
     kOptimizationBundleAdjustUseGtsam = True  #NEW: Use GTSAM for LBA and GBA
     kOptimizationLoopClosingUseGtsam = (
         False  # [Experimental,WIP] Use GTSAM for loop closing (relocalization and PGO)
@@ -203,19 +203,19 @@ class Parameters:
     )
 
     # Relocatization
-    kRelocalizationDebugAndPrintToFile = False
-    kRelocalizationMinKpsMatches = 15  # o:15
+    kRelocalizationDebugAndPrintToFile = True #enable for debugging
+    kRelocalizationMinKpsMatches = 8  # o:15
     kRelocalizationParallelKpsMatching = True
     kRelocalizationParallelKpsMatchingNumWorkers = 2
     kRelocalizationFeatureMatchRatioTest = (
-        0.75  # TODO: put it in an table and make it configurable per descriptor
+        0.85  # TODO: put it in an table and make it configurable per descriptor
     )
-    kRelocalizationFeatureMatchRatioTestLarge = 0.9  # o:0.9
-    kRelocalizationPoseOpt1MinMatches = 10  # o:10
-    kRelocalizationDoPoseOpt2NumInliers = 50  # o:50
-    kRelocalizationMaxReprojectionDistanceMapSearchCoarse = 10  # [pixels]    o:10
-    kRelocalizationMaxReprojectionDistanceMapSearchFine = 3  # [pixels]    o:3
-
+    kRelocalizationFeatureMatchRatioTestLarge = 0.85  # o:0.9
+    kRelocalizationPoseOpt1MinMatches = 8  # o:10
+    kRelocalizationDoPoseOpt2NumInliers = 35  # o:50
+    kRelocalizationMaxReprojectionDistanceMapSearchCoarse = 15  # [pixels]    o:10
+    kRelocalizationMaxReprojectionDistanceMapSearchFine = 5  # [pixels]    o:3
+    kRelocalizationUseOrientationHistogram = True  # NEW: default False to be more permissive on turns
     # Volumetric Integration
     kUseVolumetricIntegration = False  # To enable/disable volumetric integration (dense mapping)
     kVolumetricIntegrationType = (

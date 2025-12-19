@@ -1,0 +1,658 @@
+{
+  "models": [
+    {
+      "model_name": "CNN (Kim 2014)",
+      "accuracy": 0.996078431372549,
+      "f1_macro": 0.9969148352534933,
+      "f1_weighted": 0.996072812317879,
+      "accuracy_ci_margin": 0.00588235294117645,
+      "f1_macro_ci_margin": 0.004866246493660575,
+      "accuracy_with_ci": "0.996\u00b10.006",
+      "f1_macro_with_ci": "0.997\u00b10.005",
+      "per_class_metrics": {
+        "Low": {
+          "precision": 1.0,
+          "recall": 0.9879518072289156,
+          "f1": 0.993939393939394,
+          "support": 83
+        },
+        "Moderate": {
+          "precision": 0.9936305732484076,
+          "recall": 1.0,
+          "f1": 0.9968051118210862,
+          "support": 156
+        },
+        "Severe": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 16
+        }
+      },
+      "confusion_matrix": [
+        [
+          82,
+          1,
+          0
+        ],
+        [
+          0,
+          156,
+          0
+        ],
+        [
+          0,
+          0,
+          16
+        ]
+      ],
+      "classification_report": {
+        "Low": {
+          "precision": 1.0,
+          "recall": 0.9879518072289156,
+          "f1-score": 0.993939393939394,
+          "support": 83.0
+        },
+        "Moderate": {
+          "precision": 0.9936305732484076,
+          "recall": 1.0,
+          "f1-score": 0.9968051118210862,
+          "support": 156.0
+        },
+        "Severe": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 16.0
+        },
+        "accuracy": 0.996078431372549,
+        "macro avg": {
+          "precision": 0.9978768577494691,
+          "recall": 0.9959839357429718,
+          "f1-score": 0.9969148352534933,
+          "support": 255.0
+        },
+        "weighted avg": {
+          "precision": 0.996103409516673,
+          "recall": 0.996078431372549,
+          "f1-score": 0.996072812317879,
+          "support": 255.0
+        }
+      },
+      "type": "Deep Learning"
+    },
+    {
+      "model_name": "Tiny Transformer",
+      "accuracy": 0.996078431372549,
+      "f1_macro": 0.9969148352534933,
+      "f1_weighted": 0.996072812317879,
+      "accuracy_ci_margin": 0.00588235294117645,
+      "f1_macro_ci_margin": 0.004866246493660575,
+      "accuracy_with_ci": "0.996\u00b10.006",
+      "f1_macro_with_ci": "0.997\u00b10.005",
+      "per_class_metrics": {
+        "Low": {
+          "precision": 1.0,
+          "recall": 0.9879518072289156,
+          "f1": 0.993939393939394,
+          "support": 83
+        },
+        "Moderate": {
+          "precision": 0.9936305732484076,
+          "recall": 1.0,
+          "f1": 0.9968051118210862,
+          "support": 156
+        },
+        "Severe": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 16
+        }
+      },
+      "confusion_matrix": [
+        [
+          82,
+          1,
+          0
+        ],
+        [
+          0,
+          156,
+          0
+        ],
+        [
+          0,
+          0,
+          16
+        ]
+      ],
+      "classification_report": {
+        "Low": {
+          "precision": 1.0,
+          "recall": 0.9879518072289156,
+          "f1-score": 0.993939393939394,
+          "support": 83.0
+        },
+        "Moderate": {
+          "precision": 0.9936305732484076,
+          "recall": 1.0,
+          "f1-score": 0.9968051118210862,
+          "support": 156.0
+        },
+        "Severe": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 16.0
+        },
+        "accuracy": 0.996078431372549,
+        "macro avg": {
+          "precision": 0.9978768577494691,
+          "recall": 0.9959839357429718,
+          "f1-score": 0.9969148352534933,
+          "support": 255.0
+        },
+        "weighted avg": {
+          "precision": 0.996103409516673,
+          "recall": 0.996078431372549,
+          "f1-score": 0.996072812317879,
+          "support": 255.0
+        }
+      },
+      "type": "Deep Learning"
+    },
+    {
+      "model_name": "Logistic Regression",
+      "accuracy": 0.984313725490196,
+      "f1_macro": 0.9699111724271469,
+      "f1_weighted": 0.9842968683261862,
+      "accuracy_ci_margin": 0.01568627450980392,
+      "f1_macro_ci_margin": 0.03534120535865676,
+      "accuracy_with_ci": "0.984\u00b10.016",
+      "f1_macro_with_ci": "0.970\u00b10.035",
+      "per_class_metrics": {
+        "Low": {
+          "precision": 0.9878048780487805,
+          "recall": 0.9759036144578314,
+          "f1": 0.9818181818181818,
+          "support": 83
+        },
+        "Moderate": {
+          "precision": 0.9872611464968153,
+          "recall": 0.9935897435897436,
+          "f1": 0.9904153354632588,
+          "support": 156
+        },
+        "Severe": {
+          "precision": 0.9375,
+          "recall": 0.9375,
+          "f1": 0.9375,
+          "support": 16
+        }
+      },
+      "confusion_matrix": [
+        [
+          81,
+          2,
+          0
+        ],
+        [
+          0,
+          155,
+          1
+        ],
+        [
+          1,
+          0,
+          15
+        ]
+      ],
+      "classification_report": {
+        "Low": {
+          "precision": 0.9878048780487805,
+          "recall": 0.9759036144578314,
+          "f1-score": 0.9818181818181818,
+          "support": 83.0
+        },
+        "Moderate": {
+          "precision": 0.9872611464968153,
+          "recall": 0.9935897435897436,
+          "f1-score": 0.9904153354632588,
+          "support": 156.0
+        },
+        "Severe": {
+          "precision": 0.9375,
+          "recall": 0.9375,
+          "f1-score": 0.9375,
+          "support": 16.0
+        },
+        "accuracy": 0.984313725490196,
+        "macro avg": {
+          "precision": 0.9708553415151986,
+          "recall": 0.9689977860158584,
+          "f1-score": 0.9699111724271469,
+          "support": 255.0
+        },
+        "weighted avg": {
+          "precision": 0.9843158577707919,
+          "recall": 0.984313725490196,
+          "f1-score": 0.9842968683261862,
+          "support": 255.0
+        }
+      },
+      "type": "Baseline"
+    },
+    {
+      "model_name": "Naive Bayes",
+      "accuracy": 0.984313725490196,
+      "f1_macro": 0.9781679286183623,
+      "f1_weighted": 0.9843779085665694,
+      "accuracy_ci_margin": 0.01377450980392153,
+      "f1_macro_ci_margin": 0.026567842291015276,
+      "accuracy_with_ci": "0.984\u00b10.014",
+      "f1_macro_with_ci": "0.978\u00b10.027",
+      "per_class_metrics": {
+        "Low": {
+          "precision": 0.9540229885057471,
+          "recall": 1.0,
+          "f1": 0.976470588235294,
+          "support": 83
+        },
+        "Moderate": {
+          "precision": 1.0,
+          "recall": 0.9807692307692307,
+          "f1": 0.9902912621359222,
+          "support": 156
+        },
+        "Severe": {
+          "precision": 1.0,
+          "recall": 0.9375,
+          "f1": 0.967741935483871,
+          "support": 16
+        }
+      },
+      "confusion_matrix": [
+        [
+          83,
+          0,
+          0
+        ],
+        [
+          3,
+          153,
+          0
+        ],
+        [
+          1,
+          0,
+          15
+        ]
+      ],
+      "classification_report": {
+        "Low": {
+          "precision": 0.9540229885057471,
+          "recall": 1.0,
+          "f1-score": 0.976470588235294,
+          "support": 83.0
+        },
+        "Moderate": {
+          "precision": 1.0,
+          "recall": 0.9807692307692307,
+          "f1-score": 0.9902912621359222,
+          "support": 156.0
+        },
+        "Severe": {
+          "precision": 1.0,
+          "recall": 0.9375,
+          "f1-score": 0.967741935483871,
+          "support": 16.0
+        },
+        "accuracy": 0.984313725490196,
+        "macro avg": {
+          "precision": 0.9846743295019157,
+          "recall": 0.9727564102564102,
+          "f1-score": 0.9781679286183623,
+          "support": 255.0
+        },
+        "weighted avg": {
+          "precision": 0.9850349335136354,
+          "recall": 0.984313725490196,
+          "f1-score": 0.9843779085665694,
+          "support": 255.0
+        }
+      },
+      "type": "Baseline"
+    },
+    {
+      "model_name": "Decision Tree",
+      "accuracy": 0.9803921568627451,
+      "f1_macro": 0.9669945250827604,
+      "f1_weighted": 0.9804748423433542,
+      "accuracy_ci_margin": 0.017647058823529405,
+      "f1_macro_ci_margin": 0.038401133432417855,
+      "accuracy_with_ci": "0.980\u00b10.018",
+      "f1_macro_with_ci": "0.967\u00b10.038",
+      "per_class_metrics": {
+        "Low": {
+          "precision": 0.9540229885057471,
+          "recall": 1.0,
+          "f1": 0.976470588235294,
+          "support": 83
+        },
+        "Moderate": {
+          "precision": 1.0,
+          "recall": 0.9743589743589743,
+          "f1": 0.9870129870129869,
+          "support": 156
+        },
+        "Severe": {
+          "precision": 0.9375,
+          "recall": 0.9375,
+          "f1": 0.9375,
+          "support": 16
+        }
+      },
+      "confusion_matrix": [
+        [
+          83,
+          0,
+          0
+        ],
+        [
+          3,
+          152,
+          1
+        ],
+        [
+          1,
+          0,
+          15
+        ]
+      ],
+      "classification_report": {
+        "Low": {
+          "precision": 0.9540229885057471,
+          "recall": 1.0,
+          "f1-score": 0.976470588235294,
+          "support": 83.0
+        },
+        "Moderate": {
+          "precision": 1.0,
+          "recall": 0.9743589743589743,
+          "f1-score": 0.9870129870129869,
+          "support": 156.0
+        },
+        "Severe": {
+          "precision": 0.9375,
+          "recall": 0.9375,
+          "f1-score": 0.9375,
+          "support": 16.0
+        },
+        "accuracy": 0.9803921568627451,
+        "macro avg": {
+          "precision": 0.9638409961685824,
+          "recall": 0.9706196581196581,
+          "f1-score": 0.9669945250827604,
+          "support": 255.0
+        },
+        "weighted avg": {
+          "precision": 0.9811133648861844,
+          "recall": 0.9803921568627451,
+          "f1-score": 0.9804748423433542,
+          "support": 255.0
+        }
+      },
+      "type": "Baseline"
+    },
+    {
+      "model_name": "Random Forest",
+      "accuracy": 0.9647058823529412,
+      "f1_macro": 0.9189594356261024,
+      "f1_weighted": 0.9631611162983713,
+      "accuracy_ci_margin": 0.02161764705882352,
+      "f1_macro_ci_margin": 0.06323031700145759,
+      "accuracy_with_ci": "0.965\u00b10.022",
+      "f1_macro_with_ci": "0.919\u00b10.063",
+      "per_class_metrics": {
+        "Low": {
+          "precision": 0.9529411764705882,
+          "recall": 0.9759036144578314,
+          "f1": 0.9642857142857143,
+          "support": 83
+        },
+        "Moderate": {
+          "precision": 0.9685534591194969,
+          "recall": 0.9871794871794872,
+          "f1": 0.9777777777777779,
+          "support": 156
+        },
+        "Severe": {
+          "precision": 1.0,
+          "recall": 0.6875,
+          "f1": 0.8148148148148148,
+          "support": 16
+        }
+      },
+      "confusion_matrix": [
+        [
+          81,
+          2,
+          0
+        ],
+        [
+          2,
+          154,
+          0
+        ],
+        [
+          2,
+          3,
+          11
+        ]
+      ],
+      "classification_report": {
+        "Low": {
+          "precision": 0.9529411764705882,
+          "recall": 0.9759036144578314,
+          "f1-score": 0.9642857142857143,
+          "support": 83.0
+        },
+        "Moderate": {
+          "precision": 0.9685534591194969,
+          "recall": 0.9871794871794872,
+          "f1-score": 0.9777777777777779,
+          "support": 156.0
+        },
+        "Severe": {
+          "precision": 1.0,
+          "recall": 0.6875,
+          "f1-score": 0.8148148148148148,
+          "support": 16.0
+        },
+        "accuracy": 0.9647058823529412,
+        "macro avg": {
+          "precision": 0.973831545196695,
+          "recall": 0.8835277005457729,
+          "f1-score": 0.9189594356261024,
+          "support": 255.0
+        },
+        "weighted avg": {
+          "precision": 0.965444930469413,
+          "recall": 0.9647058823529412,
+          "f1-score": 0.9631611162983713,
+          "support": 255.0
+        }
+      },
+      "type": "Ensemble"
+    },
+    {
+      "model_name": "Naive Predictor",
+      "accuracy": 0.611764705882353,
+      "f1_macro": 0.25304136253041365,
+      "f1_weighted": 0.4644053241734651,
+      "accuracy_ci_margin": 0.05882352941176466,
+      "f1_macro_ci_margin": 0.015115948214539779,
+      "accuracy_with_ci": "0.612\u00b10.059",
+      "f1_macro_with_ci": "0.253\u00b10.015",
+      "per_class_metrics": {
+        "Low": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 83
+        },
+        "Moderate": {
+          "precision": 0.611764705882353,
+          "recall": 1.0,
+          "f1": 0.759124087591241,
+          "support": 156
+        },
+        "Severe": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 16
+        }
+      },
+      "confusion_matrix": [
+        [
+          0,
+          83,
+          0
+        ],
+        [
+          0,
+          156,
+          0
+        ],
+        [
+          0,
+          16,
+          0
+        ]
+      ],
+      "classification_report": {
+        "Low": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 83.0
+        },
+        "Moderate": {
+          "precision": 0.611764705882353,
+          "recall": 1.0,
+          "f1-score": 0.759124087591241,
+          "support": 156.0
+        },
+        "Severe": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 16.0
+        },
+        "accuracy": 0.611764705882353,
+        "macro avg": {
+          "precision": 0.203921568627451,
+          "recall": 0.3333333333333333,
+          "f1-score": 0.25304136253041365,
+          "support": 255.0
+        },
+        "weighted avg": {
+          "precision": 0.3742560553633218,
+          "recall": 0.611764705882353,
+          "f1-score": 0.4644053241734651,
+          "support": 255.0
+        }
+      },
+      "type": "Baseline"
+    },
+    {
+      "model_name": "LSTM",
+      "accuracy": 0.611764705882353,
+      "f1_macro": 0.25304136253041365,
+      "f1_weighted": 0.4644053241734651,
+      "accuracy_ci_margin": 0.05882352941176466,
+      "f1_macro_ci_margin": 0.015115948214539779,
+      "accuracy_with_ci": "0.612\u00b10.059",
+      "f1_macro_with_ci": "0.253\u00b10.015",
+      "per_class_metrics": {
+        "Low": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 83
+        },
+        "Moderate": {
+          "precision": 0.611764705882353,
+          "recall": 1.0,
+          "f1": 0.759124087591241,
+          "support": 156
+        },
+        "Severe": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 16
+        }
+      },
+      "confusion_matrix": [
+        [
+          0,
+          83,
+          0
+        ],
+        [
+          0,
+          156,
+          0
+        ],
+        [
+          0,
+          16,
+          0
+        ]
+      ],
+      "classification_report": {
+        "Low": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 83.0
+        },
+        "Moderate": {
+          "precision": 0.611764705882353,
+          "recall": 1.0,
+          "f1-score": 0.759124087591241,
+          "support": 156.0
+        },
+        "Severe": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 16.0
+        },
+        "accuracy": 0.611764705882353,
+        "macro avg": {
+          "precision": 0.203921568627451,
+          "recall": 0.3333333333333333,
+          "f1-score": 0.25304136253041365,
+          "support": 255.0
+        },
+        "weighted avg": {
+          "precision": 0.3742560553633218,
+          "recall": 0.611764705882353,
+          "f1-score": 0.4644053241734651,
+          "support": 255.0
+        }
+      },
+      "type": "Deep Learning"
+    }
+  ],
+  "summary": {
+    "best_accuracy": "CNN (Kim 2014)",
+    "best_f1": "CNN (Kim 2014)",
+    "fastest": "Logistic Regression",
+    "most_robust": "Random Forest"
+  }
+}

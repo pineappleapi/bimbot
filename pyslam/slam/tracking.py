@@ -30,9 +30,9 @@ from itertools import chain
 
 import cv2
 import g2o
+from yaw_state_manager import get_yaw_manager
 
 from pyslam.config_parameters import Parameters
-
 from .frame import Frame, FeatureTrackerShared, match_frames
 from .keyframe import KeyFrame
 from .map_point import MapPoint
@@ -248,6 +248,10 @@ class Tracking:
         self.cur_t = None  # current translation twc w.r.t. world frame
         self.gt_x, self.gt_y, self.gt_z = None, None, None
 
+        # Turn detection variables (shared with relocalizer concept)
+        self.yaw_manager = get_yaw_manager()
+        self._prev_turn_scale = 1.0
+
         if kLogKFinfoToFile:
             self.kf_info_logger = Logging.setup_file_logger(
                 "kf_info_logger",
@@ -328,6 +332,9 @@ class Tracking:
         self.cur_R = None  # current rotation w.r.t. world frame
         self.cur_t = None  # current translation w.r.t. world frame
         self.gt_x, self.gt_y, self.gt_z = None, None, None
+
+        # Reset turn detection variables
+        self._prev_turn_scale = 1.0
 
     # estimate a pose from a fitted essential mat;
     # since we do not have an interframe translation scale, this fitting can be used to detect outliers, estimate interframe orientation and translation direction
@@ -445,6 +452,15 @@ class Tracking:
     # track camera motion of f_cur w.r.t. f_ref
     def track_previous_frame(self, f_ref: Frame, f_cur: Frame):
         print(">>>> tracking previous frame ...")
+        # Use shared yaw manager for consistent turn detection
+        yaw_delta = abs(self.yaw_manager.smoothed_yaw_deg)
+
+        # Relax descriptor threshold during turns
+        descriptor_distance_sigma = self.descriptor_distance_sigma
+        if yaw_delta > 10.0:
+            descriptor_distance_sigma *= 1.5  # 50% more tolerance during turns
+            Printer.orange(f"Turn detected (yaw: {yaw_delta:.1f}°), relaxing descriptor distance to {descriptor_distance_sigma:.2f}")
+
         is_search_frame_by_projection_failure = False
         use_search_frame_by_projection = (
             self.motion_model.is_ok and kUseSearchFrameByProjection and kUseMotionModel
@@ -452,8 +468,20 @@ class Tracking:
 
         if use_search_frame_by_projection:
             # search frame by projection: match map points observed in f_ref with keypoints of f_cur
-            print("search frame by projection")
-            search_radius = Parameters.kMaxReprojectionDistanceFrame
+            # Compute rotation between frames
+            R_delta = np.linalg.norm(f_ref.pose[:3, :3].T @ f_cur.pose[:3, :3] - np.eye(3))
+            turn_scale = 1.0 + min(R_delta * 2.0, 2.0)  # scale up to 3x during turns
+
+            # Cache turn magnitude for next frame
+            self._prev_turn_scale = turn_scale
+            
+            # Start with wider search if previous frame had high rotation
+            if hasattr(self, '_prev_turn_scale') and self._prev_turn_scale > 1.3:
+                turn_scale = max(turn_scale, self._prev_turn_scale * 0.8)  # maintain some of previous turn scale
+            
+            search_radius = Parameters.kMaxReprojectionDistanceFrame * turn_scale
+            if turn_scale > 1.2:
+                Printer.orange(f"Turn detected (R_delta: {R_delta:.3f}), scaling search radius by {turn_scale:.2f}x")
 
             # if self.sensor_type != SensorType.STEREO: #NOTE:  This seems to provide less stable tracking and they do not bring any clear benefits [WIP]
             if self.sensor_type == SensorType.RGBD:
@@ -465,7 +493,7 @@ class Tracking:
                 f_ref,
                 f_cur,
                 max_reproj_distance=search_radius,
-                max_descriptor_distance=self.descriptor_distance_sigma,
+                max_descriptor_distance=descriptor_distance_sigma,
                 ratio_test=Parameters.kMatchRatioTestFrameByProjection,  # not used at the moment
                 is_monocular=(self.sensor_type == SensorType.MONOCULAR),
             )
@@ -481,7 +509,7 @@ class Tracking:
                     f_ref,
                     f_cur,
                     max_reproj_distance=2 * search_radius,
-                    max_descriptor_distance=self.descriptor_distance_sigma,
+                    max_descriptor_distance=descriptor_distance_sigma,
                     ratio_test=Parameters.kMatchRatioTestFrameByProjection,  # not used at the moment
                     is_monocular=(self.sensor_type == SensorType.MONOCULAR),
                 )
@@ -582,6 +610,15 @@ class Tracking:
         kps_ref = f_ref.kps[idxs_ref_map_points]
         des_cur = f_cur.des
         kps_cur = f_cur.kps
+        # During turns, use more permissive matching
+        # Note: ratio_test parameter may not be used by all matchers, but we set it anyway
+        ratio_test = 0.8  # default
+        ratio_test = 0.8  # default
+        yaw_delta = abs(self.yaw_manager.smoothed_yaw_deg)
+        if yaw_delta > 15.0:
+            ratio_test = 0.85
+            Printer.orange(f"Turn detected in reference frame tracking (yaw: {yaw_delta:.1f}°), using relaxed ratio test: {ratio_test}")
+            
         matching_result = FeatureTrackerShared.feature_matcher.match(
             f_cur.img, f_ref.img, des_cur, des_ref, kps1=kps_cur, kps2=kps_ref
         )
@@ -635,8 +672,10 @@ class Tracking:
         if (f_cur.is_blurry or f_ref.is_blurry) and (
             not f_cur.is_keyframe and not f_ref.is_keyframe
         ):
+            # Always use homography RANSAC for frame-to-frame tracking to handle turns
             matching_is_ok, idxs_cur, idxs_ref, self.num_matched_kps, num_outliers = (
-                self.find_homography_with_ransac(f_cur, f_ref, idxs_cur, idxs_ref)
+                self.find_homography_with_ransac(f_cur, f_ref, idxs_cur, idxs_ref, 
+                reproj_threshold=7 if (f_cur.is_blurry or f_ref.is_blurry) else 5)
             )
             if matching_is_ok:
                 Printer.orange(

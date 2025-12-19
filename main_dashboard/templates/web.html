@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BIM-Bot Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* --- GLOBAL & LAYOUT --- */
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #023336; color: #333; min-height: 100vh; }
+        
+        header { background: #023336; color: white; text-align: center; padding: 20px 20px; border-bottom: 4px solid #4DA674; }
+        header .logo-text { margin: 0; font-size: 3em; font-weight: bold; letter-spacing: 5px; text-transform: uppercase; }
+        header p { margin: 5px 0 0; font-size: 1em; opacity: 0.8; }
+
+        .container { 
+            max-width: 1400px; margin: 20px auto; padding: 20px; 
+            display: grid; grid-template-columns: 350px 1fr; gap: 20px; align-items: start;
+        }
+
+        .card { background: #EAF8E7; border: 1px solid #ddd; border-radius: 12px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .card h2 { color: #2c3e50; border-bottom: 3px solid #4DA674; padding-bottom: 10px; margin-top: 0; margin-bottom: 15px; font-size: 1.5em; text-align: center; text-transform: uppercase;}
+
+        /* --- SIDEBAR --- */
+        .sidebar { grid-column: 1; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; font-size: 0.9em; }
+        th { background-color: #4DA674; color: white; }
+        
+        /* Dynamic Risk Colors */
+        .risk-low { color: #27ae60; font-weight: bold; font-size: 1.2em; }      
+        .risk-mod { color: #e67e22; font-weight: bold; font-size: 1.2em; }      
+        .risk-sev { color: #e74c3c; font-weight: bold; font-size: 1.2em; }      
+
+        /* --- MAIN CONTENT --- */
+        .main-content { grid-column: 2; display: flex; flex-direction: column; gap: 20px; }
+        .component-row { display: flex; gap: 20px; background: white; padding: 15px; border-radius: 10px; border: 1px solid #ccc; }
+        .visual-frame { flex: 3; }
+        .controls-panel { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding-left: 10px; border-left: 2px dashed #ccc; }
+
+        .camera-feed { width: 100%; height: 350px; border-radius: 8px; border: 3px solid #023336; background: black; object-fit: fill; display: block; }
+        .map-placeholder { width: 100%; height: 350px; background: linear-gradient(135deg, #bdc3c7, #95a5a6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2em; color: white; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); border: 3px solid #95a5a6;}
+
+        /* --- BUTTONS --- */
+        .btn { width: 100%; padding: 12px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; color: white; transition: transform 0.2s; text-align: center; font-size: 0.9em; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .btn:hover { transform: scale(1.05); }
+        .btn:disabled { background: #95a5a6 !important; cursor: not-allowed !important; }
+        .btn-connect { background: #4DA674; } .btn-disconnect { background: #e67e22; }
+        .btn-record { background: #e74c3c; } .btn-stop { background: #2ecc71; }
+        .btn-upload { background: #023336; } .btn-generate { background: #555; }
+        .btn-refresh { background: #4DA674; margin-bottom: 10px; }
+        .file-input { width: 100%; margin-bottom: 10px; font-size: 0.9em; }
+
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; }
+            .component-row { flex-direction: column; }
+            .controls-panel { border-left: none; border-top: 2px dashed #ccc; padding-top: 15px; padding-left: 0; }
+        }
+        footer { text-align: center; padding: 20px; margin-top: 20px; background: linear-gradient(180deg, #084d51, #033b3e); color: white; }
+    </style>
+</head>
+<body>
+<canvas id="recordCanvas" style="display: none;"></canvas>
+<header>
+    <div class="logo-text">BIM-BOT</div>
+    <p>Arduino Prototype for Mining Search & Rescue</p>
+</header>
+<div class="container">
+    
+    <aside class="sidebar card">
+        <h2>Hazard Notification</h2>
+        <button onclick="manualRefresh()" class="btn btn-refresh">🔄 Refresh Data</button>
+
+        <h3 style="color:#4DA674; font-size: 1em; margin-bottom: 5px;">Sensor Readings</h3>
+        <table>
+            <thead><tr><th>Type</th><th>Value</th></tr></thead>
+            <tbody>
+                <tr><td>🌡️ Temp</td><td id="tempDisplay">-- °C</td></tr>
+                <tr><td>💧 Humidity</td><td id="humDisplay">-- %</td></tr>
+                <tr><td>🔥 Heat Index</td><td id="hiDisplay">--</td></tr>
+                <tr><td> Timestamp</td><td id="hazardTime">--</td></tr>
+            </tbody>
+        </table>
+
+        <h3 style="color:#4DA674; font-size: 1em; margin-bottom: 5px;">Risk Assessment</h3>
+        <table>
+            <thead><tr><th>Assessment</th></tr></thead>
+            <tbody>
+                <tr><td id="riskLevel" style="text-align:center; height: 50px; vertical-align: middle;">--</td></tr>
+                
+                <!-- NLP Interpretation -->
+                <tr>
+                    <td id="riskText"
+                        style="text-align:center; padding: 10px; font-size: 0.9em; color:#023336;">
+                        <!-- Interpreted text from NLP will appear here -->
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <!--ML-- Prediction Section-->
+        <h3 style="color:#4DA674; font-size: 1em; margin-bottom: 5px;">ML Prediction</h3>
+        <table>
+            <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>🤖 Method</td>
+                    <td id="mlMethod" style="font-size:0.85em;">--</td>
+                </tr>
+                <tr>
+                    <td>📊 Confidence</td>
+                    <td id="mlConfidence" style="font-weight:bold;">--</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding:5px;">
+                        <div style="font-size:0.75em; color:#555; margin-top:5px;">
+                            <div style="display:flex; justify-content:space-between;">
+                                <span>Low:</span>
+                                <span id="probLow">--%</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between;">
+                                <span>Moderate:</span>
+                                <span id="probMod">--%</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between;">
+                                <span>Severe:</span>
+                                <span id="probSev">--%</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="color:#4DA674; font-size: 1em; margin-bottom: 5px;">System Info</h3>
+        <table>
+            <thead><tr><th>Status</th></tr></thead>
+            <tbody>
+                <tr><td id="dbStatus" style="text-align:center; font-weight:bold; font-size:0.9em; color:#7f8c8d;">MySQL: Idle</td></tr>
+                <tr><td id="hazardStatus" style="text-align:center; font-size:0.8em; color:#555;">Initializing...</td></tr>
+            </tbody>
+        </table>
+    </aside>
+
+    <main class="main-content">
+        <div class="card">
+            <h2>Live Camera Feed</h2>
+            <div class="component-row">
+                <div class="visual-frame">
+                    <img id="camStream" class="camera-feed" src="" alt="Click Connect" crossOrigin="anonymous">
+                </div>
+                <div class="controls-panel">
+                    <button class="btn btn-connect" id="connectBtn" onclick="connectToCamera()">📡 Connect</button>
+                    <button class="btn btn-disconnect" id="disconnectBtn" onclick="disconnectCamera()" style="display:none;">🔌 Disconnect</button>
+                    
+                    <button class="btn btn-record" id="recordBtn" onclick="startRecording()" disabled>⏺ Record</button>
+                    <button class="btn btn-stop" id="stopBtn" onclick="stopRecording()" disabled>⏹ Stop</button>
+                    
+                    <div id="camStatus" style="text-align:center; font-size:0.8em; margin-top:5px;">Status: Offline</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+        <h2>Area Map Generation</h2>
+        <div class="component-row">
+            <div class="controls-panel">
+                <form id="uploadForm" enctype="multipart/form-data" style="width:100%;">
+                    <label style="font-weight:bold; font-size:0.9em;">Upload Log:</label>
+                    <input type="file" id="videoUpload" name="video" accept="video/*" class="file-input" required>
+                    <button type="submit" class="btn btn-upload">⬆️ Upload Video</button>
+                </form>
+                <button type="button" id="generateMapBtn" class="btn btn-generate" disabled>🗺️ Generate Map</button>
+                <div id="mapStatus" style="text-align:center; font-size:0.8em; margin-top:5px; color:#555;">
+                    Status: Idle
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+</div>
+<footer><p>© 2025 BIM-Bot Project</p></footer>
+
+<script>
+// --- CONFIGURATION ---
+const ROBOT_IP = "http://192.168.4.1";
+const STREAM_URL = `${ROBOT_IP}:81/stream`;
+
+// --- HAZARD DATA LOGIC ---
+async function fetchHazardData() {
+    try {
+        const res = await fetch("/api/sensor-data");
+        const data = await res.json();
+
+        if (!data.timestamp || data.timestamp.includes("Waiting")) {
+            throw new Error("Waiting for Robot...");
+        }
+
+        // Update Values (existing code)
+        document.getElementById("tempDisplay").innerText = `${data.temperature} °C`;
+        document.getElementById("humDisplay").innerText = `${data.humidity} %`;
+        document.getElementById("hiDisplay").innerText = `${data.heat_index}`;
+        document.getElementById("hazardTime").innerText = data.timestamp;
+        document.getElementById("riskLevel").textContent = data.risk_level;
+        const riskText = document.getElementById("riskText"); 
+
+        riskText.textContent = (data.interpretation ?? "--");
+        const newInterpretation = data.interpretation ?? "Analyzing environmental conditions...";
+
+        if (riskText.textContent !== newInterpretation) {
+            riskText.style.opacity = 0;
+            setTimeout(() => {
+                riskText.textContent = newInterpretation;
+                riskText.style.opacity = 1;
+            }, 600);
+        } else {
+            riskText.style.opacity = 1;}
+
+
+
+        // Update Risk Assessment
+        const riskCell = document.getElementById("riskLevel");
+        let riskClass = "risk-low";
+        if (data.risk_level === "Moderate Risk") riskClass = "risk-mod";
+        if (data.risk_level === "Severe Risk") riskClass = "risk-sev";
+        riskCell.innerHTML = `<span class="${riskClass}">${data.risk_level}</span>`;
+        
+        // Update ML Prediction Info
+        const methodCell = document.getElementById("mlMethod");
+        const m = (data.method || "").toLowerCase();
+
+        if (m === "xgboost") {
+            methodCell.innerHTML = "🤖 XGBoost";
+            methodCell.style.color = "#27ae60"; // green
+        } else if (m.startsWith("nlp_")) {
+            const pretty = m.replace("nlp_", "")
+                            .replace("_", " ")
+                            .replace(/\b\w/g, c => c.toUpperCase());
+            methodCell.innerHTML = `🧠 NLP (${pretty})`;
+            methodCell.style.color = "#0e6e69"; // teal
+        } else {
+            methodCell.innerHTML = "📊 Threshold";
+            methodCell.style.color = "#95a5a6"; // gray
+        }
+        
+        
+        function pct(x) {
+        const n = Number(x);
+        if (!isFinite(n)) return "--%";
+        return `${(n * 100).toFixed(1)}%`;
+        }
+
+        document.getElementById("mlConfidence").innerText = pct(data.confidence);
+
+        const probs = data.probabilities || {};
+        const pLow = Array.isArray(probs) ? probs[0] : probs.low;
+        const pMod = Array.isArray(probs) ? probs[1] : probs.moderate;
+        const pSev = Array.isArray(probs) ? probs[2] : probs.severe;
+
+        document.getElementById("probLow").innerText = pct(pLow);
+        document.getElementById("probMod").innerText = pct(pMod);
+        document.getElementById("probSev").innerText = pct(pSev);
+        
+        // Update Status (existing code)
+        document.getElementById("hazardStatus").innerText = "✅ Robot Active";
+        document.getElementById("hazardStatus").style.color = "#27ae60";
+
+        // Update MySQL Recording Status
+        const dbStatus = document.getElementById("dbStatus");
+        if (data.is_recording) {
+            dbStatus.innerText = "🔴 Saving to Database...";
+            dbStatus.style.color = "#e74c3c";
+        } else {
+            dbStatus.innerText = "⚪ MySQL: Idle";
+            dbStatus.style.color = "#7f8c8d";
+        }
+
+    } catch (err) {
+        document.getElementById("hazardStatus").innerText = "❌ Robot Offline";
+        document.getElementById("hazardStatus").style.color = "#c0392b";
+    }
+}
+
+// --- CAMERA LOGIC ---
+const camStreamImg = document.getElementById("camStream");
+const camStatus = document.getElementById("camStatus");
+const connectBtn = document.getElementById("connectBtn");
+const disconnectBtn = document.getElementById("disconnectBtn");
+const recordBtn = document.getElementById("recordBtn");
+const stopBtn = document.getElementById("stopBtn");
+let mediaRecorder, recordedChunks = [], drawInterval;
+
+function connectToCamera() {
+    camStatus.innerText = "Status: Connecting...";
+    camStreamImg.src = STREAM_URL + "?t=" + new Date().getTime();
+    camStreamImg.onload = function() {
+        camStatus.innerText = "🟢 Online"; camStatus.style.color = "#27ae60";
+        connectBtn.style.display = "none"; disconnectBtn.style.display = "inline-block";
+        recordBtn.disabled = false; stopBtn.disabled = true;
+    };
+    camStreamImg.onerror = function() { camStatus.innerText = "🔴 Connection Failed"; camStatus.style.color = "#e74c3c"; };
+}
+
+function disconnectCamera() {
+    camStreamImg.src = ""; camStatus.innerText = "Status: Offline"; camStatus.style.color = "#333";
+    connectBtn.style.display = "inline-block"; disconnectBtn.style.display = "none";
+    recordBtn.disabled = true; stopBtn.disabled = true;
+    if(mediaRecorder && mediaRecorder.state === "recording") stopRecording();
+}
+
+// --- MODIFIED: START RECORDING (VIDEO + DB) ---
+function startRecording() {
+    // 1. Send signal to Python to start MySQL recording
+    fetch('/toggle_recording', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'start' })
+    }).then(r => console.log("DB Recording Started"));
+
+    // 2. Start Visual Recording (Canvas)
+    const canvas = document.getElementById("recordCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = 640; 
+    canvas.height = 480;
+    
+    camStatus.innerText = "🔴 Recording (Video & DB)..."; 
+    recordBtn.disabled = true; 
+    stopBtn.disabled = false;
+    
+    drawInterval = setInterval(() => { try { ctx.drawImage(camStreamImg, 0, 0, canvas.width, canvas.height); } catch (e) {} }, 33); 
+    const stream = canvas.captureStream(30);
+    mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/mp4' }); 
+    recordedChunks = [];
+    mediaRecorder.ondataavailable = e => { if (e.data.size > 0) recordedChunks.push(e.data); };
+    
+    mediaRecorder.onstop = () => {
+        const blob = new Blob(recordedChunks, { type: "video/mp4" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a"); a.href = url; a.download = "bimbot_exploration.mp4";
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        camStatus.innerText = "🟢 Video Saved";
+    };
+    mediaRecorder.start();
+}
+
+// --- MODIFIED: STOP RECORDING (VIDEO + DB) ---
+function stopRecording() { 
+    // 1. Send signal to Python to STOP MySQL recording
+    fetch('/toggle_recording', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'stop' })
+    }).then(r => console.log("DB Recording Stopped"));
+
+    // 2. Stop Visual Recording
+    if (mediaRecorder) { 
+        mediaRecorder.stop(); 
+        clearInterval(drawInterval); 
+    } 
+    recordBtn.disabled = false; 
+    stopBtn.disabled = true; 
+}
+
+// --- UPLOAD LOGIC ---
+const form = document.getElementById("uploadForm");
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = document.querySelector(".btn-upload");
+    const file = document.getElementById("videoUpload").files[0];
+    if(!file) return alert("Select file!");
+    
+    const fd = new FormData(); fd.append("video", file);
+    btn.innerText = "⏳ Uploading..."; btn.disabled = true;
+    
+    try {
+        const res = await fetch("/upload", { method: "POST", body: fd });
+        if(res.ok) { btn.innerText = "✅ Success!"; document.getElementById("generateMapBtn").disabled = false; }
+        else throw new Error();
+    } catch(e) { btn.innerText = "❌ Failed"; }
+    setTimeout(() => { btn.innerText = "⬆️ Upload Video"; btn.disabled = false; }, 3000);
+});
+
+//Generate Map
+document.getElementById("generateMapBtn").addEventListener("click", function() {
+    fetch("/generate_map", {
+        method: "POST"
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert("Map generation response: " + JSON.stringify(data));
+    })
+    .catch(err => {
+        alert("Error: " + err);
+    });
+});
+
+// --- OCCUPANCY MAP LOGIC ---
+const occupancyMapImg = document.getElementById("occupancyMap");
+const mapStatus = document.getElementById("mapStatus");
+let mapUpdateInterval = null;
+let mapGenerationActive = false;
+
+// Option A: Polling method (simpler, works everywhere)
+function startMapPolling() {
+    if (mapUpdateInterval) return; // Already polling
+    
+    mapStatus.innerText = "🟢 Receiving map updates...";
+    mapStatus.style.color = "#27ae60";
+    
+    mapUpdateInterval = setInterval(async () => {
+        try {
+            const res = await fetch("/api/occupancy-grid");
+            const data = await res.json();
+            
+            if (data.status === "success" && data.image) {
+                occupancyMapImg.src = data.image;
+                occupancyMapImg.alt = "Real-time occupancy grid";
+            } else {
+                occupancyMapImg.alt = "Generating map...";
+            }
+        } catch (err) {
+            console.error("Map fetch error:", err);
+        }
+    }, 500); // Update every 500ms
+}
+
+function stopMapPolling() {
+    if (mapUpdateInterval) {
+        clearInterval(mapUpdateInterval);
+        mapUpdateInterval = null;
+        mapStatus.innerText = "Status: Idle";
+        mapStatus.style.color = "#555";
+    }
+}
+
+// Option B: Direct MJPEG stream (more efficient, but some browsers may have issues)
+function startMapStream() {
+    occupancyMapImg.src = "/stream/occupancy-grid?t=" + new Date().getTime();
+    mapStatus.innerText = "🟢 Streaming map...";
+    mapStatus.style.color = "#27ae60";
+}
+
+// Modify Generate Map button handler
+document.getElementById("generateMapBtn").addEventListener("click", async function() {
+    const btn = this;
+    btn.disabled = true;
+    btn.innerText = "⏳ Processing...";
+    mapStatus.innerText = "🔄 Starting SLAM...";
+    mapGenerationActive = true;
+    
+    // Start polling/streaming map updates
+    startMapPolling(); // Use Option A (polling)
+    // OR: startMapStream(); // Use Option B (streaming)
+    
+    try {
+        const res = await fetch("/generate_map", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                headless: true,  // Run without GUI
+                async: true      // Run in background
+            })
+        });
+        
+        const data = await res.json();
+        
+        if (data.status === "success") {
+            mapStatus.innerText = "✅ Map generation started";
+            mapStatus.style.color = "#27ae60";
+            alert("Map generation started! Updates will appear in real-time.");
+        } else {
+            throw new Error(data.message || "Unknown error");
+        }
+        
+    } catch (err) {
+        mapStatus.innerText = "❌ Failed to start";
+        mapStatus.style.color = "#e74c3c";
+        alert("Error: " + err.message);
+        stopMapPolling();
+    } finally {
+        btn.disabled = false;
+        btn.innerText = "🗺️ Generate Map";
+    }
+});
+
+// Optional: Stop polling when map generation completes
+// (You'd need to add a /api/slam-status endpoint to check if SLAM is still running)
+
+// --- INIT ---
+async function manualRefresh() { 
+    document.querySelector('.btn-refresh').innerText = "Updating..."; 
+    await fetchHazardData(); 
+    document.querySelector('.btn-refresh').innerText = "🔄 Refresh Data"; 
+}
+setInterval(fetchHazardData, 2000);
+fetchHazardData();
+</script>
+</body>
+</html>

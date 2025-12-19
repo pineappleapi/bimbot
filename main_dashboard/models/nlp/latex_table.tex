@@ -1,0 +1,36 @@
+\begin{table}[h]
+\centering
+\caption{NLP Model Performance Comparison with 95\% Confidence Intervals}
+\label{tab:model_comparison}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Model} & \textbf{Accuracy} & \textbf{Macro F1} & \textbf{95\% CI} & \textbf{Type} \\
+\hline
+CNN (Kim 2014) & 99.6% & 99.7% & ±0.006 & Deep Learning \\
+Tiny Transformer & 99.6% & 99.7% & ±0.006 & Deep Learning \\
+Logistic Regression & 98.4% & 97.0% & ±0.016 & Baseline \\
+Naive Bayes & 98.4% & 97.8% & ±0.014 & Baseline \\
+Decision Tree & 98.0% & 96.7% & ±0.018 & Baseline \\
+Random Forest & 96.5% & 91.9% & ±0.022 & Ensemble \\
+Naive Predictor & 61.2% & 25.3% & ±0.059 & Baseline \\
+LSTM & 61.2% & 25.3% & ±0.059 & Deep Learning \\
+\hline
+\end{tabular}
+\end{table}
+
+% Confusion Matrix Example (CNN)
+\begin{table}[h]
+\centering
+\caption{Confusion Matrix - CNN (Kim 2014)}
+\label{tab:confusion_cnn}
+\begin{tabular}{lccc}
+\hline
+ & \multicolumn{3}{c}{\textbf{Predicted}} \\
+\textbf{Actual} & Low & Moderate & Severe \\
+\hline
+Low & 82 & 1 & 0 \\
+Moderate & 0 & 156 & 0 \\
+Severe & 0 & 0 & 16 \\
+\hline
+\end{tabular}
+\end{table}

@@ -136,7 +136,7 @@ class FeatureInfo(object):
     max_descriptor_distance[FeatureDescriptorTypes.ORB] = 100  # ORB
     #
     norm_type[FeatureDescriptorTypes.ORB2] = cv2.NORM_HAMMING
-    max_descriptor_distance[FeatureDescriptorTypes.ORB2] = 100  # ORB2
+    max_descriptor_distance[FeatureDescriptorTypes.ORB2] = 50  # ORB2
     #
     norm_type[FeatureDescriptorTypes.BRISK] = cv2.NORM_HAMMING
     max_descriptor_distance[FeatureDescriptorTypes.BRISK] = 200  # BRISK

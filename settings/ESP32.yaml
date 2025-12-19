@@ -1,0 +1,69 @@
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters — Medium Map (Balanced)
+#--------------------------------------------------------------------------------------------
+Viewer.on: 1
+
+# Keyframes and graph
+Viewer.KeyFrameSize: 0.06          # slightly larger than default for visibility
+Viewer.KeyFrameLineWidth: 1.2
+Viewer.GraphLineWidth: 1.0
+
+# Map points
+Viewer.PointSize: 1.8              # clear but not cluttered
+Viewer.LineSize: 1.2
+
+# Camera frustum
+Viewer.CameraSize: 0.09
+Viewer.CameraLineWidth: 3
+
+# Initial viewpoint (moderate zoom-out, good overview)
+Viewer.ViewpointX: 0
+Viewer.ViewpointY: -1.0            # slight downward tilt
+Viewer.ViewpointZ: -3.0            # not too far back
+Viewer.ViewpointF: 280             # balanced zoom
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. ESP32-CAM (OV2640) - Calibrated
+#--------------------------------------------------------------------------------------------
+
+# Camera matrix (intrinsics) from calibration (pixels)
+Camera.fx: 210.1111201261316
+Camera.fy: 214.97002685534832
+Camera.cx: 163.05643693584662
+Camera.cy: 126.66699115309147
+
+# Lens distortion (OpenCV model: k1, k2, p1, p2, k3)
+Camera.k1: -0.09120566960874774
+Camera.k2:  0.34201655163328004
+Camera.p1:  0.012926609270378909
+Camera.p2: -0.003304475958501004
+Camera.k3: -0.43769205235274083
+
+Camera.width: 640
+Camera.height: 480
+
+# Camera frames per second (set to your actual stream rate)
+Camera.fps: 30.0
+
+# Baseline * fx (only relevant for stereo/IR projector; for single camera you can keep 0)
+Camera.bf: 0.0
+
+# Color order of the images (0: BGR, 1: RGB) - ESP32 OpenCV typically BGR
+Camera.RGB: 0
+
+# Close/Far threshold (app-specific)
+ThDepth: 40.0
+
+# Depth map values factor (app-specific)
+DepthMapFactor: 1.0
+
+#--------------------------------------------------------------------------------------------
+## Features extraction
+#--------------------------------------------------------------------------------------------
+
+FeatureTrackerConfig.name: ORB2_TUNED #NEW
+FeatureTrackerConfig.nFeatures: 6000 #NEW 
+FeatureTrackerConfig.match_ratio_test: 0.80 #NEW
+
+

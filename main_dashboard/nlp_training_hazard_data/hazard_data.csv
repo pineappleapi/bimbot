@@ -1,0 +1,1273 @@
+text,label,temperature,humidity,heat_index
+"Current conditions: 24.9°C temperature, 50.0% humidity, heat index is normal.",Low,24.9,50.0,25.83
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Sensor readings show 36.0 degrees Celsius, 60.0 percent humidity, heat index exceeds threshold.",Severe,36.0,60.0,61.2
+"Sensor readings show 30.9 degrees Celsius, 48.0 percent humidity, heat index is high.",Moderate,30.9,48.0,32.08
+Temperature rising to 38.5°C. Humidity stable to 61.5%.,Severe,38.5,61.5,64.64999999999999
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,25.7,44.0,26.16
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.9,50.0,25.83
+Temperature stable to 30.8°C. Humidity stable to 50.0%.,Moderate,30.8,50.0,32.29
+"Temperature at 24.9°C (trend stable), humidity at 50.0%.",Low,24.9,50.0,25.83
+"Temperature at 30.8°C (trend stable), humidity at 50.0%.",Moderate,30.8,50.0,32.29
+"Sensor readings show 39.0 degrees Celsius, 61.8 percent humidity, heat index exceeds threshold.",Severe,39.0,61.8,65.34
+"Temperature is warm at 30.9°C, humidity is low.",Moderate,30.9,48.0,32.08
+"Alert: Temperature 44.0°C, humidity 64.8%. Heat index exceeds threshold.",Severe,44.0,64.8,72.24
+"Alert: Temperature 25.8°C, humidity 44.0%. Heat index is normal.",Low,25.8,44.0,26.22
+31.0°C and 49.0% humidity detected.,Moderate,31.0,49.0,32.42
+"Alert: Temperature 24.8°C, humidity 50.0%. Heat index is normal.",Low,24.8,50.0,25.78
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,48.0,32.08
+27.2°C and 45.0% humidity detected.,Moderate,27.2,45.0,27.29
+Temperature stable to 31.0°C. Humidity stable to 50.0%.,Moderate,31.0,50.0,32.62
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Temperature is warm at 30.8°C, humidity is moderate.",Moderate,30.8,50.0,32.29
+"Temperature is 31.0°C, humidity is 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,25.7,44.0,26.16
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is warm at 30.9°C, humidity is moderate.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.8,50.0,32.29
+"Current conditions: 31.0°C temperature, 50.0% humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+31.0°C and 50.0% humidity detected.,Moderate,31.0,50.0,32.62
+26.3°C and 48.0% humidity detected.,Low,26.3,48.0,26.72
+"Sensor readings show 26.8 degrees Celsius, 46.0 percent humidity, heat index is elevated.",Low,26.8,46.0,27.02
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+38.5°C and 61.5% humidity detected.,Severe,38.5,61.5,64.64999999999999
+"Temperature is 24.9°C, humidity is 50.0%, heat index is normal.",Low,24.9,50.0,25.83
+"Environment: 31.0°C, 49.0%, heat index is high.",Moderate,31.0,49.0,32.42
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+26.9°C and 47.0% humidity detected.,Low,26.9,47.0,27.15
+"Environment: 31.0°C, 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+24.9°C and 50.0% humidity detected.,Low,24.9,50.0,25.83
+"Current conditions: 25.8°C temperature, 44.0% humidity, heat index is normal.",Low,25.8,44.0,26.22
+"Temperature at 30.9°C (trend stable), humidity at 48.0%.",Moderate,30.9,48.0,32.08
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+Temperature stable to 24.8°C. Humidity stable to 50.0%.,Low,24.8,50.0,25.78
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Current conditions: 30.9°C temperature, 48.0% humidity, heat index is high.",Moderate,30.9,48.0,32.08
+"Sensor readings show 24.6 degrees Celsius, 50.0 percent humidity, heat index is normal.",Low,24.6,50.0,25.67
+"Temperature at 25.8°C (trend stable), humidity at 44.0%.",Low,25.8,44.0,26.22
+"Temperature is 31.0°C, humidity is 49.0%, heat index is high.",Moderate,31.0,49.0,32.42
+Temperature stable to 30.9°C. Humidity stable to 49.0%.,Moderate,30.9,49.0,32.26
+"Temperature is comfortable at 25.8°C, humidity is low.",Low,25.8,44.0,26.22
+"Temperature at 30.9°C (trend stable), humidity at 48.0%.",Moderate,30.9,48.0,32.08
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.9,50.0,25.83
+"Temperature is 41.0°C, humidity is 63.0%, heat index exceeds threshold.",Severe,41.0,63.0,68.1
+"Current conditions: 30.8°C temperature, 49.0% humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Environment: 31.0°C, 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+"Alert: Temperature 25.7°C, humidity 44.0%. Heat index is normal.",Low,25.7,44.0,26.16
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is warm at 30.9°C, humidity is moderate.",Moderate,30.9,50.0,32.45
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+Temperature stable to 30.9°C. Humidity stable to 48.0%.,Moderate,30.9,48.0,32.08
+"Temperature is 24.4°C, humidity is 51.0%, heat index is normal.",Low,24.4,51.0,25.57
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,31.0,49.0,32.42
+"Temperature at 25.0°C (trend stable), humidity at 50.0%.",Low,25.0,50.0,25.89
+"Temperature is warm at 30.9°C, humidity is moderate.",Moderate,30.9,50.0,32.45
+"Environment: 31.0°C, 49.0%, heat index is high.",Moderate,31.0,49.0,32.42
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+Temperature stable to 25.7°C. Humidity stable to 44.0%.,Low,25.7,44.0,26.16
+24.9°C and 50.0% humidity detected.,Low,24.9,50.0,25.83
+30.8°C and 49.0% humidity detected.,Moderate,30.8,49.0,32.1
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.9,47.0,27.15
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,31.0,49.0,32.42
+"Temperature is comfortable at 25.7°C, humidity is low.",Low,25.7,44.0,26.16
+"Current conditions: 30.8°C temperature, 49.0% humidity, heat index is high.",Moderate,30.8,49.0,32.1
+24.9°C and 50.0% humidity detected.,Low,24.9,50.0,25.83
+"Current conditions: 26.8°C temperature, 46.0% humidity, heat index is elevated.",Low,26.8,46.0,27.02
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+"Alert: Temperature 26.9°C, humidity 46.0%. Heat index is elevated.",Low,26.9,46.0,27.1
+"Sensor readings show 26.3 degrees Celsius, 47.0 percent humidity, heat index is normal.",Low,26.3,47.0,26.67
+"Temperature is 26.9°C, humidity is 46.0%, heat index is elevated.",Low,26.9,46.0,27.1
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.8,46.0,27.02
+"Temperature is hot at 45.5°C, humidity is high.",Severe,45.5,65.7,74.31
+"Temperature at 26.8°C (trend stable), humidity at 46.0%.",Low,26.8,46.0,27.02
+"Environment: 27.6°C, 40.0%, heat index is elevated.",Moderate,27.6,40.0,27.33
+"Temperature is hot at 44.0°C, humidity is high.",Severe,44.0,64.8,72.24
+"Sensor readings show 31.0 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature at 30.9°C (trend stable), humidity at 48.0%.",Moderate,30.9,48.0,32.08
+"Sensor readings show 30.9 degrees Celsius, 48.0 percent humidity, heat index is high.",Moderate,30.9,48.0,32.08
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+"Temperature is 24.8°C, humidity is 50.0%, heat index is normal.",Low,24.8,50.0,25.78
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 31.0°C, humidity 50.0%. Heat index is high.",Moderate,31.0,50.0,32.62
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+"Environment: 31.0°C, 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature is 26.3°C, humidity is 48.0%, heat index is normal.",Low,26.3,48.0,26.72
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,27.2,45.0,27.29
+"Alert: Temperature 30.9°C, humidity 48.0%. Heat index is high.",Moderate,30.9,48.0,32.08
+"Sensor readings show 25.7 degrees Celsius, 44.0 percent humidity, heat index is normal.",Low,25.7,44.0,26.16
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.5,50.0,25.62
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Environment: 25.8°C, 44.0%, heat index is normal.",Low,25.8,44.0,26.22
+"Alert: Temperature 25.8°C, humidity 44.0%. Heat index is normal.",Low,25.8,44.0,26.22
+Temperature stable to 25.0°C. Humidity stable to 50.0%.,Low,25.0,50.0,25.89
+"Sensor readings show 27.1 degrees Celsius, 46.0 percent humidity, heat index is elevated.",Moderate,27.1,46.0,27.27
+Temperature stable to 30.9°C. Humidity stable to 48.0%.,Moderate,30.9,48.0,32.08
+Temperature stable to 31.0°C. Humidity stable to 50.0%.,Moderate,31.0,50.0,32.62
+Temperature rising to 26.5°C. Humidity dropping to 43.0%.,Low,26.5,43.0,26.65
+"Sensor readings show 26.3 degrees Celsius, 47.0 percent humidity, heat index is normal.",Low,26.3,47.0,26.67
+31.0°C and 49.0% humidity detected.,Moderate,31.0,49.0,32.42
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Temperature at 25.8°C (trend stable), humidity at 44.0%.",Low,25.8,44.0,26.22
+"Alert: Temperature 24.8°C, humidity 50.0%. Heat index is normal.",Low,24.8,50.0,25.78
+"Temperature at 30.8°C (trend stable), humidity at 50.0%.",Moderate,30.8,50.0,32.29
+"Alert: Temperature 26.8°C, humidity 47.0%. Heat index is elevated.",Low,26.8,47.0,27.07
+"Alert: Temperature 41.0°C, humidity 63.0%. Heat index exceeds threshold.",Severe,41.0,63.0,68.1
+"Temperature is 26.3°C, humidity is 48.0%, heat index is normal.",Low,26.3,48.0,26.72
+"Sensor readings show 24.8 degrees Celsius, 50.0 percent humidity, heat index is normal.",Low,24.8,50.0,25.78
+"Environment: 24.8°C, 50.0%, heat index is normal.",Low,24.8,50.0,25.78
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Sensor readings show 30.8 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.8,50.0,32.29
+"Alert: Temperature 31.0°C, humidity 49.0%. Heat index is high.",Moderate,31.0,49.0,32.42
+Temperature stable to 30.8°C. Humidity stable to 49.0%.,Moderate,30.8,49.0,32.1
+"Temperature is comfortable at 24.5°C, humidity is moderate.",Low,24.5,51.0,25.62
+Temperature stable to 27.1°C. Humidity stable to 46.0%.,Moderate,27.1,46.0,27.27
+Temperature rising to 44.0°C. Humidity stable to 64.8%.,Severe,44.0,64.8,72.24
+Temperature rising to 44.5°C. Humidity stable to 65.1%.,Severe,44.5,65.1,72.92999999999999
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.4,51.0,25.57
+"Alert: Temperature 27.6°C, humidity 40.0%. Heat index is elevated.",Moderate,27.6,40.0,27.33
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+30.8°C and 50.0% humidity detected.,Moderate,30.8,50.0,32.29
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Temperature at 38.0°C (trend rising), humidity at 61.2%.",Severe,38.0,61.2,63.96
+Temperature stable to 30.8°C. Humidity stable to 50.0%.,Moderate,30.8,50.0,32.29
+"Sensor readings show 27.3 degrees Celsius, 45.0 percent humidity, heat index is elevated.",Moderate,27.3,45.0,27.38
+"Temperature at 24.9°C (trend stable), humidity at 50.0%.",Low,24.9,50.0,25.83
+"Sensor readings show 31.0 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,31.0,50.0,32.62
+Temperature stable to 26.9°C. Humidity stable to 47.0%.,Low,26.9,47.0,27.15
+"Temperature is comfortable at 26.9°C, humidity is low.",Low,26.9,46.0,27.1
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Alert: Temperature 37.5°C, humidity 60.9%. Heat index exceeds threshold.",Severe,37.5,60.9,63.27
+Temperature stable to 24.7°C. Humidity dropping to 50.0%.,Low,24.7,50.0,25.72
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Temperature is warm at 30.9°C, humidity is moderate.",Moderate,30.9,50.0,32.45
+Temperature stable to 24.9°C. Humidity stable to 50.0%.,Low,24.9,50.0,25.83
+"Temperature is warm at 31.0°C, humidity is moderate.",Moderate,31.0,50.0,32.62
+Temperature stable to 25.7°C. Humidity stable to 44.0%.,Low,25.7,44.0,26.16
+"Alert: Temperature 30.8°C, humidity 50.0%. Heat index is high.",Moderate,30.8,50.0,32.29
+Temperature stable to 26.2°C. Humidity stable to 48.0%.,Low,26.2,48.0,26.64
+"Current conditions: 25.7°C temperature, 44.0% humidity, heat index is normal.",Low,25.7,44.0,26.16
+27.6°C and 40.0% humidity detected.,Moderate,27.6,40.0,27.33
+"Temperature is 24.8°C, humidity is 50.0%, heat index is normal.",Low,24.8,50.0,25.78
+"Temperature is 30.9°C, humidity is 49.0%, heat index is high.",Moderate,30.9,49.0,32.26
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.1,48.0,26.56
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,48.0,32.08
+Temperature stable to 30.7°C. Humidity stable to 49.0%.,Moderate,30.7,49.0,31.95
+"Environment: 41.0°C, 63.0%, heat index exceeds threshold.",Severe,41.0,63.0,68.1
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,49.0,32.26
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+"Temperature at 29.8°C (trend rising rapidly), humidity at 52.0%.",Moderate,29.8,52.0,31.06
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature at 26.9°C (trend stable), humidity at 47.0%.",Low,26.9,47.0,27.15
+"Sensor readings show 37.0 degrees Celsius, 60.6 percent humidity, heat index exceeds threshold.",Severe,37.0,60.6,62.58
+"Temperature is warm at 31.0°C, humidity is moderate.",Moderate,31.0,50.0,32.62
+"Current conditions: 27.2°C temperature, 45.0% humidity, heat index is elevated.",Moderate,27.2,45.0,27.29
+"Environment: 26.9°C, 47.0%, heat index is elevated.",Low,26.9,47.0,27.15
+"Alert: Temperature 42.5°C, humidity 63.9%. Heat index exceeds threshold.",Severe,42.5,63.9,70.17
+"Alert: Temperature 26.8°C, humidity 46.0%. Heat index is elevated.",Low,26.8,46.0,27.02
+31.0°C and 49.0% humidity detected.,Moderate,31.0,49.0,32.42
+"Sensor readings show 30.8 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.8,50.0,32.29
+30.8°C and 50.0% humidity detected.,Moderate,30.8,50.0,32.29
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.3,47.0,26.67
+Temperature stable to 26.9°C. Humidity stable to 47.0%.,Low,26.9,47.0,27.15
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature at 24.4°C (trend stable), humidity at 51.0%.",Low,24.4,51.0,25.57
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Environment: 26.9°C, 46.0%, heat index is elevated.",Low,26.9,46.0,27.1
+30.9°C and 50.0% humidity detected.,Moderate,30.9,50.0,32.45
+"Temperature is 31.0°C, humidity is 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.8,50.0,25.78
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+30.9°C and 50.0% humidity detected.,Moderate,30.9,50.0,32.45
+"Temperature is hot at 45.0°C, humidity is high.",Severe,45.0,65.4,73.62
+Temperature stable to 27.2°C. Humidity rising to 46.0%.,Moderate,27.2,46.0,27.35
+"Temperature at 24.9°C (trend stable), humidity at 50.0%.",Low,24.9,50.0,25.83
+"Temperature at 30.9°C (trend stable), humidity at 48.0%.",Moderate,30.9,48.0,32.08
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is comfortable at 24.9°C, humidity is moderate.",Low,24.9,50.0,25.83
+"Current conditions: 25.0°C temperature, 50.0% humidity, heat index is normal.",Low,25.0,50.0,25.89
+"Temperature at 25.8°C (trend stable), humidity at 45.0%.",Low,25.8,45.0,26.25
+"Alert: Temperature 24.4°C, humidity 51.0%. Heat index is normal.",Low,24.4,51.0,25.57
+"Environment: 25.0°C, 50.0%, heat index is normal.",Low,25.0,50.0,25.89
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,48.0,32.08
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 31.0°C, humidity 50.0%. Heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature at 30.9°C (trend stable), humidity at 48.0%.",Moderate,30.9,48.0,32.08
+"Current conditions: 40.0°C temperature, 62.4% humidity, heat index exceeds threshold.",Severe,40.0,62.4,66.72
+"Temperature at 25.0°C (trend stable), humidity at 50.0%.",Low,25.0,50.0,25.89
+"Current conditions: 24.8°C temperature, 50.0% humidity, heat index is normal.",Low,24.8,50.0,25.78
+Temperature stable to 31.0°C. Humidity stable to 49.0%.,Moderate,31.0,49.0,32.42
+26.3°C and 47.0% humidity detected.,Low,26.3,47.0,26.67
+Temperature stable to 25.0°C. Humidity stable to 50.0%.,Low,25.0,50.0,25.89
+Temperature stable to 27.0°C. Humidity stable to 46.0%.,Low,27.0,46.0,27.18
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+30.9°C and 50.0% humidity detected.,Moderate,30.9,50.0,32.45
+"Temperature is warm at 30.8°C, humidity is moderate.",Moderate,30.8,50.0,32.29
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.6,50.0,25.67
+"Sensor readings show 31.0 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,31.0,49.0,32.42
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Environment: 31.0°C, 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature is 27.1°C, humidity is 46.0%, heat index is elevated.",Moderate,27.1,46.0,27.27
+"Environment: 26.8°C, 46.0%, heat index is elevated.",Low,26.8,46.0,27.02
+Temperature stable to 27.1°C. Humidity stable to 46.0%.,Moderate,27.1,46.0,27.27
+Temperature rising to 31.0°C. Humidity dropping to 50.0%.,Moderate,31.0,50.0,32.62
+Temperature stable to 27.3°C. Humidity stable to 45.0%.,Moderate,27.3,45.0,27.38
+Temperature stable to 24.4°C. Humidity stable to 51.0%.,Low,24.4,51.0,25.57
+"Sensor readings show 24.6 degrees Celsius, 50.0 percent humidity, heat index is normal.",Low,24.6,50.0,25.67
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,48.0,32.08
+31.0°C and 50.0% humidity detected.,Moderate,31.0,50.0,32.62
+"Environment: 30.9°C, 48.0%, heat index is high.",Moderate,30.9,48.0,32.08
+"Sensor readings show 30.8 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.9,46.0,27.1
+"Environment: 25.8°C, 44.0%, heat index is normal.",Low,25.8,44.0,26.22
+"Environment: 26.9°C, 47.0%, heat index is elevated.",Low,26.9,47.0,27.15
+"Temperature at 30.8°C (trend stable), humidity at 50.0%.",Moderate,30.8,50.0,32.29
+"Temperature at 30.9°C (trend stable), humidity at 48.0%.",Moderate,30.9,48.0,32.08
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,31.0,50.0,32.62
+"Sensor readings show 31.0 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,31.0,50.0,32.62
+25.0°C and 50.0% humidity detected.,Low,25.0,50.0,25.89
+"Temperature is 27.6°C, humidity is 40.0%, heat index is elevated.",Moderate,27.6,40.0,27.33
+"Current conditions: 24.7°C temperature, 50.0% humidity, heat index is normal.",Low,24.7,50.0,25.72
+26.9°C and 47.0% humidity detected.,Low,26.9,47.0,27.15
+"Temperature at 30.7°C (trend stable), humidity at 49.0%.",Moderate,30.7,49.0,31.95
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.4,51.0,25.57
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is warm at 30.9°C, humidity is moderate.",Moderate,30.9,50.0,32.45
+24.9°C and 50.0% humidity detected.,Low,24.9,50.0,25.83
+"Alert: Temperature 24.8°C, humidity 50.0%. Heat index is normal.",Low,24.8,50.0,25.78
+"Current conditions: 25.8°C temperature, 44.0% humidity, heat index is normal.",Low,25.8,44.0,26.22
+"Current conditions: 24.4°C temperature, 51.0% humidity, heat index is normal.",Low,24.4,51.0,25.57
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+Temperature stable to 30.9°C. Humidity stable to 48.0%.,Moderate,30.9,48.0,32.08
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 26.3°C, humidity 47.0%. Heat index is normal.",Low,26.3,47.0,26.67
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Temperature is warm at 31.0°C, humidity is moderate.",Moderate,31.0,50.0,32.62
+"Temperature is 31.0°C, humidity is 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+"Environment: 26.9°C, 46.0%, heat index is elevated.",Low,26.9,46.0,27.1
+Temperature stable to 25.0°C. Humidity stable to 50.0%.,Low,25.0,50.0,25.89
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,27.2,45.0,27.29
+27.2°C and 45.0% humidity detected.,Moderate,27.2,45.0,27.29
+"Temperature at 27.0°C (trend stable), humidity at 46.0%.",Low,27.0,46.0,27.18
+"Current conditions: 30.8°C temperature, 49.0% humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Sensor readings show 30.9 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,49.0,32.26
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Environment: 30.8°C, 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+Temperature stable to 24.7°C. Humidity stable to 50.0%.,Low,24.7,50.0,25.72
+26.8°C and 46.0% humidity detected.,Low,26.8,46.0,27.02
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 30.8°C, humidity 50.0%. Heat index is high.",Moderate,30.8,50.0,32.29
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+Temperature rising to 45.5°C. Humidity stable to 65.7%.,Severe,45.5,65.7,74.31
+"Temperature is 26.5°C, humidity is 43.0%, heat index is normal.",Low,26.5,43.0,26.65
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Temperature at 26.8°C (trend stable), humidity at 46.0%.",Low,26.8,46.0,27.02
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.9,47.0,27.15
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature at 30.9°C (trend stable), humidity at 49.0%.",Moderate,30.9,49.0,32.26
+"Environment: 25.0°C, 50.0%, heat index is normal.",Low,25.0,50.0,25.89
+"Current conditions: 37.5°C temperature, 60.9% humidity, heat index exceeds threshold.",Severe,37.5,60.9,63.27
+Temperature stable to 27.3°C. Humidity stable to 45.0%.,Moderate,27.3,45.0,27.38
+Temperature stable to 24.9°C. Humidity stable to 50.0%.,Low,24.9,50.0,25.83
+"Alert: Temperature 25.7°C, humidity 44.0%. Heat index is normal.",Low,25.7,44.0,26.16
+"Sensor readings show 30.8 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.8,50.0,32.29
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,31.0,50.0,32.62
+"Alert: Temperature 27.2°C, humidity 45.0%. Heat index is elevated.",Moderate,27.2,45.0,27.29
+"Temperature is warm at 27.1°C, humidity is low.",Moderate,27.1,46.0,27.27
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature at 27.2°C (trend stable), humidity at 45.0%.",Moderate,27.2,45.0,27.29
+"Alert: Temperature 27.4°C, humidity 45.0%. Heat index is elevated.",Moderate,27.4,45.0,27.47
+"Alert: Temperature 30.9°C, humidity 49.0%. Heat index is high.",Moderate,30.9,49.0,32.26
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Alert: Temperature 25.8°C, humidity 44.0%. Heat index is normal.",Low,25.8,44.0,26.22
+"Environment: 24.6°C, 50.0%, heat index is normal.",Low,24.6,50.0,25.67
+"Alert: Temperature 45.0°C, humidity 65.4%. Heat index exceeds threshold.",Severe,45.0,65.4,73.62
+"Alert: Temperature 31.0°C, humidity 50.0%. Heat index is high.",Moderate,31.0,50.0,32.62
+"Environment: 30.8°C, 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Sensor readings show 24.9 degrees Celsius, 50.0 percent humidity, heat index is normal.",Low,24.9,50.0,25.83
+"Temperature is 30.8°C, humidity is 50.0%, heat index is high.",Moderate,30.8,50.0,32.29
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+Temperature stable to 30.9°C. Humidity stable to 48.0%.,Moderate,30.9,48.0,32.08
+Temperature stable to 24.6°C. Humidity stable to 50.0%.,Low,24.6,50.0,25.67
+"Sensor readings show 25.0 degrees Celsius, 50.0 percent humidity, heat index is normal.",Low,25.0,50.0,25.89
+"Temperature at 30.8°C (trend stable), humidity at 50.0%.",Moderate,30.8,50.0,32.29
+"Temperature is comfortable at 24.6°C, humidity is moderate.",Low,24.6,50.0,25.67
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 26.9°C, humidity 47.0%. Heat index is elevated.",Low,26.9,47.0,27.15
+"Sensor readings show 30.8 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.8,50.0,32.29
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.6,50.0,25.67
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+"Current conditions: 24.8°C temperature, 50.0% humidity, heat index is normal.",Low,24.8,50.0,25.78
+"Alert: Temperature 31.0°C, humidity 50.0%. Heat index is high.",Moderate,31.0,50.0,32.62
+Temperature stable to 24.9°C. Humidity stable to 50.0%.,Low,24.9,50.0,25.83
+"Alert: Temperature 26.3°C, humidity 47.0%. Heat index is normal.",Low,26.3,47.0,26.67
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Environment: 30.9°C, 48.0%, heat index is high.",Moderate,30.9,48.0,32.08
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,31.0,49.0,32.42
+"Temperature at 30.9°C (trend stable), humidity at 49.0%.",Moderate,30.9,49.0,32.26
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.8,50.0,32.29
+"Temperature at 27.4°C (trend stable), humidity at 45.0%.",Moderate,27.4,45.0,27.47
+"Current conditions: 45.0°C temperature, 65.4% humidity, heat index exceeds threshold.",Severe,45.0,65.4,73.62
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,31.0,50.0,32.62
+"Temperature at 30.9°C (trend stable), humidity at 49.0%.",Moderate,30.9,49.0,32.26
+"Current conditions: 31.0°C temperature, 49.0% humidity, heat index is high.",Moderate,31.0,49.0,32.42
+"Temperature is 30.8°C, humidity is 50.0%, heat index is high.",Moderate,30.8,50.0,32.29
+"Current conditions: 30.9°C temperature, 48.0% humidity, heat index is high.",Moderate,30.9,48.0,32.08
+"Alert: Temperature 27.2°C, humidity 45.0%. Heat index is elevated.",Moderate,27.2,45.0,27.29
+"Temperature at 31.0°C (trend stable), humidity at 49.0%.",Moderate,31.0,49.0,32.42
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Environment: 26.3°C, 47.0%, heat index is normal.",Low,26.3,47.0,26.67
+"Environment: 27.1°C, 46.0%, heat index is elevated.",Moderate,27.1,46.0,27.27
+Temperature stable to 31.0°C. Humidity stable to 50.0%.,Moderate,31.0,50.0,32.62
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+"Alert: Temperature 26.9°C, humidity 46.0%. Heat index is elevated.",Low,26.9,46.0,27.1
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,25.8,44.0,26.22
+"Temperature at 25.8°C (trend stable), humidity at 44.0%.",Low,25.8,44.0,26.22
+"Temperature at 24.8°C (trend stable), humidity at 50.0%.",Low,24.8,50.0,25.78
+"Temperature is warm at 30.9°C, humidity is moderate.",Moderate,30.9,50.0,32.45
+"Current conditions: 24.6°C temperature, 50.0% humidity, heat index is normal.",Low,24.6,50.0,25.67
+"Temperature at 26.3°C (trend stable), humidity at 48.0%.",Low,26.3,48.0,26.72
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.8,50.0,32.29
+"Alert: Temperature 38.0°C, humidity 61.2%. Heat index exceeds threshold.",Severe,38.0,61.2,63.96
+"Environment: 30.8°C, 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Warning: temperature is hot, humidity is high. Heat index concern.",Severe,44.5,65.1,72.92999999999999
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.8,47.0,27.07
+"Alert: Temperature 25.7°C, humidity 45.0%. Heat index is normal.",Low,25.7,45.0,26.19
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,27.6,40.0,27.33
+"Sensor readings show 30.8 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.8,50.0,32.29
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+Temperature stable to 31.0°C. Humidity stable to 49.0%.,Moderate,31.0,49.0,32.42
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Current conditions: 30.9°C temperature, 49.0% humidity, heat index is high.",Moderate,30.9,49.0,32.26
+"Environment: 30.9°C, 48.0%, heat index is high.",Moderate,30.9,48.0,32.08
+"Alert: Temperature 26.8°C, humidity 46.0%. Heat index is elevated.",Low,26.8,46.0,27.02
+"Temperature at 26.3°C (trend stable), humidity at 48.0%.",Low,26.3,48.0,26.72
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.3,48.0,26.72
+30.8°C and 49.0% humidity detected.,Moderate,30.8,49.0,32.1
+"Temperature at 26.8°C (trend stable), humidity at 46.0%.",Low,26.8,46.0,27.02
+25.7°C and 45.0% humidity detected.,Low,25.7,45.0,26.19
+"Temperature is 27.6°C, humidity is 40.0%, heat index is elevated.",Moderate,27.6,40.0,27.33
+"Temperature is hot at 44.5°C, humidity is high.",Severe,44.5,65.1,72.92999999999999
+Temperature stable to 30.9°C. Humidity dropping to 48.0%.,Moderate,30.9,48.0,32.08
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 30.9°C, humidity 49.0%. Heat index is high.",Moderate,30.9,49.0,32.26
+"Temperature is 30.7°C, humidity is 49.0%, heat index is elevated.",Moderate,30.7,49.0,31.95
+"Temperature is warm at 30.9°C, humidity is low.",Moderate,30.9,49.0,32.26
+"Temperature at 26.9°C (trend stable), humidity at 47.0%.",Low,26.9,47.0,27.15
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,31.0,49.0,32.42
+"Alert: Temperature 24.8°C, humidity 50.0%. Heat index is normal.",Low,24.8,50.0,25.78
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.8,50.0,32.29
+"Environment: 30.9°C, 48.0%, heat index is high.",Moderate,30.9,48.0,32.08
+"Alert: Temperature 31.0°C, humidity 50.0%. Heat index is high.",Moderate,31.0,50.0,32.62
+"Sensor readings show 30.8 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.8,50.0,32.29
+Temperature stable to 25.8°C. Humidity stable to 44.0%.,Low,25.8,44.0,26.22
+Temperature stable to 30.8°C. Humidity stable to 50.0%.,Moderate,30.8,50.0,32.29
+"Alert: Temperature 25.8°C, humidity 44.0%. Heat index is normal.",Low,25.8,44.0,26.22
+"Environment: 30.8°C, 50.0%, heat index is high.",Moderate,30.8,50.0,32.29
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.9,50.0,25.83
+"Current conditions: 25.8°C temperature, 45.0% humidity, heat index is normal.",Low,25.8,45.0,26.25
+30.7°C and 49.0% humidity detected.,Moderate,30.7,49.0,31.95
+"Alert: Temperature 36.5°C, humidity 60.3%. Heat index exceeds threshold.",Severe,36.5,60.3,61.89
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,25.0,50.0,25.89
+"Temperature is warm at 30.9°C, humidity is low.",Moderate,30.9,48.0,32.08
+"Temperature is 30.9°C, humidity is 49.0%, heat index is high.",Moderate,30.9,49.0,32.26
+"Sensor readings show 30.8 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is warm at 30.9°C, humidity is low.",Moderate,30.9,49.0,32.26
+"Temperature at 37.5°C (trend rising), humidity at 60.9%.",Severe,37.5,60.9,63.27
+"Current conditions: 30.9°C temperature, 49.0% humidity, heat index is high.",Moderate,30.9,49.0,32.26
+"Temperature is 30.9°C, humidity is 48.0%, heat index is high.",Moderate,30.9,48.0,32.08
+"Sensor readings show 30.8 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.8,50.0,32.29
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature at 26.9°C (trend stable), humidity at 46.0%.",Low,26.9,46.0,27.1
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,48.0,32.08
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+24.9°C and 50.0% humidity detected.,Low,24.9,50.0,25.83
+"Temperature is comfortable at 26.8°C, humidity is low.",Low,26.8,47.0,27.07
+Temperature stable to 27.2°C. Humidity stable to 45.0%.,Moderate,27.2,45.0,27.29
+"Environment: 24.8°C, 50.0%, heat index is normal.",Low,24.8,50.0,25.78
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Temperature at 25.7°C (), humidity at 45.0%.",Low,25.7,45.0,26.19
+Temperature stable to 25.7°C. Humidity stable to 45.0%.,Low,25.7,45.0,26.19
+"Temperature is 30.9°C, humidity is 48.0%, heat index is high.",Moderate,30.9,48.0,32.08
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.3,48.0,26.72
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Current conditions: 26.9°C temperature, 47.0% humidity, heat index is elevated.",Low,26.9,47.0,27.15
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,31.0,49.0,32.42
+Temperature stable to 31.0°C. Humidity stable to 50.0%.,Moderate,31.0,50.0,32.62
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 24.9°C, humidity 50.0%. Heat index is normal.",Low,24.9,50.0,25.83
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Alert: Temperature 25.8°C, humidity 44.0%. Heat index is normal.",Low,25.8,44.0,26.22
+Temperature rising to 40.0°C. Humidity stable to 62.4%.,Severe,40.0,62.4,66.72
+"Temperature at 30.9°C (trend stable), humidity at 49.0%.",Moderate,30.9,49.0,32.26
+"Alert: Temperature 40.5°C, humidity 62.7%. Heat index exceeds threshold.",Severe,40.5,62.7,67.41
+"Temperature at 30.8°C (trend stable), humidity at 50.0%.",Moderate,30.8,50.0,32.29
+"Temperature is warm at 31.0°C, humidity is low.",Moderate,31.0,49.0,32.42
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+30.9°C and 48.0% humidity detected.,Moderate,30.9,48.0,32.08
+Temperature stable to 27.2°C. Humidity stable to 45.0%.,Moderate,27.2,45.0,27.29
+30.8°C and 49.0% humidity detected.,Moderate,30.8,49.0,32.1
+"Temperature is warm at 31.0°C, humidity is moderate.",Moderate,31.0,50.0,32.62
+"Sensor readings show 24.9 degrees Celsius, 50.0 percent humidity, heat index is normal.",Low,24.9,50.0,25.83
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,25.0,50.0,25.89
+"Temperature is comfortable at 25.8°C, humidity is low.",Low,25.8,44.0,26.22
+"Current conditions: 27.4°C temperature, 45.0% humidity, heat index is elevated.",Moderate,27.4,45.0,27.47
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,25.7,44.0,26.16
+Temperature stable to 26.3°C. Humidity stable to 48.0%.,Low,26.3,48.0,26.72
+"Temperature at 27.6°C (trend stable), humidity at 40.0%.",Moderate,27.6,40.0,27.33
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,25.7,44.0,26.16
+"Alert: Temperature 30.9°C, humidity 48.0%. Heat index is high.",Moderate,30.9,48.0,32.08
+"Temperature is comfortable at 24.9°C, humidity is moderate.",Low,24.9,50.0,25.83
+"Current conditions: 24.5°C temperature, 50.0% humidity, heat index is normal.",Low,24.5,50.0,25.62
+"Temperature is warm at 30.9°C, humidity is moderate.",Moderate,30.9,50.0,32.45
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is warm at 30.9°C, humidity is low.",Moderate,30.9,48.0,32.08
+"Temperature is 25.8°C, humidity is 44.0%, heat index is normal.",Low,25.8,44.0,26.22
+Temperature stable to 26.9°C. Humidity stable to 46.0%.,Low,26.9,46.0,27.1
+"Alert: Temperature 31.0°C, humidity 50.0%. Heat index is high.",Moderate,31.0,50.0,32.62
+Temperature stable to 30.9°C. Humidity stable to 49.0%.,Moderate,30.9,49.0,32.26
+"Current conditions: 30.8°C temperature, 49.0% humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Sensor readings show 26.8 degrees Celsius, 46.0 percent humidity, heat index is elevated.",Low,26.8,46.0,27.02
+"Sensor readings show 30.8 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Temperature is 30.8°C, humidity is 50.0%, heat index is high.",Moderate,30.8,50.0,32.29
+"Temperature at 30.9°C (trend stable), humidity at 48.0%.",Moderate,30.9,48.0,32.08
+Temperature stable to 31.0°C. Humidity stable to 49.0%.,Moderate,31.0,49.0,32.42
+"Environment: 30.9°C, 49.0%, heat index is high.",Moderate,30.9,49.0,32.26
+"Environment: 26.3°C, 47.0%, heat index is normal.",Low,26.3,47.0,26.67
+"Temperature is warm at 30.9°C, humidity is low.",Moderate,30.9,48.0,32.08
+43.0°C and 64.2% humidity detected.,Severe,43.0,64.2,70.86
+"Temperature is 26.3°C, humidity is 48.0%, heat index is normal.",Low,26.3,48.0,26.72
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Current conditions: 30.8°C temperature, 50.0% humidity, heat index is high.",Moderate,30.8,50.0,32.29
+"Environment: 26.9°C, 47.0%, heat index is elevated.",Low,26.9,47.0,27.15
+"Environment: 30.9°C, 48.0%, heat index is high.",Moderate,30.9,48.0,32.08
+30.8°C and 50.0% humidity detected.,Moderate,30.8,50.0,32.29
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Current conditions: 30.9°C temperature, 49.0% humidity, heat index is high.",Moderate,30.9,49.0,32.26
+Temperature stable to 30.9°C. Humidity stable to 48.0%.,Moderate,30.9,48.0,32.08
+"Sensor readings show 25.7 degrees Celsius, 44.0 percent humidity, heat index is normal.",Low,25.7,44.0,26.16
+"Temperature is comfortable at 26.8°C, humidity is low.",Low,26.8,46.0,27.02
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Current conditions: 27.6°C temperature, 40.0% humidity, heat index is elevated.",Moderate,27.6,40.0,27.33
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,49.0,32.26
+"Alert: Temperature 27.3°C, humidity 45.0%. Heat index is elevated.",Moderate,27.3,45.0,27.38
+Temperature stable to 24.8°C. Humidity stable to 50.0%.,Low,24.8,50.0,25.78
+"Temperature is 25.0°C, humidity is 50.0%, heat index is normal.",Low,25.0,50.0,25.89
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,27.2,45.0,27.29
+"Environment: 40.5°C, 62.7%, heat index exceeds threshold.",Severe,40.5,62.7,67.41
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+30.8°C and 50.0% humidity detected.,Moderate,30.8,50.0,32.29
+"Temperature is hot at 37.5°C, humidity is high.",Severe,37.5,60.9,63.27
+"Warning: temperature is hot, humidity is high. Heat index concern.",Severe,39.0,61.8,65.34
+Temperature stable to 31.0°C. Humidity stable to 49.0%.,Moderate,31.0,49.0,32.42
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+Temperature stable to 24.7°C. Humidity stable to 50.0%.,Low,24.7,50.0,25.72
+"Alert: Temperature 31.0°C, humidity 50.0%. Heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature is 31.0°C, humidity is 49.0%, heat index is high.",Moderate,31.0,49.0,32.42
+Temperature stable to 27.6°C. Humidity stable to 40.0%.,Moderate,27.6,40.0,27.33
+"Temperature at 27.2°C (trend stable), humidity at 45.0%.",Moderate,27.2,45.0,27.29
+Temperature stable to 26.8°C. Humidity stable to 47.0%.,Low,26.8,47.0,27.07
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.8,50.0,25.78
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+31.0°C and 50.0% humidity detected.,Moderate,31.0,50.0,32.62
+"Current conditions: 30.9°C temperature, 49.0% humidity, heat index is high.",Moderate,30.9,49.0,32.26
+"Sensor readings show 24.9 degrees Celsius, 50.0 percent humidity, heat index is normal.",Low,24.9,50.0,25.83
+"Environment: 30.8°C, 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Alert: Temperature 30.7°C, humidity 49.0%. Heat index is elevated.",Moderate,30.7,49.0,31.95
+Temperature stable to 31.0°C. Humidity stable to 50.0%.,Moderate,31.0,50.0,32.62
+"Current conditions: 30.9°C temperature, 49.0% humidity, heat index is high.",Moderate,30.9,49.0,32.26
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,48.0,32.08
+Temperature stable to 31.0°C. Humidity stable to 49.0%.,Moderate,31.0,49.0,32.42
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.7,50.0,25.72
+24.6°C and 50.0% humidity detected.,Low,24.6,50.0,25.67
+"Current conditions: 31.0°C temperature, 50.0% humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Sensor readings show 25.8 degrees Celsius, 44.0 percent humidity, heat index is normal.",Low,25.8,44.0,26.22
+"Temperature is warm at 30.8°C, humidity is moderate.",Moderate,30.8,50.0,32.29
+"Sensor readings show 31.0 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,31.0,49.0,32.42
+"Current conditions: 26.9°C temperature, 47.0% humidity, heat index is elevated.",Low,26.9,47.0,27.15
+"Temperature is comfortable at 24.4°C, humidity is moderate.",Low,24.4,51.0,25.57
+"Current conditions: 24.9°C temperature, 50.0% humidity, heat index is normal.",Low,24.9,50.0,25.83
+"Alert: Temperature 26.2°C, humidity 48.0%. Heat index is normal.",Low,26.2,48.0,26.64
+Temperature rising to 42.5°C. Humidity stable to 63.9%.,Severe,42.5,63.9,70.17
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+"Temperature at 26.3°C (trend stable), humidity at 47.0%.",Low,26.3,47.0,26.67
+27.6°C and 40.0% humidity detected.,Moderate,27.6,40.0,27.33
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is warm at 30.9°C, humidity is low.",Moderate,30.9,49.0,32.26
+"Temperature at 30.8°C (trend stable), humidity at 50.0%.",Moderate,30.8,50.0,32.29
+"Warning: temperature is hot, humidity is high. Heat index concern.",Severe,45.5,65.7,74.31
+"Environment: 30.8°C, 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature at 26.1°C (trend rising), humidity at 48.0%.",Low,26.1,48.0,26.56
+"Temperature is warm at 30.9°C, humidity is moderate.",Moderate,30.9,50.0,32.45
+"Current conditions: 27.1°C temperature, 46.0% humidity, heat index is elevated.",Moderate,27.1,46.0,27.27
+"Alert: Temperature 24.8°C, humidity 50.0%. Heat index is normal.",Low,24.8,50.0,25.78
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.7,49.0,31.95
+"Current conditions: 30.8°C temperature, 49.0% humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Environment: 26.2°C, 48.0%, heat index is normal.",Low,26.2,48.0,26.64
+"Current conditions: 30.8°C temperature, 50.0% humidity, heat index is high.",Moderate,30.8,50.0,32.29
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+24.9°C and 50.0% humidity detected.,Low,24.9,50.0,25.83
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,49.0,32.26
+Temperature stable to 30.9°C. Humidity dropping to 49.0%.,Moderate,30.9,49.0,32.26
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,25.8,44.0,26.22
+"Temperature at 27.6°C (trend rising), humidity at 40.0%.",Moderate,27.6,40.0,27.33
+"Environment: 30.9°C, 48.0%, heat index is high.",Moderate,30.9,48.0,32.08
+"Environment: 25.8°C, 44.0%, heat index is normal.",Low,25.8,44.0,26.22
+"Environment: 30.8°C, 50.0%, heat index is high.",Moderate,30.8,50.0,32.29
+"Current conditions: 26.8°C temperature, 47.0% humidity, heat index is elevated.",Low,26.8,47.0,27.07
+"Temperature is comfortable at 26.8°C, humidity is low.",Low,26.8,47.0,27.07
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Temperature at 30.9°C (trend stable), humidity at 49.0%.",Moderate,30.9,49.0,32.26
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Environment: 25.8°C, 44.0%, heat index is normal.",Low,25.8,44.0,26.22
+"Current conditions: 26.5°C temperature, 43.0% humidity, heat index is normal.",Low,26.5,43.0,26.65
+"Temperature at 30.9°C (trend stable), humidity at 48.0%.",Moderate,30.9,48.0,32.08
+Temperature stable to 25.8°C. Humidity stable to 44.0%.,Low,25.8,44.0,26.22
+"Environment: 26.8°C, 47.0%, heat index is elevated.",Low,26.8,47.0,27.07
+"Sensor readings show 31.0 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Temperature is 26.8°C, humidity is 46.0%, heat index is elevated.",Low,26.8,46.0,27.02
+"Sensor readings show 30.8 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.8,50.0,32.29
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Temperature is 26.9°C, humidity is 46.0%, heat index is elevated.",Low,26.9,46.0,27.1
+"Current conditions: 30.8°C temperature, 49.0% humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is warm at 31.0°C, humidity is moderate.",Moderate,31.0,50.0,32.62
+"Temperature is 27.6°C, humidity is 40.0%, heat index is elevated.",Moderate,27.6,40.0,27.33
+Temperature stable to 30.8°C. Humidity stable to 50.0%.,Moderate,30.8,50.0,32.29
+"Current conditions: 31.0°C temperature, 50.0% humidity, heat index is high.",Moderate,31.0,50.0,32.62
+Temperature stable to 25.7°C. Humidity stable to 44.0%.,Low,25.7,44.0,26.16
+"Environment: 25.0°C, 50.0%, heat index is normal.",Low,25.0,50.0,25.89
+"Current conditions: 31.0°C temperature, 50.0% humidity, heat index is high.",Moderate,31.0,50.0,32.62
+Temperature stable to 24.8°C. Humidity stable to 50.0%.,Low,24.8,50.0,25.78
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.9,50.0,25.83
+"Environment: 24.4°C, 51.0%, heat index is normal.",Low,24.4,51.0,25.57
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Environment: 27.2°C, 46.0%, heat index is elevated.",Moderate,27.2,46.0,27.35
+Temperature stable to 24.5°C. Humidity stable to 51.0%.,Low,24.5,51.0,25.62
+"Temperature is 30.7°C, humidity is 49.0%, heat index is elevated.",Moderate,30.7,49.0,31.95
+"Temperature at 24.9°C (trend stable), humidity at 50.0%.",Low,24.9,50.0,25.83
+"Environment: 40.0°C, 62.4%, heat index exceeds threshold.",Severe,40.0,62.4,66.72
+"Temperature is comfortable at 25.8°C, humidity is low.",Low,25.8,45.0,26.25
+26.8°C and 47.0% humidity detected.,Low,26.8,47.0,27.07
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Temperature is warm at 30.9°C, humidity is low.",Moderate,30.9,48.0,32.08
+27.1°C and 46.0% humidity detected.,Moderate,27.1,46.0,27.27
+"Alert: Temperature 31.0°C, humidity 50.0%. Heat index is high.",Moderate,31.0,50.0,32.62
+Temperature stable to 30.8°C. Humidity stable to 49.0%.,Moderate,30.8,49.0,32.1
+"Temperature is warm at 30.9°C, humidity is low.",Moderate,30.9,49.0,32.26
+"Temperature is 26.9°C, humidity is 47.0%, heat index is elevated.",Low,26.9,47.0,27.15
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Temperature is 24.4°C, humidity is 51.0%, heat index is normal.",Low,24.4,51.0,25.57
+"Temperature is warm at 31.0°C, humidity is moderate.",Moderate,31.0,50.0,32.62
+30.8°C and 49.0% humidity detected.,Moderate,30.8,49.0,32.1
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,31.0,49.0,32.42
+24.7°C and 50.0% humidity detected.,Low,24.7,50.0,25.72
+"Warning: temperature is hot, humidity is high. Heat index concern.",Severe,40.0,62.4,66.72
+"Temperature is warm at 30.8°C, humidity is moderate.",Moderate,30.8,50.0,32.29
+Temperature stable to 30.8°C. Humidity stable to 49.0%.,Moderate,30.8,49.0,32.1
+"Temperature at 45.0°C (trend rising), humidity at 65.4%.",Severe,45.0,65.4,73.62
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,25.7,45.0,26.19
+"Sensor readings show 30.9 degrees Celsius, 48.0 percent humidity, heat index is high.",Moderate,30.9,48.0,32.08
+"Environment: 30.8°C, 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Environment: 27.2°C, 45.0%, heat index is elevated.",Moderate,27.2,45.0,27.29
+26.3°C and 47.0% humidity detected.,Low,26.3,47.0,26.67
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Temperature at 30.8°C (trend stable), humidity at 50.0%.",Moderate,30.8,50.0,32.29
+"Temperature at 24.9°C (trend stable), humidity at 50.0%.",Low,24.9,50.0,25.83
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Current conditions: 30.8°C temperature, 49.0% humidity, heat index is high.",Moderate,30.8,49.0,32.1
+30.8°C and 50.0% humidity detected.,Moderate,30.8,50.0,32.29
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,31.0,50.0,32.62
+30.8°C and 50.0% humidity detected.,Moderate,30.8,50.0,32.29
+"Temperature is warm at 31.0°C, humidity is low.",Moderate,31.0,49.0,32.42
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Sensor readings show 31.0 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Alert: Temperature 30.9°C, humidity 49.0%. Heat index is high.",Moderate,30.9,49.0,32.26
+38.0°C and 61.2% humidity detected.,Severe,38.0,61.2,63.96
+"Sensor readings show 26.8 degrees Celsius, 46.0 percent humidity, heat index is elevated.",Low,26.8,46.0,27.02
+"Alert: Temperature 31.0°C, humidity 49.0%. Heat index is high.",Moderate,31.0,49.0,32.42
+"Temperature at 24.8°C (trend stable), humidity at 50.0%.",Low,24.8,50.0,25.78
+"Current conditions: 24.8°C temperature, 50.0% humidity, heat index is normal.",Low,24.8,50.0,25.78
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Sensor readings show 24.9 degrees Celsius, 50.0 percent humidity, heat index is normal.",Low,24.9,50.0,25.83
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,25.8,44.0,26.22
+"Current conditions: 24.4°C temperature, 51.0% humidity, heat index is normal.",Low,24.4,51.0,25.57
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+Temperature stable to 30.9°C. Humidity stable to 49.0%.,Moderate,30.9,49.0,32.26
+24.6°C and 50.0% humidity detected.,Low,24.6,50.0,25.67
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is 26.9°C, humidity is 46.0%, heat index is elevated.",Low,26.9,46.0,27.1
+"Temperature is warm at 30.9°C, humidity is low.",Moderate,30.9,49.0,32.26
+"Alert: Temperature 31.0°C, humidity 50.0%. Heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Current conditions: 31.0°C temperature, 50.0% humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 27.3°C, humidity 45.0%. Heat index is elevated.",Moderate,27.3,45.0,27.38
+Temperature stable to 27.1°C. Humidity stable to 46.0%.,Moderate,27.1,46.0,27.27
+"Sensor readings show 25.7 degrees Celsius, 45.0 percent humidity, heat index is normal.",Low,25.7,45.0,26.19
+"Current conditions: 27.2°C temperature, 45.0% humidity, heat index is elevated.",Moderate,27.2,45.0,27.29
+"Temperature at 37.0°C (trend rising), humidity at 60.6%.",Severe,37.0,60.6,62.58
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.9,47.0,27.15
+30.9°C and 50.0% humidity detected.,Moderate,30.9,50.0,32.45
+"Temperature is warm at 30.8°C, humidity is moderate.",Moderate,30.8,50.0,32.29
+"Environment: 30.9°C, 49.0%, heat index is high.",Moderate,30.9,49.0,32.26
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Temperature is 24.7°C, humidity is 50.0%, heat index is normal.",Low,24.7,50.0,25.72
+"Temperature at 26.8°C (trend stable), humidity at 47.0%.",Low,26.8,47.0,27.07
+"Temperature is comfortable at 24.6°C, humidity is moderate.",Low,24.6,50.0,25.67
+"Current conditions: 31.0°C temperature, 50.0% humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature at 31.0°C (trend stable), humidity at 49.0%.",Moderate,31.0,49.0,32.42
+"Temperature at 26.5°C (trend stable), humidity at 43.0%.",Low,26.5,43.0,26.65
+"Temperature at 40.5°C (trend rising), humidity at 62.7%.",Severe,40.5,62.7,67.41
+"Environment: 24.7°C, 50.0%, heat index is normal.",Low,24.7,50.0,25.72
+"Temperature is 30.8°C, humidity is 50.0%, heat index is high.",Moderate,30.8,50.0,32.29
+"Temperature at 26.9°C (trend stable), humidity at 46.0%.",Low,26.9,46.0,27.1
+"Alert: Temperature 24.9°C, humidity 50.0%. Heat index is normal.",Low,24.9,50.0,25.83
+"Environment: 25.8°C, 44.0%, heat index is normal.",Low,25.8,44.0,26.22
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.6,50.0,25.67
+"Current conditions: 26.1°C temperature, 48.0% humidity, heat index is normal.",Low,26.1,48.0,26.56
+30.9°C and 50.0% humidity detected.,Moderate,30.9,50.0,32.45
+"Temperature at 26.3°C (trend stable), humidity at 47.0%.",Low,26.3,47.0,26.67
+"Alert: Temperature 42.0°C, humidity 63.6%. Heat index exceeds threshold.",Severe,42.0,63.6,69.47999999999999
+Temperature stable to 30.8°C. Humidity stable to 50.0%.,Moderate,30.8,50.0,32.29
+"Alert: Temperature 31.0°C, humidity 50.0%. Heat index is high.",Moderate,31.0,50.0,32.62
+"Alert: Temperature 30.8°C, humidity 50.0%. Heat index is high.",Moderate,30.8,50.0,32.29
+"Sensor readings show 27.2 degrees Celsius, 45.0 percent humidity, heat index is elevated.",Moderate,27.2,45.0,27.29
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,31.0,50.0,32.62
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Temperature at 27.4°C (trend rising), humidity at 45.0%.",Moderate,27.4,45.0,27.47
+"Temperature is comfortable at 26.9°C, humidity is low.",Low,26.9,46.0,27.1
+"Sensor readings show 24.4 degrees Celsius, 51.0 percent humidity, heat index is normal.",Low,24.4,51.0,25.57
+"Temperature is 25.8°C, humidity is 44.0%, heat index is normal.",Low,25.8,44.0,26.22
+"Current conditions: 31.0°C temperature, 49.0% humidity, heat index is high.",Moderate,31.0,49.0,32.42
+24.8°C and 50.0% humidity detected.,Low,24.8,50.0,25.78
+"Temperature is warm at 31.0°C, humidity is moderate.",Moderate,31.0,50.0,32.62
+30.8°C and 50.0% humidity detected.,Moderate,30.8,50.0,32.29
+24.4°C and 51.0% humidity detected.,Low,24.4,51.0,25.57
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Sensor readings show 30.9 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.9,49.0,32.26
+24.7°C and 50.0% humidity detected.,Low,24.7,50.0,25.72
+Temperature stable to 31.0°C. Humidity dropping to 49.0%.,Moderate,31.0,49.0,32.42
+"Temperature is warm at 30.8°C, humidity is moderate.",Moderate,30.8,50.0,32.29
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,29.8,52.0,31.06
+"Temperature is comfortable at 25.8°C, humidity is low.",Low,25.8,44.0,26.22
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,48.0,32.08
+"Temperature is warm at 30.9°C, humidity is low.",Moderate,30.9,49.0,32.26
+Temperature stable to 24.8°C. Humidity stable to 50.0%.,Low,24.8,50.0,25.78
+Temperature stable to 24.9°C. Humidity stable to 50.0%.,Low,24.9,50.0,25.83
+"Temperature at 24.4°C (trend stable), humidity at 51.0%.",Low,24.4,51.0,25.57
+"Temperature is 24.6°C, humidity is 50.0%, heat index is normal.",Low,24.6,50.0,25.67
+"Alert: Temperature 43.0°C, humidity 64.2%. Heat index exceeds threshold.",Severe,43.0,64.2,70.86
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Environment: 24.7°C, 50.0%, heat index is normal.",Low,24.7,50.0,25.72
+"Temperature is comfortable at 25.7°C, humidity is low.",Low,25.7,44.0,26.16
+"Sensor readings show 31.0 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Current conditions: 27.6°C temperature, 40.0% humidity, heat index is elevated.",Moderate,27.6,40.0,27.33
+"Environment: 41.5°C, 63.3%, heat index exceeds threshold.",Severe,41.5,63.3,68.78999999999999
+"Sensor readings show 30.9 degrees Celsius, 48.0 percent humidity, heat index is high.",Moderate,30.9,48.0,32.08
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,31.0,50.0,32.62
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,49.0,32.26
+"Warning: temperature is hot, humidity is high. Heat index concern.",Severe,39.5,62.1,66.03
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.9,47.0,27.15
+"Temperature is 26.9°C, humidity is 47.0%, heat index is elevated.",Low,26.9,47.0,27.15
+"Current conditions: 25.8°C temperature, 44.0% humidity, heat index is normal.",Low,25.8,44.0,26.22
+"Temperature is 45.5°C, humidity is 65.7%, heat index exceeds threshold.",Severe,45.5,65.7,74.31
+30.9°C and 50.0% humidity detected.,Moderate,30.9,50.0,32.45
+"Sensor readings show 30.9 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.9,49.0,32.26
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Temperature at 27.2°C (trend stable), humidity at 45.0%.",Moderate,27.2,45.0,27.29
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+30.8°C and 49.0% humidity detected.,Moderate,30.8,49.0,32.1
+"Alert: Temperature 27.1°C, humidity 46.0%. Heat index is elevated.",Moderate,27.1,46.0,27.27
+31.0°C and 50.0% humidity detected.,Moderate,31.0,50.0,32.62
+Temperature stable to 26.8°C. Humidity stable to 47.0%.,Low,26.8,47.0,27.07
+"Sensor readings show 24.9 degrees Celsius, 50.0 percent humidity, heat index is normal.",Low,24.9,50.0,25.83
+"Current conditions: 30.9°C temperature, 49.0% humidity, heat index is high.",Moderate,30.9,49.0,32.26
+"Current conditions: 24.8°C temperature, 50.0% humidity, heat index is normal.",Low,24.8,50.0,25.78
+"Sensor readings show 26.8 degrees Celsius, 47.0 percent humidity, heat index is elevated.",Low,26.8,47.0,27.07
+"Alert: Temperature 27.0°C, humidity 46.0%. Heat index is elevated.",Low,27.0,46.0,27.18
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Current conditions: 24.7°C temperature, 50.0% humidity, heat index is normal.",Low,24.7,50.0,25.72
+"Temperature at 25.8°C (trend stable), humidity at 44.0%.",Low,25.8,44.0,26.22
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Alert: Temperature 30.8°C, humidity 50.0%. Heat index is high.",Moderate,30.8,50.0,32.29
+30.8°C and 49.0% humidity detected.,Moderate,30.8,49.0,32.1
+"Sensor readings show 30.9 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,48.0,32.08
+"Temperature is comfortable at 25.7°C, humidity is low.",Low,25.7,44.0,26.16
+"Current conditions: 24.9°C temperature, 50.0% humidity, heat index is normal.",Low,24.9,50.0,25.83
+Temperature rising rapidly to 36.0°C. Humidity rising rapidly to 60.0%.,Severe,36.0,60.0,61.2
+Temperature stable to 24.9°C. Humidity stable to 50.0%.,Low,24.9,50.0,25.83
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Current conditions: 27.2°C temperature, 45.0% humidity, heat index is elevated.",Moderate,27.2,45.0,27.29
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,31.0,50.0,32.62
+Temperature stable to 30.8°C. Humidity stable to 49.0%.,Moderate,30.8,49.0,32.1
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Sensor readings show 44.0 degrees Celsius, 64.8 percent humidity, heat index exceeds threshold.",Severe,44.0,64.8,72.24
+"Sensor readings show 30.9 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 31.0°C, humidity 49.0%. Heat index is high.",Moderate,31.0,49.0,32.42
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Sensor readings show 31.0 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,31.0,50.0,32.62
+Temperature stable to 31.0°C. Humidity stable to 50.0%.,Moderate,31.0,50.0,32.62
+Temperature stable to 30.8°C. Humidity stable to 49.0%.,Moderate,30.8,49.0,32.1
+"Temperature is 26.8°C, humidity is 47.0%, heat index is elevated.",Low,26.8,47.0,27.07
+27.0°C and 46.0% humidity detected.,Low,27.0,46.0,27.18
+"Alert: Temperature 31.0°C, humidity 50.0%. Heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature is 30.8°C, humidity is 50.0%, heat index is high.",Moderate,30.8,50.0,32.29
+"Sensor readings show 43.5 degrees Celsius, 64.5 percent humidity, heat index exceeds threshold.",Severe,43.5,64.5,71.55
+"Sensor readings show 31.0 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.9,46.0,27.1
+"Alert: Temperature 27.2°C, humidity 46.0%. Heat index is elevated.",Moderate,27.2,46.0,27.35
+"Current conditions: 26.9°C temperature, 46.0% humidity, heat index is elevated.",Low,26.9,46.0,27.1
+Temperature stable to 25.8°C. Humidity stable to 44.0%.,Low,25.8,44.0,26.22
+"Temperature at 30.8°C (trend stable), humidity at 50.0%.",Moderate,30.8,50.0,32.29
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Temperature is 31.0°C, humidity is 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+"Environment: 30.8°C, 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Current conditions: 30.9°C temperature, 48.0% humidity, heat index is high.",Moderate,30.9,48.0,32.08
+"Temperature at 24.5°C (trend dropping rapidly), humidity at 51.0%.",Low,24.5,51.0,25.62
+"Environment: 26.9°C, 46.0%, heat index is elevated.",Low,26.9,46.0,27.1
+"Environment: 30.9°C, 48.0%, heat index is high.",Moderate,30.9,48.0,32.08
+"Temperature is 30.9°C, humidity is 48.0%, heat index is high.",Moderate,30.9,48.0,32.08
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.8,50.0,32.29
+26.5°C and 43.0% humidity detected.,Low,26.5,43.0,26.65
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+39.0°C and 61.8% humidity detected.,Severe,39.0,61.8,65.34
+30.9°C and 50.0% humidity detected.,Moderate,30.9,50.0,32.45
+Temperature stable to 31.0°C. Humidity stable to 50.0%.,Moderate,31.0,50.0,32.62
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,25.8,45.0,26.25
+"Sensor readings show 27.0 degrees Celsius, 46.0 percent humidity, heat index is elevated.",Low,27.0,46.0,27.18
+"Temperature at 30.9°C (trend stable), humidity at 49.0%.",Moderate,30.9,49.0,32.26
+"Alert: Temperature 31.0°C, humidity 49.0%. Heat index is high.",Moderate,31.0,49.0,32.42
+Temperature stable to 25.7°C. Humidity stable to 44.0%.,Low,25.7,44.0,26.16
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.4,51.0,25.57
+"Current conditions: 26.9°C temperature, 46.0% humidity, heat index is elevated.",Low,26.9,46.0,27.1
+"Current conditions: 30.9°C temperature, 48.0% humidity, heat index is high.",Moderate,30.9,48.0,32.08
+"Alert: Temperature 24.9°C, humidity 50.0%. Heat index is normal.",Low,24.9,50.0,25.83
+30.7°C and 49.0% humidity detected.,Moderate,30.7,49.0,31.95
+"Temperature at 26.8°C (trend stable), humidity at 46.0%.",Low,26.8,46.0,27.02
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Sensor readings show 31.0 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,31.0,49.0,32.42
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.8,50.0,32.29
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Environment: 31.0°C, 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+42.5°C and 63.9% humidity detected.,Severe,42.5,63.9,70.17
+"Alert: Temperature 24.4°C, humidity 51.0%. Heat index is normal.",Low,24.4,51.0,25.57
+"Sensor readings show 30.9 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is comfortable at 24.9°C, humidity is moderate.",Low,24.9,50.0,25.83
+"Temperature is warm at 30.8°C, humidity is moderate.",Moderate,30.8,50.0,32.29
+"Alert: Temperature 26.3°C, humidity 47.0%. Heat index is normal.",Low,26.3,47.0,26.67
+"Temperature is hot at 42.0°C, humidity is high.",Severe,42.0,63.6,69.47999999999999
+"Alert: Temperature 25.8°C, humidity 45.0%. Heat index is normal.",Low,25.8,45.0,26.25
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is 26.3°C, humidity is 47.0%, heat index is normal.",Low,26.3,47.0,26.67
+"Temperature is 30.8°C, humidity is 50.0%, heat index is high.",Moderate,30.8,50.0,32.29
+"Alert: Temperature 30.9°C, humidity 48.0%. Heat index is high.",Moderate,30.9,48.0,32.08
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Alert: Temperature 30.8°C, humidity 50.0%. Heat index is high.",Moderate,30.8,50.0,32.29
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+Temperature stable to 24.9°C. Humidity stable to 50.0%.,Low,24.9,50.0,25.83
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.7,50.0,25.72
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.8,50.0,32.29
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,27.6,40.0,27.33
+30.9°C and 50.0% humidity detected.,Moderate,30.9,50.0,32.45
+"Temperature is warm at 31.0°C, humidity is low.",Moderate,31.0,49.0,32.42
+"Temperature is warm at 30.8°C, humidity is moderate.",Moderate,30.8,50.0,32.29
+Temperature stable to 25.8°C. Humidity stable to 44.0%.,Low,25.8,44.0,26.22
+"Sensor readings show 27.2 degrees Celsius, 45.0 percent humidity, heat index is elevated.",Moderate,27.2,45.0,27.29
+"Environment: 31.0°C, 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Environment: 30.8°C, 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,48.0,32.08
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Current conditions: 27.4°C temperature, 45.0% humidity, heat index is elevated.",Moderate,27.4,45.0,27.47
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.8,46.0,27.02
+Temperature stable to 30.8°C. Humidity stable to 49.0%.,Moderate,30.8,49.0,32.1
+"Environment: 24.9°C, 50.0%, heat index is normal.",Low,24.9,50.0,25.83
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.9,50.0,25.83
+"Current conditions: 30.8°C temperature, 49.0% humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.8,50.0,32.29
+"Environment: 27.6°C, 40.0%, heat index is elevated.",Moderate,27.6,40.0,27.33
+"Temperature at 39.5°C (trend rising), humidity at 62.1%.",Severe,39.5,62.1,66.03
+"Temperature is 25.8°C, humidity is 44.0%, heat index is normal.",Low,25.8,44.0,26.22
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Sensor readings show 25.0 degrees Celsius, 50.0 percent humidity, heat index is normal.",Low,25.0,50.0,25.89
+"Current conditions: 31.0°C temperature, 50.0% humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Environment: 26.5°C, 43.0%, heat index is normal.",Low,26.5,43.0,26.65
+"Temperature at 26.8°C (trend stable), humidity at 46.0%.",Low,26.8,46.0,27.02
+30.8°C and 49.0% humidity detected.,Moderate,30.8,49.0,32.1
+"Environment: 24.4°C, 51.0%, heat index is normal.",Low,24.4,51.0,25.57
+"Alert: Temperature 25.8°C, humidity 44.0%. Heat index is normal.",Low,25.8,44.0,26.22
+"Environment: 30.9°C, 49.0%, heat index is high.",Moderate,30.9,49.0,32.26
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Sensor readings show 30.9 degrees Celsius, 48.0 percent humidity, heat index is high.",Moderate,30.9,48.0,32.08
+"Temperature at 26.8°C (trend stable), humidity at 47.0%.",Low,26.8,47.0,27.07
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,31.0,50.0,32.62
+"Temperature is 24.8°C, humidity is 50.0%, heat index is normal.",Low,24.8,50.0,25.78
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.9,50.0,25.83
+"Current conditions: 24.8°C temperature, 50.0% humidity, heat index is normal.",Low,24.8,50.0,25.78
+"Alert: Temperature 26.9°C, humidity 47.0%. Heat index is elevated.",Low,26.9,47.0,27.15
+"Sensor readings show 40.5 degrees Celsius, 62.7 percent humidity, heat index exceeds threshold.",Severe,40.5,62.7,67.41
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,49.0,32.26
+"Environment: 24.5°C, 51.0%, heat index is normal.",Low,24.5,51.0,25.62
+30.9°C and 49.0% humidity detected.,Moderate,30.9,49.0,32.26
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Temperature is 31.0°C, humidity is 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+30.9°C and 49.0% humidity detected.,Moderate,30.9,49.0,32.26
+"Temperature is warm at 30.8°C, humidity is moderate.",Moderate,30.8,50.0,32.29
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Temperature is warm at 30.9°C, humidity is moderate.",Moderate,30.9,50.0,32.45
+"Temperature at 24.6°C (trend stable), humidity at 50.0%.",Low,24.6,50.0,25.67
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+30.9°C and 50.0% humidity detected.,Moderate,30.9,50.0,32.45
+"Current conditions: 24.5°C temperature, 51.0% humidity, heat index is normal.",Low,24.5,51.0,25.62
+"Environment: 26.9°C, 47.0%, heat index is elevated.",Low,26.9,47.0,27.15
+"Temperature is 31.0°C, humidity is 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+30.9°C and 50.0% humidity detected.,Moderate,30.9,50.0,32.45
+"Temperature is comfortable at 25.7°C, humidity is low.",Low,25.7,44.0,26.16
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,48.0,32.08
+Temperature stable to 30.8°C. Humidity stable to 50.0%.,Moderate,30.8,50.0,32.29
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 24.5°C, humidity 51.0%. Heat index is normal.",Low,24.5,51.0,25.62
+"Sensor readings show 30.9 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.9,49.0,32.26
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is warm at 31.0°C, humidity is moderate.",Moderate,31.0,50.0,32.62
+"Temperature is warm at 27.6°C, humidity is low.",Moderate,27.6,40.0,27.33
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,49.0,32.26
+"Temperature is warm at 27.2°C, humidity is low.",Moderate,27.2,45.0,27.29
+"Current conditions: 24.9°C temperature, 50.0% humidity, heat index is normal.",Low,24.9,50.0,25.83
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,49.0,32.26
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Sensor readings show 30.8 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.8,49.0,32.1
+Temperature stable to 25.7°C. Humidity stable to 44.0%.,Low,25.7,44.0,26.16
+27.3°C and 45.0% humidity detected.,Moderate,27.3,45.0,27.38
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is 30.8°C, humidity is 50.0%, heat index is high.",Moderate,30.8,50.0,32.29
+"Environment: 30.8°C, 50.0%, heat index is high.",Moderate,30.8,50.0,32.29
+"Alert: Temperature 24.8°C, humidity 50.0%. Heat index is normal.",Low,24.8,50.0,25.78
+Temperature stable to 27.6°C. Humidity stable to 40.0%.,Moderate,27.6,40.0,27.33
+"Current conditions: 25.7°C temperature, 45.0% humidity, heat index is normal.",Low,25.7,45.0,26.19
+"Alert: Temperature 30.9°C, humidity 48.0%. Heat index is high.",Moderate,30.9,48.0,32.08
+"Alert: Temperature 30.9°C, humidity 48.0%. Heat index is high.",Moderate,30.9,48.0,32.08
+"Temperature is 25.7°C, humidity is 44.0%, heat index is normal.",Low,25.7,44.0,26.16
+"Alert: Temperature 24.9°C, humidity 50.0%. Heat index is normal.",Low,24.9,50.0,25.83
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.8,46.0,27.02
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Temperature at 30.8°C (trend stable), humidity at 50.0%.",Moderate,30.8,50.0,32.29
+30.9°C and 49.0% humidity detected.,Moderate,30.9,49.0,32.26
+"Current conditions: 39.5°C temperature, 62.1% humidity, heat index exceeds threshold.",Severe,39.5,62.1,66.03
+"Alert: Temperature 31.0°C, humidity 50.0%. Heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature is 26.2°C, humidity is 48.0%, heat index is normal.",Low,26.2,48.0,26.64
+"Environment: 27.4°C, 45.0%, heat index is elevated.",Moderate,27.4,45.0,27.47
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+26.3°C and 48.0% humidity detected.,Low,26.3,48.0,26.72
+24.4°C and 51.0% humidity detected.,Low,24.4,51.0,25.57
+"Current conditions: 24.6°C temperature, 50.0% humidity, heat index is normal.",Low,24.6,50.0,25.67
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+Temperature stable to 30.9°C. Humidity stable to 48.0%.,Moderate,30.9,48.0,32.08
+31.0°C and 50.0% humidity detected.,Moderate,31.0,50.0,32.62
+"Temperature is 31.0°C, humidity is 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature at 25.7°C (trend stable), humidity at 44.0%.",Low,25.7,44.0,26.16
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+30.9°C and 49.0% humidity detected.,Moderate,30.9,49.0,32.26
+27.2°C and 45.0% humidity detected.,Moderate,27.2,45.0,27.29
+"Temperature is hot at 39.5°C, humidity is high.",Severe,39.5,62.1,66.03
+"Temperature at 24.6°C (trend stable), humidity at 50.0%.",Low,24.6,50.0,25.67
+Temperature stable to 26.9°C. Humidity stable to 47.0%.,Low,26.9,47.0,27.15
+"Temperature at 30.8°C (trend stable), humidity at 50.0%.",Moderate,30.8,50.0,32.29
+"Environment: 30.9°C, 49.0%, heat index is high.",Moderate,30.9,49.0,32.26
+"Warning: temperature is warm, humidity is low. Heat index concern.",Low,27.0,46.0,27.18
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+Temperature rising to 39.0°C. Humidity stable to 61.8%.,Severe,39.0,61.8,65.34
+"Sensor readings show 26.3 degrees Celsius, 47.0 percent humidity, heat index is normal.",Low,26.3,47.0,26.67
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,25.8,44.0,26.22
+"Sensor readings show 31.0 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Alert: Temperature 25.8°C, humidity 44.0%. Heat index is normal.",Low,25.8,44.0,26.22
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Temperature is warm at 31.0°C, humidity is moderate.",Moderate,31.0,50.0,32.62
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+"Sensor readings show 30.8 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Alert: Temperature 26.9°C, humidity 46.0%. Heat index is elevated.",Low,26.9,46.0,27.1
+"Current conditions: 30.8°C temperature, 49.0% humidity, heat index is high.",Moderate,30.8,49.0,32.1
+30.9°C and 50.0% humidity detected.,Moderate,30.9,50.0,32.45
+"Temperature at 30.8°C (trend stable), humidity at 50.0%.",Moderate,30.8,50.0,32.29
+"Temperature is warm at 31.0°C, humidity is low.",Moderate,31.0,49.0,32.42
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Environment: 30.8°C, 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+Temperature stable to 30.8°C. Humidity stable to 49.0%.,Moderate,30.8,49.0,32.1
+Temperature stable to 25.8°C. Humidity stable to 44.0%.,Low,25.8,44.0,26.22
+"Alert: Temperature 24.7°C, humidity 50.0%. Heat index is normal.",Low,24.7,50.0,25.72
+24.8°C and 50.0% humidity detected.,Low,24.8,50.0,25.78
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+Temperature stable to 30.8°C. Humidity stable to 49.0%.,Moderate,30.8,49.0,32.1
+"Temperature is 42.5°C, humidity is 63.9%, heat index exceeds threshold.",Severe,42.5,63.9,70.17
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+"Current conditions: 30.8°C temperature, 50.0% humidity, heat index is high.",Moderate,30.8,50.0,32.29
+"Alert: Temperature 43.5°C, humidity 64.5%. Heat index exceeds threshold.",Severe,43.5,64.5,71.55
+29.8°C and 52.0% humidity detected.,Moderate,29.8,52.0,31.06
+Temperature stable to 24.4°C. Humidity stable to 51.0%.,Low,24.4,51.0,25.57
+Temperature stable to 30.9°C. Humidity stable to 49.0%.,Moderate,30.9,49.0,32.26
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature at 30.9°C (trend stable), humidity at 49.0%.",Moderate,30.9,49.0,32.26
+30.9°C and 49.0% humidity detected.,Moderate,30.9,49.0,32.26
+Temperature stable to 30.8°C. Humidity dropping to 49.0%.,Moderate,30.8,49.0,32.1
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,25.0,50.0,25.89
+30.9°C and 48.0% humidity detected.,Moderate,30.9,48.0,32.08
+"Warning: temperature is hot, humidity is high. Heat index concern.",Severe,36.0,60.0,61.2
+31.0°C and 50.0% humidity detected.,Moderate,31.0,50.0,32.62
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+30.9°C and 50.0% humidity detected.,Moderate,30.9,50.0,32.45
+"Temperature is warm at 30.9°C, humidity is low.",Moderate,30.9,48.0,32.08
+"Temperature is 38.5°C, humidity is 61.5%, heat index exceeds threshold.",Severe,38.5,61.5,64.64999999999999
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+25.8°C and 44.0% humidity detected.,Low,25.8,44.0,26.22
+"Alert: Temperature 24.6°C, humidity 50.0%. Heat index is normal.",Low,24.6,50.0,25.67
+"Temperature at 26.3°C (trend stable), humidity at 47.0%.",Low,26.3,47.0,26.67
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.9,50.0,25.83
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is 43.0°C, humidity is 64.2%, heat index exceeds threshold.",Severe,43.0,64.2,70.86
+Temperature stable to 24.8°C. Humidity stable to 50.0%.,Low,24.8,50.0,25.78
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.5,51.0,25.62
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature at 42.0°C (trend rising), humidity at 63.6%.",Severe,42.0,63.6,69.47999999999999
+Temperature stable to 30.8°C. Humidity dropping to 49.0%.,Moderate,30.8,49.0,32.1
+Temperature stable to 30.9°C. Humidity stable to 48.0%.,Moderate,30.9,48.0,32.08
+"Temperature is 24.7°C, humidity is 50.0%, heat index is normal.",Low,24.7,50.0,25.72
+26.1°C and 48.0% humidity detected.,Low,26.1,48.0,26.56
+"Sensor readings show 31.0 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature is 27.3°C, humidity is 45.0%, heat index is elevated.",Moderate,27.3,45.0,27.38
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Current conditions: 25.8°C temperature, 44.0% humidity, heat index is normal.",Low,25.8,44.0,26.22
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is warm at 31.0°C, humidity is low.",Moderate,31.0,49.0,32.42
+"Current conditions: 27.2°C temperature, 46.0% humidity, heat index is elevated.",Moderate,27.2,46.0,27.35
+"Environment: 25.7°C, 44.0%, heat index is normal.",Low,25.7,44.0,26.16
+"Temperature is 26.9°C, humidity is 47.0%, heat index is elevated.",Low,26.9,47.0,27.15
+24.4°C and 51.0% humidity detected.,Low,24.4,51.0,25.57
+Temperature stable to 30.8°C. Humidity stable to 49.0%.,Moderate,30.8,49.0,32.1
+"Alert: Temperature 24.4°C, humidity 51.0%. Heat index is normal.",Low,24.4,51.0,25.57
+"Sensor readings show 25.8 degrees Celsius, 44.0 percent humidity, heat index is normal.",Low,25.8,44.0,26.22
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,31.0,50.0,32.62
+"Sensor readings show 25.7 degrees Celsius, 44.0 percent humidity, heat index is normal.",Low,25.7,44.0,26.16
+"Alert: Temperature 24.8°C, humidity 50.0%. Heat index is normal.",Low,24.8,50.0,25.78
+Temperature stable to 31.0°C. Humidity stable to 49.0%.,Moderate,31.0,49.0,32.42
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,31.0,50.0,32.62
+Temperature stable to 30.9°C. Humidity stable to 49.0%.,Moderate,30.9,49.0,32.26
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 30.8°C, humidity 49.0%. Heat index is high.",Moderate,30.8,49.0,32.1
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Temperature is hot at 36.5°C, humidity is high.",Severe,36.5,60.3,61.89
+"Alert: Temperature 25.0°C, humidity 50.0%. Heat index is normal.",Low,25.0,50.0,25.89
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is comfortable at 24.8°C, humidity is moderate.",Low,24.8,50.0,25.78
+"Temperature at 25.8°C (trend stable), humidity at 44.0%.",Low,25.8,44.0,26.22
+"Environment: 26.8°C, 46.0%, heat index is elevated.",Low,26.8,46.0,27.02
+"Temperature is 41.5°C, humidity is 63.3%, heat index exceeds threshold.",Severe,41.5,63.3,68.78999999999999
+"Environment: 24.8°C, 50.0%, heat index is normal.",Low,24.8,50.0,25.78
+25.8°C and 44.0% humidity detected.,Low,25.8,44.0,26.22
+"Temperature is warm at 30.9°C, humidity is moderate.",Moderate,30.9,50.0,32.45
+"Temperature is comfortable at 26.9°C, humidity is low.",Low,26.9,47.0,27.15
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+Temperature rising to 43.0°C. Humidity stable to 64.2%.,Severe,43.0,64.2,70.86
+"Alert: Temperature 31.0°C, humidity 50.0%. Heat index is high.",Moderate,31.0,50.0,32.62
+"Alert: Temperature 30.9°C, humidity 49.0%. Heat index is high.",Moderate,30.9,49.0,32.26
+"Temperature is warm at 30.9°C, humidity is moderate.",Moderate,30.9,50.0,32.45
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Environment: 30.8°C, 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Sensor readings show 24.4 degrees Celsius, 51.0 percent humidity, heat index is normal.",Low,24.4,51.0,25.57
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is warm at 30.9°C, humidity is moderate.",Moderate,30.9,50.0,32.45
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is warm at 30.8°C, humidity is moderate.",Moderate,30.8,50.0,32.29
+30.8°C and 49.0% humidity detected.,Moderate,30.8,49.0,32.1
+"Current conditions: 24.4°C temperature, 51.0% humidity, heat index is normal.",Low,24.4,51.0,25.57
+30.8°C and 49.0% humidity detected.,Moderate,30.8,49.0,32.1
+"Temperature is warm at 31.0°C, humidity is moderate.",Moderate,31.0,50.0,32.62
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,27.6,40.0,27.33
+"Temperature at 30.9°C (trend stable), humidity at 48.0%.",Moderate,30.9,48.0,32.08
+"Environment: 30.8°C, 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is comfortable at 25.7°C, humidity is low.",Low,25.7,44.0,26.16
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.4,51.0,25.57
+"Alert: Temperature 27.0°C, humidity 46.0%. Heat index is elevated.",Low,27.0,46.0,27.18
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.9,50.0,25.83
+"Alert: Temperature 37.0°C, humidity 60.6%. Heat index exceeds threshold.",Severe,37.0,60.6,62.58
+"Current conditions: 25.8°C temperature, 45.0% humidity, heat index is normal.",Low,25.8,45.0,26.25
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Current conditions: 26.8°C temperature, 47.0% humidity, heat index is elevated.",Low,26.8,47.0,27.07
+24.9°C and 50.0% humidity detected.,Low,24.9,50.0,25.83
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Sensor readings show 30.8 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.8,50.0,32.29
+"Environment: 37.0°C, 60.6%, heat index exceeds threshold.",Severe,37.0,60.6,62.58
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,48.0,32.08
+27.3°C and 45.0% humidity detected.,Moderate,27.3,45.0,27.38
+"Temperature is warm at 30.9°C, humidity is moderate.",Moderate,30.9,50.0,32.45
+"Temperature at 24.9°C (trend stable), humidity at 50.0%.",Low,24.9,50.0,25.83
+"Temperature at 24.4°C (trend stable), humidity at 51.0%.",Low,24.4,51.0,25.57
+"Current conditions: 26.9°C temperature, 47.0% humidity, heat index is elevated.",Low,26.9,47.0,27.15
+"Current conditions: 30.9°C temperature, 49.0% humidity, heat index is high.",Moderate,30.9,49.0,32.26
+"Sensor readings show 44.5 degrees Celsius, 65.1 percent humidity, heat index exceeds threshold.",Severe,44.5,65.1,72.92999999999999
+Temperature rising to 36.5°C. Humidity stable to 60.3%.,Severe,36.5,60.3,61.89
+Temperature stable to 31.0°C. Humidity stable to 49.0%.,Moderate,31.0,49.0,32.42
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is 29.8°C, humidity is 52.0%, heat index is elevated.",Moderate,29.8,52.0,31.06
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Temperature at 24.4°C (trend stable), humidity at 51.0%.",Low,24.4,51.0,25.57
+Temperature stable to 27.0°C. Humidity stable to 46.0%.,Low,27.0,46.0,27.18
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Environment: 36.0°C, 60.0%, heat index exceeds threshold.",Severe,36.0,60.0,61.2
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.9,49.0,32.26
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.9,47.0,27.15
+Temperature stable to 24.7°C. Humidity stable to 50.0%.,Low,24.7,50.0,25.72
+"Sensor readings show 30.9 degrees Celsius, 48.0 percent humidity, heat index is high.",Moderate,30.9,48.0,32.08
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.6,50.0,25.67
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Environment: 30.9°C, 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+24.8°C and 50.0% humidity detected.,Low,24.8,50.0,25.78
+"Alert: Temperature 30.8°C, humidity 50.0%. Heat index is high.",Moderate,30.8,50.0,32.29
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.9,50.0,25.83
+25.0°C and 50.0% humidity detected.,Low,25.0,50.0,25.89
+Temperature rising to 41.0°C. Humidity stable to 63.0%.,Severe,41.0,63.0,68.1
+"Sensor readings show 27.0 degrees Celsius, 46.0 percent humidity, heat index is elevated.",Low,27.0,46.0,27.18
+Temperature stable to 24.5°C. Humidity dropping to 50.0%.,Low,24.5,50.0,25.62
+"Temperature at 24.9°C (trend stable), humidity at 50.0%.",Low,24.9,50.0,25.83
+"Alert: Temperature 30.9°C, humidity 49.0%. Heat index is high.",Moderate,30.9,49.0,32.26
+Temperature stable to 24.8°C. Humidity stable to 50.0%.,Low,24.8,50.0,25.78
+"Temperature is 38.0°C, humidity is 61.2%, heat index exceeds threshold.",Severe,38.0,61.2,63.96
+"Sensor readings show 36.5 degrees Celsius, 60.3 percent humidity, heat index exceeds threshold.",Severe,36.5,60.3,61.89
+"Current conditions: 27.1°C temperature, 46.0% humidity, heat index is elevated.",Moderate,27.1,46.0,27.27
+Temperature stable to 30.9°C. Humidity stable to 49.0%.,Moderate,30.9,49.0,32.26
+"Warning: temperature is comfortable, humidity is moderate. Heat index concern.",Low,24.9,50.0,25.83
+30.9°C and 49.0% humidity detected.,Moderate,30.9,49.0,32.26
+"Temperature is comfortable at 25.7°C, humidity is low.",Low,25.7,45.0,26.19
+"Current conditions: 24.5°C temperature, 51.0% humidity, heat index is normal.",Low,24.5,51.0,25.62
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+Temperature rising to 43.5°C. Humidity stable to 64.5%.,Severe,43.5,64.5,71.55
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Sensor readings show 30.8 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.8,49.0,32.1
+26.8°C and 46.0% humidity detected.,Low,26.8,46.0,27.02
+"Alert: Temperature 30.9°C, humidity 49.0%. Heat index is high.",Moderate,30.9,49.0,32.26
+30.8°C and 49.0% humidity detected.,Moderate,30.8,49.0,32.1
+"Temperature is comfortable at 26.3°C, humidity is low.",Low,26.3,48.0,26.72
+"Temperature is 30.9°C, humidity is 49.0%, heat index is high.",Moderate,30.9,49.0,32.26
+"Environment: 31.0°C, 50.0%, heat index is high.",Moderate,31.0,50.0,32.62
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Alert: Temperature 30.9°C, humidity 48.0%. Heat index is high.",Moderate,30.9,48.0,32.08
+"Temperature is 30.9°C, humidity is 49.0%, heat index is high.",Moderate,30.9,49.0,32.26
+"Sensor readings show 42.0 degrees Celsius, 63.6 percent humidity, heat index exceeds threshold.",Severe,42.0,63.6,69.47999999999999
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+"Environment: 30.9°C, 49.0%, heat index is high.",Moderate,30.9,49.0,32.26
+"Current conditions: 30.8°C temperature, 49.0% humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Sensor readings show 30.9 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.9,49.0,32.26
+"Temperature is warm at 31.0°C, humidity is moderate.",Moderate,31.0,50.0,32.62
+"Environment: 30.9°C, 48.0%, heat index is high.",Moderate,30.9,48.0,32.08
+30.8°C and 49.0% humidity detected.,Moderate,30.8,49.0,32.1
+"Sensor readings show 31.0 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,31.0,49.0,32.42
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+"Temperature is 31.0°C, humidity is 49.0%, heat index is high.",Moderate,31.0,49.0,32.42
+"Sensor readings show 30.9 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Temperature is 26.9°C, humidity is 47.0%, heat index is elevated.",Low,26.9,47.0,27.15
+"Alert: Temperature 27.6°C, humidity 40.0%. Heat index is elevated.",Moderate,27.6,40.0,27.33
+"Current conditions: 30.8°C temperature, 49.0% humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Alert: Temperature 30.9°C, humidity 49.0%. Heat index is high.",Moderate,30.9,49.0,32.26
+Temperature stable to 31.0°C. Humidity stable to 50.0%.,Moderate,31.0,50.0,32.62
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.8,50.0,32.29
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.8,50.0,32.29
+Temperature stable to 30.8°C. Humidity stable to 50.0%.,Moderate,30.8,50.0,32.29
+"Temperature at 24.9°C (trend stable), humidity at 50.0%.",Low,24.9,50.0,25.83
+"Temperature is 27.0°C, humidity is 46.0%, heat index is elevated.",Low,27.0,46.0,27.18
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Temperature at 30.8°C (trend stable), humidity at 50.0%.",Moderate,30.8,50.0,32.29
+"Environment: 27.0°C, 46.0%, heat index is elevated.",Low,27.0,46.0,27.18
+Temperature stable to 30.8°C. Humidity stable to 50.0%.,Moderate,30.8,50.0,32.29
+"Environment: 30.8°C, 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature at 30.9°C (trend stable), humidity at 49.0%.",Moderate,30.9,49.0,32.26
+"Sensor readings show 30.9 degrees Celsius, 48.0 percent humidity, heat index is high.",Moderate,30.9,48.0,32.08
+"Temperature is 30.9°C, humidity is 50.0%, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is warm at 31.0°C, humidity is moderate.",Moderate,31.0,50.0,32.62
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,31.0,50.0,32.62
+"Temperature at 27.6°C (trend stable), humidity at 40.0%.",Moderate,27.6,40.0,27.33
+"Current conditions: 30.9°C temperature, 50.0% humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature at 26.9°C (trend stable), humidity at 46.0%.",Low,26.9,46.0,27.1
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+"Sensor readings show 30.9 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.8,50.0,32.29
+"Sensor readings show 24.9 degrees Celsius, 50.0 percent humidity, heat index is normal.",Low,24.9,50.0,25.83
+"Temperature at 24.6°C (trend stable), humidity at 50.0%.",Low,24.6,50.0,25.67
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+"Current conditions: 25.7°C temperature, 44.0% humidity, heat index is normal.",Low,25.7,44.0,26.16
+30.8°C and 49.0% humidity detected.,Moderate,30.8,49.0,32.1
+Temperature stable to 24.8°C. Humidity stable to 50.0%.,Low,24.8,50.0,25.78
+Temperature stable to 27.1°C. Humidity stable to 46.0%.,Moderate,27.1,46.0,27.27
+"Current conditions: 25.0°C temperature, 50.0% humidity, heat index is normal.",Low,25.0,50.0,25.89
+Temperature stable to 26.9°C. Humidity stable to 46.0%.,Low,26.9,46.0,27.1
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,27.1,46.0,27.27
+"Current conditions: 30.9°C temperature, 48.0% humidity, heat index is high.",Moderate,30.9,48.0,32.08
+Temperature stable to 30.8°C. Humidity stable to 49.0%.,Moderate,30.8,49.0,32.1
+Temperature stable to 30.9°C. Humidity stable to 50.0%.,Moderate,30.9,50.0,32.45
+"Alert: Temperature 30.9°C, humidity 49.0%. Heat index is high.",Moderate,30.9,49.0,32.26
+"Temperature is 30.8°C, humidity is 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Sensor readings show 31.0 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,31.0,49.0,32.42
+"Temperature is 25.8°C, humidity is 44.0%, heat index is normal.",Low,25.8,44.0,26.22
+Temperature stable to 25.8°C. Humidity stable to 45.0%.,Low,25.8,45.0,26.25
+"Sensor readings show 30.8 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Sensor readings show 30.9 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Current conditions: 31.0°C temperature, 50.0% humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Alert: Temperature 27.1°C, humidity 46.0%. Heat index is elevated.",Moderate,27.1,46.0,27.27
+"Alert: Temperature 24.7°C, humidity 50.0%. Heat index is normal.",Low,24.7,50.0,25.72
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.8,50.0,32.29
+"Sensor readings show 24.9 degrees Celsius, 50.0 percent humidity, heat index is normal.",Low,24.9,50.0,25.83
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Sensor readings show 30.9 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature at 30.8°C (trend stable), humidity at 50.0%.",Moderate,30.8,50.0,32.29
+"Temperature is warm at 27.4°C, humidity is low.",Moderate,27.4,45.0,27.47
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,31.0,50.0,32.62
+"Alert: Temperature 25.0°C, humidity 50.0%. Heat index is normal.",Low,25.0,50.0,25.89
+"Sensor readings show 30.8 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Alert: Temperature 26.8°C, humidity 47.0%. Heat index is elevated.",Low,26.8,47.0,27.07
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+"Environment: 24.9°C, 50.0%, heat index is normal.",Low,24.9,50.0,25.83
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Temperature is comfortable at 24.9°C, humidity is moderate.",Low,24.9,50.0,25.83
+"Environment: 24.4°C, 51.0%, heat index is normal.",Low,24.4,51.0,25.57
+"Temperature is warm at 31.0°C, humidity is moderate.",Moderate,31.0,50.0,32.62
+"Environment: 27.0°C, 46.0%, heat index is elevated.",Low,27.0,46.0,27.18
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+"Environment: 30.9°C, 48.0%, heat index is high.",Moderate,30.9,48.0,32.08
+"Environment: 30.8°C, 49.0%, heat index is high.",Moderate,30.8,49.0,32.1
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+"Current conditions: 30.9°C temperature, 49.0% humidity, heat index is high.",Moderate,30.9,49.0,32.26
+"Temperature is comfortable at 24.9°C, humidity is moderate.",Low,24.9,50.0,25.83
+Temperature stable to 25.8°C. Humidity stable to 44.0%.,Low,25.8,44.0,26.22
+"Alert: Temperature 30.8°C, humidity 50.0%. Heat index is high.",Moderate,30.8,50.0,32.29
+"Sensor readings show 31.0 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,31.0,50.0,32.62
+"Temperature is hot at 43.5°C, humidity is high.",Severe,43.5,64.5,71.55
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.5,43.0,26.65
+30.8°C and 49.0% humidity detected.,Moderate,30.8,49.0,32.1
+"Current conditions: 30.9°C temperature, 48.0% humidity, heat index is high.",Moderate,30.9,48.0,32.08
+"Temperature is 30.8°C, humidity is 50.0%, heat index is high.",Moderate,30.8,50.0,32.29
+24.8°C and 50.0% humidity detected.,Low,24.8,50.0,25.78
+"Environment: 25.8°C, 45.0%, heat index is normal.",Low,25.8,45.0,26.25
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.3,48.0,26.72
+"Sensor readings show 30.9 degrees Celsius, 48.0 percent humidity, heat index is high.",Moderate,30.9,48.0,32.08
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,27.1,46.0,27.27
+"Temperature at 24.4°C (trend stable), humidity at 51.0%.",Low,24.4,51.0,25.57
+"Sensor readings show 30.9 degrees Celsius, 49.0 percent humidity, heat index is high.",Moderate,30.9,49.0,32.26
+"Sensor readings show 25.8 degrees Celsius, 44.0 percent humidity, heat index is normal.",Low,25.8,44.0,26.22
+Temperature stable to 30.9°C. Humidity stable to 49.0%.,Moderate,30.9,49.0,32.26
+Temperature stable to 30.8°C. Humidity stable to 49.0%.,Moderate,30.8,49.0,32.1
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+Temperature stable to 30.9°C. Humidity stable to 49.0%.,Moderate,30.9,49.0,32.26
+"Alert: Temperature 41.5°C, humidity 63.3%. Heat index exceeds threshold.",Severe,41.5,63.3,68.78999999999999
+Temperature stable to 31.0°C. Humidity stable to 50.0%.,Moderate,31.0,50.0,32.62
+"Temperature is warm at 30.8°C, humidity is low.",Moderate,30.8,49.0,32.1
+"Environment: 24.8°C, 50.0%, heat index is normal.",Low,24.8,50.0,25.78
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,31.0,50.0,32.62
+"Temperature at 31.0°C (trend stable), humidity at 50.0%.",Moderate,31.0,50.0,32.62
+"Temperature at 30.9°C (trend stable), humidity at 50.0%.",Moderate,30.9,50.0,32.45
+Temperature stable to 26.9°C. Humidity stable to 47.0%.,Low,26.9,47.0,27.15
+"Temperature is 30.8°C, humidity is 50.0%, heat index is high.",Moderate,30.8,50.0,32.29
+"Alert: Temperature 30.9°C, humidity 50.0%. Heat index is high.",Moderate,30.9,50.0,32.45
+"Sensor readings show 24.9 degrees Celsius, 50.0 percent humidity, heat index is normal.",Low,24.9,50.0,25.83
+"Temperature is comfortable at 25.8°C, humidity is low.",Low,25.8,44.0,26.22
+"Alert: Temperature 26.8°C, humidity 47.0%. Heat index is elevated.",Low,26.8,47.0,27.07
+"Current conditions: 30.8°C temperature, 49.0% humidity, heat index is high.",Moderate,30.8,49.0,32.1
+"Current conditions: 24.9°C temperature, 50.0% humidity, heat index is normal.",Low,24.9,50.0,25.83
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Alert: Temperature 38.5°C, humidity 61.5%. Heat index exceeds threshold.",Severe,38.5,61.5,64.64999999999999
+"Environment: 27.1°C, 46.0%, heat index is elevated.",Moderate,27.1,46.0,27.27
+30.9°C and 50.0% humidity detected.,Moderate,30.9,50.0,32.45
+"Alert: Temperature 27.4°C, humidity 45.0%. Heat index is elevated.",Moderate,27.4,45.0,27.47
+30.8°C and 50.0% humidity detected.,Moderate,30.8,50.0,32.29
+"Temperature at 24.6°C (trend stable), humidity at 50.0%.",Low,24.6,50.0,25.67
+"Alert: Temperature 30.8°C, humidity 50.0%. Heat index is high.",Moderate,30.8,50.0,32.29
+"Warning: temperature is warm, humidity is low. Heat index concern.",Moderate,30.8,49.0,32.1
+"Warning: temperature is comfortable, humidity is low. Heat index concern.",Low,26.5,43.0,26.65
+Temperature stable to 26.3°C. Humidity stable to 47.0%.,Low,26.3,47.0,26.67
+Temperature rising to 41.5°C. Humidity stable to 63.3%.,Severe,41.5,63.3,68.78999999999999
+"Temperature at 26.9°C (trend stable), humidity at 47.0%.",Low,26.9,47.0,27.15
+24.5°C and 50.0% humidity detected.,Low,24.5,50.0,25.62
+"Sensor readings show 30.9 degrees Celsius, 50.0 percent humidity, heat index is high.",Moderate,30.9,50.0,32.45
+"Warning: temperature is warm, humidity is moderate. Heat index concern.",Moderate,30.9,50.0,32.45
+"Temperature at 30.8°C (trend stable), humidity at 49.0%.",Moderate,30.8,49.0,32.1
+"Temperature is 30.8°C, humidity is 50.0%, heat index is high.",Moderate,30.8,50.0,32.29
+Temperature stable to 30.8°C. Humidity stable to 49.0%.,Moderate,30.8,49.0,32.1

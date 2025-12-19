@@ -23,6 +23,12 @@ import csv
 import time
 import os
 import sys
+# Add project root to path
+project_root = os.path.dirname(os.path.abspath(__file__))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+import grid_state
 import numpy as np
 import json
 import gc  # NEW: Added gc import at top
@@ -30,6 +36,11 @@ import gc  # NEW: Added gc import at top
 import platform
 
 from pyslam.config import Config  # , dump_config_to_json
+
+from collections import deque
+from occupancy_grid import OccupancyGridMapper #NEW: original script added
+from performance_logger import RunLogger  #NEW: original script added
+from yaw_state_manager import get_yaw_manager #NEW: original script added
 
 from pyslam.semantics.semantic_mapping import SemanticMappingType
 from pyslam.semantics.semantic_types import SemanticFeatureType
@@ -74,6 +85,8 @@ import traceback
 import argparse
 
 from matplotlib import pyplot as plt
+
+
 
 datetime_string = datetime.now().strftime("%Y%m%d_%H%M%S")
 
@@ -141,8 +154,8 @@ def run_slam(headless: bool = False, config_path: str | None = None, no_output_d
     camera = PinholeCamera(config)
 
     # feature tracker / loop detector / semantic mapping (unchanged)
-    feature_tracker_config = FeatureTrackerConfigs.ORB2
-    loop_detection_config = LoopDetectorConfigs.DBOW3
+    feature_tracker_config = FeatureTrackerConfigs.ORB2_TUNED
+    loop_detection_config = LoopDetectorConfigs.DBOW3 
     semantic_mapping_config = (
         SemanticMappingConfigs.get_config_from_slam_dataset(dataset.type)
         if Parameters.kDoSemanticMapping
@@ -209,20 +222,81 @@ def run_slam(headless: bool = False, config_path: str | None = None, no_output_d
         print(f"viewer_scale: {viewer_scale}")
         slam.set_tracking_state(SlamState.INIT_RELOCALIZE)
 
+    class YawTurnDetector:
+        """
+        Detects left/right turns from rotation matrices.
+        - Smooths yaw over a sliding window.
+        - Uses hysteresis to prevent flicker.
+        Assumes CV camera coords: +X right, +Y down, +Z forward.
+        """
+        def __init__(self, enter_deg=5.0, exit_deg=3.0, smooth_window=9):
+            assert exit_deg < enter_deg, "exit_deg should be smaller than enter_deg"
+            self.enter_deg = enter_deg
+            self.exit_deg = exit_deg
+            self.window = deque(maxlen=smooth_window)
+            self.state = "straight"  # "left" | "right" | "straight"
+
+        @staticmethod
+        def yaw_from_R_cv(R: np.ndarray) -> float:
+            # yaw = atan2(R[1,0], R[0,0]) under CV camera coords
+            return np.degrees(np.arctan2(R[1, 0], R[0, 0]))
+
+        def update(self, R_delta: np.ndarray):
+            yaw_deg = self.yaw_from_R_cv(R_delta)
+            self.window.append(yaw_deg)
+            smoothed = float(np.mean(self.window))
+            if self.state == "straight":
+                if smoothed >= self.enter_deg:
+                    self.state = "left"
+                elif smoothed <= -self.enter_deg:
+                    self.state = "right"
+            elif self.state == "left":
+                if smoothed < self.exit_deg:
+                    self.state = "straight"
+            elif self.state == "right":
+                if smoothed > -self.exit_deg:
+                    self.state = "straight"
+            return self.state, smoothed
+
+    # Create detector, logger, and yaw manager
+    turn_detector = YawTurnDetector(enter_deg=5.0, exit_deg=3.0, smooth_window=9)
+    yaw_manager = get_yaw_manager()
+    performance_logs_name = f"performance_data_{datetime_string or 'run'}.csv"
+    run_logger = RunLogger(os.path.join(metrics_save_dir, performance_logs_name))
+
+
+    # Keep these
+    prev_R = None
+
+    # Create CLAHE once (reuse across frames to prevent memory leak)
+    clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8,8))
+
+    # Initialize occupancy mapper ALWAYS (needed for web streaming)
+    occupancy_mapper = OccupancyGridMapper(
+        resolution=0.05,      # 5cm per cell
+        size=800,             # 800x800 cells = 40m x 40m coverage
+        max_height=2.5,       # Ignore ceiling points above 2.5m
+        min_height=0.1        # Ignore floor noise below 0.1m
+    )
+
     if args.headless:
         viewer3D = None
         plot_drawer = None
+        img_writer = None
+        print("Occupancy Grid Mapper initialized (headless mode - web streaming)")
     else:
-        viewer3D = Viewer3D(scale=dataset.scale_viewer_3d)
-        plot_drawer = SlamPlotDrawer(slam, viewer3D)
+        viewer3D = None
+        plot_drawer = None #SlamPlotDrawer(slam, None) if Parameters.kLocalMappingOnSeparateThread else None
         img_writer = ImgWriter(font_scale=0.7)
-        if False:
-            cv2.namedWindow("Camera", cv2.WINDOW_NORMAL)  # to make it resizable if needed
+        #print("Occupancy Grid Mapper initialized (GUI mode)")
+        
+        # Create windows only in non-headless mode
+        cv2.namedWindow("Camera", cv2.WINDOW_NORMAL)
+        cv2.namedWindow("Occupancy Grid", cv2.WINDOW_NORMAL)
+        
 
     if groundtruth.type != GroundTruthType.NONE:
         gt_traj3d, gt_poses, gt_timestamps = groundtruth.getFull6dTrajectory()
-        if viewer3D:
-            viewer3D.set_gt_trajectory(gt_traj3d, gt_timestamps, align_with_scale=is_monocular)
 
     do_step = False  # proceed step by step on GUI
     do_reset = False  # reset on GUI
@@ -237,7 +311,7 @@ def run_slam(headless: bool = False, config_path: str | None = None, no_output_d
     num_tracking_lost = 0
     num_frames = 0
 
-    img_id = 0  # 210, 340, 400, 770   # you can start from a desired frame id if needed
+    img_id = 0
     while not is_viewer_closed:
 
         img, img_right, depth = None, None, None
@@ -262,8 +336,8 @@ def run_slam(headless: bool = False, config_path: str | None = None, no_output_d
                 )
 
             if img is not None:
-                timestamp = dataset.getTimestamp()  # get current timestamp
-                next_timestamp = dataset.getNextTimestamp()  # get next timestamp
+                timestamp = dataset.getTimestamp()
+                next_timestamp = dataset.getNextTimestamp()
                 
                 frame_duration = (
                     next_timestamp - timestamp
@@ -273,183 +347,308 @@ def run_slam(headless: bool = False, config_path: str | None = None, no_output_d
 
                 print(f"image: {img_id}, timestamp: {timestamp}, duration: {frame_duration}")
 
-                time_start = None
-                if img is not None:
-                    time_start = time.time()
+                time_start = time.time()
 
-                    if depth is None and depth_estimator:
-                        depth_prediction, pts3d_prediction = depth_estimator.infer(img, img_right)
-                        if Parameters.kDepthEstimatorRemoveShadowPointsInFrontEnd:
-                            depth = filter_shadow_points(depth_prediction)
-                        else:
-                            depth = depth_prediction
-                        print("Depth estimation time: %.3f s" % (time.time() - time_start))
-                        if not args.headless:
-                            depth_img = img_from_depth(depth_prediction, img_min=0, img_max=50)
-                            cv2.imshow("depth prediction", depth_img)
+                # Default values in case pre-tracking fails
+                turn, yaw_deg = "straight", 0.0
 
-                    slam.track(img, img_right, depth, img_id, timestamp)  # main SLAM function
-
-                    # 3D display (map display)
-                    if viewer3D:
-                        viewer3D.draw_slam_map(slam)
-
+                # Depth estimation if needed
+                if depth is None and depth_estimator:
+                    depth_prediction, pts3d_prediction = depth_estimator.infer(img, img_right)
+                    if Parameters.kDepthEstimatorRemoveShadowPointsInFrontEnd:
+                        depth = filter_shadow_points(depth_prediction)
+                    else:
+                        depth = depth_prediction
+                    print("Depth estimation time: %.3f s" % (time.time() - time_start))
                     if not args.headless:
-                        img_draw = slam.map.draw_feature_trails(img)
-                        img_writer.write(img_draw, f"id: {img_id}", (30, 30))
-                        # 2D display (image display)
-                        cv2.imshow("Camera", img_draw)
+                        depth_img = img_from_depth(depth_prediction, img_min=0, img_max=50)
+                        cv2.imshow("depth prediction", depth_img)
 
-                    # draw 2d plots
-                    if plot_drawer:
-                        plot_drawer.draw(img_id)
+                
+                # NEW: --- PREPROCESS: CLAHE for robustness ---
+                gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+                gray_eq = clahe.apply(gray)  # Use pre-created CLAHE
+                img_pre = cv2.cvtColor(gray_eq, cv2.COLOR_GRAY2BGR) #check
 
-                if (
-                    online_trajectory_writer is not None
+                # ============================================
+                # PRE-TRACKING: UPDATE YAW & FEATURES
+                # ============================================
+                try:
+                    from pyslam.slam.frame import FeatureTrackerShared
+                except (ModuleNotFoundError, ImportError):
+                    FeatureTrackerShared = None
+
+                if FeatureTrackerShared is not None:
+                    try:
+                        # Get rotation from PREVIOUS frame (before current tracking)
+                        prev_R_current = getattr(slam.tracking, "cur_R", None)
+                        turn, yaw_deg = "straight", 0.0
+
+                        # Update yaw using previous frame's rotation
+                        if prev_R_current is not None:
+                            # Calculate yaw change from previous-previous to previous
+                            yaw_manager.update_from_rotation(prev_R_current)
+                            yaw_deg = yaw_manager.smoothed_yaw_deg
+                            
+                            # Update turn detector if we have history
+                            if prev_R is not None:  # prev_R is from the previous iteration
+                                R_delta = prev_R.T @ prev_R_current
+                                turn, _ = turn_detector.update(R_delta)
+                            
+                            print(f"[PRE-TRACK] Yaw: {yaw_deg:+6.2f}° | Turn: {turn:8s}")
+                            
+                            # Store last good tracking rotation
+                            if slam.tracking.state == SlamState.OK:
+                                yaw_manager.update_last_good_tracking_R(prev_R_current)
+                        
+                        # ✅ Set yaw BEFORE tracking
+                        FeatureTrackerShared.feature_tracker.setYawDeg(yaw_deg)
+                        
+                        # Adaptive feature count
+                        is_relocalize = (slam.tracking.state == SlamState.RELOCALIZE)
+                        
+                        if is_relocalize:
+                            FeatureTrackerShared.feature_tracker.feature_manager.setMaxFeatures(20000)
+                            print("[RELOCALIZE] Boosting to 20k features")
+                        elif abs(yaw_deg) >= 8.0:
+                            FeatureTrackerShared.feature_tracker.feature_manager.setMaxFeatures(15000)
+                            print(f"[TURN] High yaw: 15k features")
+                        else:
+                            FeatureTrackerShared.feature_tracker.set_normal_num_features()
+                        
+                        # Update prev_R for next iteration
+                        if prev_R_current is not None:
+                            prev_R = prev_R_current.copy()
+                            
+                    except Exception as e:
+                        print(f"[warn] pre-track setup failed: {e}")
+                        import traceback
+                        traceback.print_exc()
+
+                # ============================================
+                # MAIN SLAM TRACKING
+                # ============================================
+                slam.track(img_pre, img_right, depth, img_id, timestamp)
+
+                # ================
+                # LOG COMPREHENSIVE PERFORMANCE DATA
+                # ================
+                run_logger.log(
+                    slam=slam,
+                    frame_id=img_id,
+                    timestamp=timestamp,
+                    turn_state=turn,
+                    yaw_deg=yaw_deg
+                )
+
+                # ============
+                # DEBUG: Verify yaw propagation
+                # ============
+                print(f"[DEBUG] Yaw: {yaw_manager.smoothed_yaw_deg:.1f}°, "
+                      f"Features: {len(slam.tracking.f_cur.kps) if slam.tracking.f_cur else 0}")
+
+                
+                # ===================
+                # UPDATE OCCUPANCY GRID
+                # ===================
+                if occupancy_mapper and img_id % 2 == 0:
+                    try:
+                        state_str = {
+                            SlamState.OK: "OK",
+                            SlamState.RELOCALIZE: "RELOCALIZE",
+                            SlamState.LOST: "LOST",
+                            SlamState.INIT_RELOCALIZE: "RELOCALIZE"
+                        }.get(slam.tracking.state, "OK")
+
+                        current_pose = None
+                        cur_R = getattr(slam.tracking, "cur_R", None)
+                        cur_t = getattr(slam.tracking, "cur_t", None)
+
+                        if cur_R is not None and cur_t is not None:
+                            Twc = np.eye(4, dtype=np.float32)
+                            Twc[:3, :3] = cur_R
+                            Twc[:3, 3] = cur_t.reshape(3)
+                            current_pose = Twc
+                        else:
+                            if slam.map.num_frames() > 0:
+                                last_frame = slam.map.get_frame(-1)
+                                current_pose = getattr(last_frame, "Twc", None)
+
+                        map_points = slam.map.get_points()
+
+                        # Update occupancy grid
+                        occupancy_mapper.update(
+                            current_pose,
+                            map_points,
+                            slam_state=state_str,
+                            timestamp=timestamp
+                        )
+
+                        # Export for web interface
+                        if headless:
+                            try:
+                                grid_bytes = occupancy_mapper.get_grid_image_bytes()
+                                
+                                if grid_bytes is not None:
+                                    success = grid_state.set_grid(grid_bytes)
+                                    if success and img_id % 20 == 0:
+                                        print(f"[OccupancyGrid] Frame {img_id}: Saved {len(grid_bytes)} bytes")
+                                else:
+                                    print(f"[OccupancyGrid] Frame {img_id}: Failed to encode grid")
+                                    
+                            except Exception as e:
+                                print(f"[ERROR] Failed to export grid: {e}")
+                                import traceback
+                                traceback.print_exc()
+                        
+                        occupancy_mapper.visualize()
+                    
+                    except Exception as e:
+                        print(f"[ERROR] Occupancy grid update failed: {e}")
+                        import traceback
+                        traceback.print_exc()
+
+
+                # ============================================
+                # DISPLAY CAMERA FEED
+                # ============================================
+                if not args.headless:
+                    img_draw = slam.map.draw_feature_trails(img)
+                    
+                    # Optional: Debug feature distribution (only when needed)
+                    # Uncomment the next block to visualize grid and features
+                    
+                    if img_id % 10 == 0:
+                        h, w = img_draw.shape[:2]
+                        # Draw grid
+                        for i in range(1, 6):
+                            cv2.line(img_draw, (0, i*h//6), (w, i*h//6), (0, 255, 0), 1)
+                        for j in range(1, 8):
+                            cv2.line(img_draw, (j*w//8, 0), (j*w//8, h), (0, 255, 0), 1)
+                        # Draw features
+                        if hasattr(slam.tracking, 'f_cur') and slam.tracking.f_cur is not None:
+                            kps = slam.tracking.f_cur.kps
+                            if kps is not None and len(kps) > 0:
+                                kps_array = np.array(kps) if not isinstance(kps, np.ndarray) else kps
+                                for kp in kps_array:
+                                    if hasattr(kp, 'pt'):
+                                        x, y = int(kp.pt[0]), int(kp.pt[1])
+                                    else:
+                                        x, y = int(kp[0]), int(kp[1])
+                                    cv2.circle(img_draw, (x, y), 2, (0, 0, 255), -1)
+                    
+                    img_writer.write(img_draw, f"id: {img_id}", (30, 30))
+                    cv2.imshow("Camera", img_draw)
+
+                # Draw plots
+                if plot_drawer:
+                    plot_drawer.draw(img_id)
+
+                # Save online trajectory
+                if (online_trajectory_writer is not None
                     and slam.tracking.cur_R is not None
-                    and slam.tracking.cur_t is not None
-                ):
+                    and slam.tracking.cur_t is not None):
                     online_trajectory_writer.write_trajectory(
                         slam.tracking.cur_R, slam.tracking.cur_t, timestamp
                     )
 
-                if time_start is not None:
-                    processing_duration = time.time() - time_start
-                    if frame_duration > processing_duration:
-                        time.sleep(frame_duration - processing_duration)
+                # Frame timing
+                processing_duration = time.time() - time_start
+                if frame_duration > processing_duration:
+                    time.sleep(frame_duration - processing_duration)
 
                 img_id += 1
                 num_frames += 1
             else:
-                time.sleep(0.1)  # img is None
+                time.sleep(0.1)
                 if args.headless:
-                    break  # exit from the loop if headless
-
-            # 3D display (map display)
-            if viewer3D:
-                # TODO(dvdmc): add semantics
-                viewer3D.draw_dense_map(slam)
+                    break
 
         else:
-            time.sleep(0.1)  # pause or do step on GUI
+            time.sleep(0.1)  # Paused
 
+        # ============================================
+        # KEYBOARD CONTROLS (non-headless only)
+        # ============================================
         if not args.headless:
-            # get keys
-            key = plot_drawer.get_key() if plot_drawer else None
-
-            # manage SLAM states
+            # Handle SLAM state changes
             if slam.tracking.state == SlamState.LOST:
-                # key_cv = cv2.waitKey(0) & 0xFF   # wait key for debugging
                 key_cv = cv2.waitKey(500) & 0xFF
             else:
                 key_cv = cv2.waitKey(1) & 0xFF
+            
+            # Get plot drawer key if available
+            key = plot_drawer.get_key() if plot_drawer else None
+            
+            # Process keyboard input
+            if key_cv == ord('p') or (key and key == 'p'):
+                is_paused = not is_paused
+                if is_paused:
+                    print("=" * 50)
+                    print("PAUSED - Press 'p' to resume")
+                    print("=" * 50)
+                    
+                    # Save occupancy grid when paused
+                    if occupancy_mapper:
+                        grid_save_path = os.path.join(metrics_save_dir, "occupancy_grid_paused.png")
+                        occupancy_mapper.save(grid_save_path)
+                        Printer.green(f"Occupancy grid saved to: {grid_save_path}")
+            
+            elif key_cv == ord('s') or (key and key == 's'):
+                if occupancy_mapper:
+                    grid_save_path = os.path.join(metrics_save_dir, f"occupancy_grid_snapshot_{img_id}.png")
+                    occupancy_mapper.save(grid_save_path)
+                    Printer.green(f"Snapshot saved to: {grid_save_path}")
+            
+            elif key_cv == ord('r') or (key and key == 'r'):
+                do_reset = True
+            
+            elif key_cv == ord('q') or key_cv == 27 or (key and key == 'q'):
+                print("Quit requested...")
+                break
 
+        # Track lost frames
         if slam.tracking.state == SlamState.LOST:
             num_tracking_lost += 1
 
-        # manage interface infos
-        if is_map_save:
-            # trigger the viewer to save screenshot
-            
-            slam.save_system_state(config.system_state_folder_path)
-            dataset.save_info(config.system_state_folder_path)
-            viewer3D._is_map_save.value = 1 
-            
-            if groundtruth.type != GroundTruthType.NONE:  # NEW: only save if groundtruth exists
-                groundtruth.save(config.system_state_folder_path)
-            Printer.blue("\nuncheck pause checkbox on GUI to continue...\n")
+    # ============================================
+    # CLEANUP & FINAL SAVES
+    # ============================================
+    print("\n" + "=" * 60)
+    print("SHUTTING DOWN...")
+    print("=" * 60)
 
-        if is_bundle_adjust:
-            slam.bundle_adjust()
-            Printer.blue("\nuncheck pause checkbox on GUI to continue...\n")
-
-        if viewer3D:
-
-            if not is_paused and viewer3D.is_paused():  # when a pause is triggered
-                est_poses, timestamps, ids = slam.get_final_trajectory()
-
-                if final_trajectory_writer: 
-                    final_trajectory_writer.write_full_trajectory(est_poses, timestamps)
-                    final_trajectory_writer.close_file()
-
-                #NEW: checks timestamps if stored and generated and generates a timestamp txt file
-                if timestamps is None or len(timestamps) == 0:
-                    Printer.yellow("No timestamps were generated for the trajectory!")
-                else:
-                    Printer.green(f"Timestamps successfully generated: {len(timestamps)} frames")
-                    timestamps_file_path = os.path.join(metrics_save_dir, "timestamps.txt")
-                    os.makedirs(metrics_save_dir, exist_ok=True)
-                    with open(timestamps_file_path, "w") as f:
-                        for ts in timestamps:
-                            f.write(f"{ts}\n")
-                    Printer.green(f"Timestamps saved to: {timestamps_file_path}")
-
-                #NEW: Code for creating csv of final trajectory
-                csv_path = os.path.join(metrics_save_dir, "final_trajectory.csv")
-                with open(csv_path, "w", newline="") as f:
-                    writer = csv.writer(f)
-
-                    # CSV header
-                    header = ["frame_id", "timestamp"] + [f"pose_{i}" for i in range(16)]
-                    writer.writerow(header)
-
-                    for frame_id, ts, pose in zip(ids, timestamps, est_poses):
-                        pose_flat = pose.reshape(-1)  # flatten 4x4 matrix to 16 numbers
-                        row = [frame_id, ts] + pose_flat.tolist()
-                        writer.writerow(row)
-
-                Printer.green(f"Saved final trajectory CSV: {csv_path}")
-                
-                
-                if groundtruth.type != GroundTruthType.NONE:  # NEW: <-- added to check if ground truth is available
-                    assoc_timestamps, assoc_est_poses, assoc_gt_poses = find_poses_associations(
-                        timestamps, est_poses, gt_timestamps, gt_poses
-                    )
-                    ape_stats, T_gt_est = eval_ate(
-                        poses_est=assoc_est_poses,
-                        poses_gt=assoc_gt_poses,
-                        frame_ids=ids,
-                        curr_frame_id=img_id,
-                        is_final=is_final,
-                        is_monocular=is_monocular,
-                        save_dir=metrics_save_dir,
-                    )
-                    Printer.green(f"EVO stats: {json.dumps(ape_stats, indent=4)}")
-                    # draw_associated_cameras(viewer3D, assoc_est_poses, assoc_gt_poses, T_gt_est)
-                else:
-                    Printer.yellow("No ground truth available. Skipping evaluation.")
-                
-                
-                other_metrics_file_path = os.path.join(metrics_save_dir, "other_metrics_info.txt")
-                with open(other_metrics_file_path, "w") as f:
-                    f.write(f"num_total_frames: {num_total_frames}\n")
-                    f.write(f"num_processed_frames: {num_frames}\n")
-                    f.write(f"num_lost_frames: {num_tracking_lost}\n")
-                    f.write(f"percent_lost: {num_tracking_lost/num_total_frames*100:.2f}\n")
-
-            is_paused = viewer3D.is_paused()
-            is_map_save = viewer3D.is_map_save() and is_map_save == False
-            is_bundle_adjust = viewer3D.is_bundle_adjust() and is_bundle_adjust == False
-            do_step = viewer3D.do_step() and do_step == False
-            do_reset = viewer3D.reset() and do_reset == False
-            is_viewer_closed = viewer3D.is_closed()
-
-        if key == "q" or (key_cv == ord("q") or key_cv == 27):  # press 'q' or ESC for quitting
-            break
-
-    # here we save the online estimated trajectory
+    # Save online trajectory
     if online_trajectory_writer:
         online_trajectory_writer.close_file()
 
-    # close stuff
+    # Save final occupancy grid
+    if occupancy_mapper:
+        final_grid_path = os.path.join(metrics_save_dir, "occupancy_grid_final.png")
+        occupancy_mapper.save(final_grid_path)
+        Printer.green(f"Final occupancy grid saved to: {final_grid_path}")
+
+    # Close run logger
+    if run_logger:
+        run_logger.close()
+
+    # Quit SLAM
     slam.quit()
+    
     if plot_drawer:
         plot_drawer.quit()
-    if viewer3D:
-        viewer3D.quit()
 
     if not args.headless:
         cv2.destroyAllWindows()
+
+    # Print summary statistics
+    print("\n" + "=" * 60)
+    print("SESSION SUMMARY")
+    print("=" * 60)
+    print(f"Total frames processed: {num_frames}/{num_total_frames}")
+    print(f"Tracking lost: {num_tracking_lost} frames ({num_tracking_lost/max(num_frames,1)*100:.1f}%)")
+    print(f"Results saved to: {metrics_save_dir}")
+    print("=" * 60)
 
     if args.headless:
         force_kill_all_and_exit(verbose=False)

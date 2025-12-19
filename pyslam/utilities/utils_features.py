@@ -54,6 +54,7 @@ def normalize_keypoints(keypoints, image_size):
     return keypoints_norm
 
 
+
 # convert matrix of pts into list of cv2 keypoints
 def convert_pts_to_keypoints(pts, size=1):
     kps = []
@@ -252,7 +253,7 @@ def kdt_nms(
 
 
 # adapted from https://github.com/BAILOOL/ANMS-Codes
-def ssc_nms(kps, des, cols, rows, num_ret_points=Parameters.kNumFeatures, tolerance=0.1):
+"""def ssc_nms(kps, des, cols, rows, num_ret_points=Parameters.kNumFeatures, tolerance=0.1):
 
     if len(kps) == 0:
         return kps, des
@@ -346,11 +347,141 @@ def ssc_nms(kps, des, cols, rows, num_ret_points=Parameters.kNumFeatures, tolera
         des_out = des[result_list]
     kps_out = kps[result_list]
     return kps_out, des_out
+"""
+def ssc_nms(kps, des, width, height, num_features):
+    """
+    Spatially Consistent NMS with automatic list/array handling
+    
+    Args:
+        kps: List of cv2.KeyPoint OR numpy array
+        des: Descriptors array
+        width, height: Image dimensions
+        num_features: Target number of features
+    
+    Returns:
+        Filtered keypoints and descriptors
+    """
+    
+    if len(kps) == 0:
+        return kps, des
+    
+    # Detect input type
+    input_is_list = isinstance(kps, list)
+    
+    # Extract coordinates and responses
+    if input_is_list:
+        num_kps = len(kps)
+        x = np.array([kp.pt[0] for kp in kps], dtype=np.float32)
+        y = np.array([kp.pt[1] for kp in kps], dtype=np.float32)
+        response = np.array([kp.response for kp in kps], dtype=np.float32)
+    else:
+        num_kps = len(kps)
+        x = kps[:, 0] if kps.ndim > 1 else kps['x']
+        y = kps[:, 1] if kps.ndim > 1 else kps['y']
+        response = kps[:, 2] if kps.ndim > 1 else kps['response']
+    
+    # Clamp num_features
+    num_features = min(num_features, num_kps)
+    
+    # Compute tolerance radius for each keypoint
+    c = num_features / float(num_kps)
+    tolerance = 0.1
+    
+    # Sort by response (descending)
+    sort_idx = np.argsort(-response)
+    
+    # Grid-based bucketing for efficiency
+    cols = int(np.sqrt(num_kps))
+    rows = int(np.ceil(num_kps / float(cols)))
+    
+    # Initialize
+    result = []
+    covered = np.zeros(num_kps, dtype=bool)
+    
+    # SSC algorithm
+    for i in sort_idx:
+        if covered[i]:
+            continue
+        
+        # Add this keypoint
+        result.append(i)
+        
+        if len(result) >= num_features:
+            break
+        
+        # Compute radius
+        x_i, y_i = x[i], y[i]
+        
+        # Mark nearby keypoints as covered
+        # Radius is based on local density
+        radius = 0.9 * np.sqrt(width * height / (num_features + tolerance))
+        
+        # Find nearby points
+        dx = x - x_i
+        dy = y - y_i
+        dist_sq = dx * dx + dy * dy
+        
+        # Mark as covered if within radius AND weaker response
+        nearby = (dist_sq < radius * radius) & (response < response[i])
+        covered[nearby] = True
+    
+    # Filter outputs
+    result_indices = np.array(result, dtype=np.int32)
+    
+    if input_is_list:
+        kps_out = [kps[i] for i in result_indices]
+    else:
+        kps_out = kps[result_indices]
+    
+    des_out = des[result_indices] if des is not None else None
+    
+    return kps_out, des_out
 
+    # Distribute keypoints by using a octree (as a matter of fact, a quadtree)
+    # Interface (pybind11) to fast C++ code from ORBSLAM2
+def octree_nms(frame, kps, num_features, des=None):
+    minX = 0
+    maxX = frame.shape[1]
+    minY = 0
+    maxY = frame.shape[0]
+    
+    # Create tuples with original indices
+    kps_tuples_with_idx = [
+        (i, kp.pt[0], kp.pt[1], kp.size, kp.angle, kp.response, kp.octave) 
+        for i, kp in enumerate(kps)
+    ]
+    
+    # Extract just the keypoint tuples for DistributeOctTree
+    kps_tuples = [(t[1], t[2], t[3], t[4], t[5], t[6]) for t in kps_tuples_with_idx]
+    
+    # Call the C++ function
+    filtered_kps_tuples = ORBextractor.DistributeOctTree(
+        kps_tuples, minX, maxX, minY, maxY, num_features, 0
+    )
+    
+    # Create filtered keypoints
+    filtered_kps = [cv2.KeyPoint(*kp) for kp in filtered_kps_tuples]
+    
+    # Filter descriptors if provided
+    if des is not None:
+        # Find which keypoints were kept by matching properties
+        kept_indices = []
+        for fkp_tuple in filtered_kps_tuples:
+            # Find original index by matching keypoint properties
+            for i, orig_tuple in enumerate(kps_tuples_with_idx):
+                if (abs(orig_tuple[1] - fkp_tuple[0]) < 1e-5 and  # pt[0]
+                    abs(orig_tuple[2] - fkp_tuple[1]) < 1e-5 and  # pt[1]
+                    abs(orig_tuple[5] - fkp_tuple[4]) < 1e-5):    # response
+                    kept_indices.append(orig_tuple[0])
+                    break
+        
+        filtered_des = des[kept_indices] if len(kept_indices) > 0 else des[:0]
+        return filtered_kps, filtered_des
+    
+    return filtered_kps, None
 
-# Distribute keypoints by using a octree (as a matter of fact, a quadtree)
-# Interface (pybind11) to fast C++ code from ORBSLAM2
-def octree_nms(frame, kps, num_features):
+""" NEW
+    def octree_nms(frame, kps, num_features):
     minX = 0
     maxX = frame.shape[1]
     minY = 0
@@ -359,7 +490,7 @@ def octree_nms(frame, kps, num_features):
     kps_tuples = ORBextractor.DistributeOctTree(kps_tuples, minX, maxX, minY, maxY, num_features, 0)
     kps = [cv2.KeyPoint(*kp) for kp in kps_tuples]
     return kps
-
+"""
 
 # adapted from https://github.com/magicleap/SuperPointPretrainedNetwork/blob/master/demo_superpoint.py, similar to octree_nms
 def grid_nms(kps, des, H, W, num_features, dist_thresh=4):

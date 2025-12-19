@@ -94,7 +94,7 @@ else
     print_yellow "Skipping MonoGS since CUDA_VERSION is 0"
 fi 
 
-# Install tesorflow and related packages
+# Install tensorflow and related packages
 pip install tensorflow==2.13
 pip install tensorflow_hub  # required by VPR
 pip install tf_slim==1.1.0
@@ -104,8 +104,15 @@ pip3 install -U imgviz
 
 pip install "numpy<2"
 
-#NEW: install flask
+#NEW: INSTALLATIONS FOR BIM-BOT
+pip install csv
 pip install flask
+pip install flask-cors
+pip install mysql-connector-python
+pip install requests
+pip install scikit-learn
+pip install xgboost
+
 
 # HACK: Moved the install of the semantic tools at the end of the install process to avoid some conflict issues among the deps
 # $SCRIPTS_DIR/install_pip3_semantics.sh

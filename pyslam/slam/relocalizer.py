@@ -28,6 +28,7 @@ from .frame import (
     compute_frame_matches,
     prepare_input_data_for_pnpsolver,
 )
+from yaw_state_manager import get_yaw_manager
 from pyslam.utilities.rotation_histogram import filter_matches_with_histogram_orientation
 from pyslam.slam import optimizer_gtsam
 from pyslam.slam import optimizer_g2o
@@ -133,6 +134,20 @@ class Relocalizer:
             mp_match_idxs = defaultdict(
                 lambda: (None, None)
             )  # dictionary of map point matches  (kf_i, kf_j) -> (idxs_i,idxs_j)
+
+            # --- TURN-AWARE SETTINGS ---
+            # Use yaw from last good tracking frame (not current unknown pose!)
+            yaw_manager = get_yaw_manager()
+            yaw_deg = yaw_manager.get_yaw_for_relocalization()
+
+            Relocalizer.print(f"Relocalizer: using yaw estimate: {yaw_deg:.1f}° for adaptive parameters")
+
+            # Adjust dynamic projection windows
+            if abs(yaw_deg) >= 10.0:
+                max_coarse, max_fine = 25, 12
+            else:
+                max_coarse, max_fine = 18, 9
+                
             for i, kf in enumerate(reloc_candidate_kfs):
                 if kf.id == frame.id or kf.is_bad:
                     continue
@@ -142,7 +157,7 @@ class Relocalizer:
                 assert len(idxs_frame) == len(idxs_kf)
 
                 # if features have descriptors with orientation then let's check the matches with a rotation histogram
-                if FeatureTrackerShared.oriented_features:
+                if FeatureTrackerShared.oriented_features and Parameters.kRelocalizationUseOrientationHistogram:
                     # num_matches_before = len(idxs_frame)
                     valid_match_idxs = filter_matches_with_histogram_orientation(
                         idxs_frame, idxs_kf, frame, kf
@@ -155,12 +170,21 @@ class Relocalizer:
                 num_matches = len(idxs_frame)
                 Relocalizer.print(f"Relocalizer: num_matches ({frame.id},{kf.id}): {num_matches}")
 
+                min_needed = max(8, int(0.5 * Parameters.kRelocalizationMinKpsMatches))  # dynamic lower bound
+                if num_matches < min_needed:
+                    Relocalizer.print(
+                        f"Relocalizer: skipping keyframe {kf.id} with too few matches ({num_matches}) (min: {min_needed})"
+                    )
+                    continue
+
+
+                """
                 if num_matches < Parameters.kRelocalizationMinKpsMatches:
                     Relocalizer.print(
                         f"Relocalizer: skipping keyframe {kf.id} with too few matches ({num_matches}) (min: {Parameters.kRelocalizationMinKpsMatches})"
                     )
                     continue
-
+                """
                 points_3d_w, points_2d, sigmas2, idxs1, idxs2 = prepare_input_data_for_pnpsolver(
                     frame, kf, idxs_frame, idxs_kf, print=print
                 )
@@ -184,9 +208,15 @@ class Relocalizer:
                     )
                     continue
 
+
                 # print(f'Relocalizer: initializing MLPnPsolver for keyframe {kf.id}, num correspondences: {num_correspondences}')
                 solver = pnpsolver.MLPnPsolver(solver_input_data)
-                solver.set_ransac_parameters(0.99, 10, 300, 6, 0.5, 5.991)
+
+                if abs(yaw_deg) >= 10.0:
+                    # (prob_success, min_iters_per_batch, max_total_iters, min_inliers, max_reproj_err_scale, chi2_threshold)
+                    solver.set_ransac_parameters(0.995, 20, 1200, 6, 0.75, 5.991)
+                else:
+                    solver.set_ransac_parameters(0.99, 10, 800, 6, 0.75, 5.991)
 
                 solvers.append(solver)
                 solvers_input.append(solver_input_data)
@@ -256,7 +286,7 @@ class Relocalizer:
                             search_keyframe_by_projection(
                                 kf,
                                 frame,
-                                max_reproj_distance=Parameters.kRelocalizationMaxReprojectionDistanceMapSearchCoarse,
+                                max_reproj_distance=max_coarse,
                                 max_descriptor_distance=Parameters.kMaxDescriptorDistance,
                                 ratio_test=Parameters.kRelocalizationFeatureMatchRatioTestLarge,
                                 already_matched_ref_idxs=idxs_kf_inliers,
@@ -293,7 +323,7 @@ class Relocalizer:
                                     search_keyframe_by_projection(
                                         kf,
                                         frame,
-                                        max_reproj_distance=Parameters.kRelocalizationMaxReprojectionDistanceMapSearchFine,
+                                        max_reproj_distance=max_fine,
                                         max_descriptor_distance=0.7
                                         * Parameters.kMaxDescriptorDistance,
                                         ratio_test=Parameters.kRelocalizationFeatureMatchRatioTestLarge,

@@ -355,7 +355,7 @@ class FeatureManager:
             )
             self.keypoint_filter_type = (
                 KeyPointFilterTypes.NONE
-            )  # ORB2 cpp implementation already includes the algorithm OCTREE_NMS
+            )  # NEW: ORIGINAL - KeyPointFilterTypes.NONE ORB2 cpp implementation already includes the algorithm OCTREE_NMS
             #
             #
         elif self.detector_type == FeatureDetectorTypes.BRISK:
@@ -1102,9 +1102,7 @@ class FeatureManager:
         elif type == KeyPointFilterTypes.SSC_NMS:
             kps, des = ssc_nms(kps, des, frame.shape[1], frame.shape[0], self.num_features)
         elif type == KeyPointFilterTypes.OCTREE_NMS:
-            if des is not None:
-                raise ValueError("at the present time, you cannot use OCTREE_NMS with descriptors")
-            kps = octree_nms(frame, kps, self.num_features)
+            kps, des = octree_nms(frame, kps, self.num_features, des)
         elif type == KeyPointFilterTypes.GRID_NMS:
             kps, des, _ = grid_nms(
                 kps, des, frame.shape[0], frame.shape[1], self.num_features, dist_thresh=4

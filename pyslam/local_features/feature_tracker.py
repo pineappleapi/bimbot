@@ -187,6 +187,24 @@ class FeatureTracker(object):
 
     def set_normal_num_features(self):
         self.feature_manager.set_normal_num_features()
+    
+    #NEW
+    def setYawDeg(self, yaw_deg):
+        """
+        Update yaw angle in feature detector for turn-aware feature extraction.
+        Only works if the underlying detector supports it (e.g., Orbslam2Feature2D).
+        """
+        if self.feature_manager is not None:
+            # Try to pass yaw to detector (note the underscore prefix!)
+            if hasattr(self.feature_manager, '_feature_detector') and hasattr(self.feature_manager._feature_detector, 'setYawDeg'):
+                self.feature_manager._feature_detector.setYawDeg(yaw_deg)
+            # Try descriptor if detector doesn't have it
+            elif hasattr(self.feature_manager, '_feature_descriptor') and hasattr(self.feature_manager._feature_descriptor, 'setYawDeg'):
+                self.feature_manager._feature_descriptor.setYawDeg(yaw_deg)
+            # Try direct access to feature_manager (some implementations might have it directly)
+            elif hasattr(self.feature_manager, 'setYawDeg'):
+                self.feature_manager.setYawDeg(yaw_deg)
+
 
     # out: keypoints and descriptors
     def detectAndCompute(self, frame, mask):

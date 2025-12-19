@@ -1,0 +1,38 @@
+[
+  {
+    "input": "Temperature is 25\u00b0C, humidity is 55%, heat index is normal.",
+    "expected": "Low",
+    "predicted": "Low",
+    "confidence": 0.9955016160245507
+  },
+  {
+    "input": "Temperature is 28\u00b0C, humidity is 65%, heat index is elevated.",
+    "expected": "Low/Moderate",
+    "predicted": "Moderate",
+    "confidence": 0.47669089601987535
+  },
+  {
+    "input": "Temperature is 32\u00b0C, humidity is 75%, heat index is high.",
+    "expected": "Moderate",
+    "predicted": "Moderate",
+    "confidence": 0.7941271041917531
+  },
+  {
+    "input": "Temperature is 34\u00b0C, humidity is 82%, heat index is high.",
+    "expected": "Moderate",
+    "predicted": "Moderate",
+    "confidence": 0.7941271041917531
+  },
+  {
+    "input": "Temperature is 37\u00b0C, humidity is 88%, heat index exceeds threshold.",
+    "expected": "Severe",
+    "predicted": "Severe",
+    "confidence": 0.9584096739836929
+  },
+  {
+    "input": "Heat index exceeds threshold at 41\u00b0C.",
+    "expected": "Severe",
+    "predicted": "Severe",
+    "confidence": 0.9499323845419243
+  }
+]

@@ -66,6 +66,21 @@ class FeatureTrackerConfigs:
     )
 
     # =====================================
+    # NEW: ORB2 TUNED FOR LEFT AND RIGHT
+    ORB2_TUNED = dict(
+        num_features=6000,                 # ↑ more features for rotation robustness
+        num_levels=8,                      # keep 8
+        scale_factor=1.2,                  # keep 1.2
+        detector_type=FeatureDetectorTypes.ORB2,
+        descriptor_type=FeatureDescriptorTypes.ORB2,
+        sigma_level0=Parameters.kSigmaLevel0,
+        match_ratio_test=0.70,             # Change this: the lower the looser matches and the higher the stricter the matches
+        tracker_type=kTrackerType,         # DES_BF by default
+    )
+
+
+
+    # =====================================
     # LK trackers (these can only be used with VisualOdometryEducational() ... at the present time)
 
     LK_SHI_TOMASI = dict(
